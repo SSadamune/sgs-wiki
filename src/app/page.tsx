@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
@@ -15,9 +15,9 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
-              src="/vercel.svg"
+              src="https://ssadamune.github.io/sgs-wiki/vercel.svg"
               alt="Vercel Logo"
               className={styles.vercelLogo}
               width={100}
@@ -31,7 +31,7 @@ export default function Home() {
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
+          src="https://ssadamune.github.io/sgs-wiki/next.svg"
           alt="Next.js Logo"
           width={180}
           height={37}
@@ -53,15 +53,15 @@ export default function Home() {
         </a>
 
         <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="/tools/mo-drawer"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Learn <span>-&gt;</span>
+            军令抽卡器 <span>-&gt;</span>
           </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
+          <p>懒得去翻军令卡，那就拿出手机吧！别忘记点开你要选的军令！</p>
         </a>
 
         <a
@@ -91,5 +91,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
