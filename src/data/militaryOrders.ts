@@ -130,8 +130,9 @@ export const Dou: MilitaryOrderPack = {
     },
     {
       id: 7,
-      description: "重铸所有手牌（至多五张），然后展示所有手牌。",
-      reverseDescription: "令：重铸所有手牌（至多五张），然后展示所有手牌。",
+      description: "重铸五张手牌（不足则改为全部手牌），然后展示所有手牌。",
+      reverseDescription:
+        "令：重铸五张手牌（不足则改为全部手牌），然后展示所有手牌。",
     },
     {
       id: 8,
@@ -148,9 +149,9 @@ export const Dou: MilitaryOrderPack = {
     {
       id: 10,
       description:
-        "选择三张手牌（不足则改为全部手牌）令你观看，然后你可以使用或弃置其中一张。",
+        "你观看其选择的三张手牌（不足则改为全部手牌），然后你可以使用或弃置其中一张。",
       reverseDescription:
-        "令：选择三张手牌（不足则改为全部手牌）令我观看，然后我可以使用或弃置其中一张。",
+        "令：我观看你选择的三张手牌（不足则改为全部手牌），然后我可以使用或弃置其中一张。",
     },
   ],
 };
