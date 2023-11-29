@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -52,7 +53,7 @@ export default function Home() {
           <p>Find in-depth information about Next.js features and API.</p>
         </a>
 
-        <a
+        <Link
           href="/tools/mo-drawer"
           className={styles.card}
           target="_blank"
@@ -62,7 +63,7 @@ export default function Home() {
             军令抽卡器 <span>-&gt;</span>
           </h2>
           <p>懒得去翻军令卡，那就拿出手机吧！别忘记点开你要选的军令！</p>
-        </a>
+        </Link>
 
         <a
           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
