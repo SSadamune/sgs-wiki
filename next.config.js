@@ -1,10 +1,10 @@
-const basePath = process.env.NODE_ENV === "production" ? "/sgs-wiki/" : "";
+const isProductionEnv = process.env.NODE_ENV === "production";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: basePath,
-  assetPrefix: basePath,
+  basePath: isProductionEnv ? "/sgs-wiki" : "",
+  assetPrefix: isProductionEnv ? "/sgs-wiki/" : "",
 };
 
 module.exports = nextConfig;

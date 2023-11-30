@@ -13,11 +13,13 @@ type StandardizedDescription = {
   memo?: string;
   // TODO: keywords
   keywords?: string[];
+  // 衍生类技能
+  isConditional?: boolean;
 } & (
   | {
       type: "Trigger";
       // TODO: Timing type
-      timing: string;
+      timing: string | string[];
     }
   | {
       type: "State";
