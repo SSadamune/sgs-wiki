@@ -1,5 +1,6 @@
 import { PackId, MilitaryOrder } from "@/data/types/MilitaryOrders";
 import styles from "./MilitaryOrderCard.module.scss";
+import { versions } from "@/data/versions";
 
 type Props = {
   militaryOrder: MilitaryOrder;
@@ -8,14 +9,7 @@ type Props = {
   onClickSelect?: (id: number) => void;
 };
 
-const groupDisplay = (packId: PackId) =>
-  packId === "official"
-    ? "官方"
-    : packId === "xiliang"
-    ? "西凉"
-    : packId === "dou"
-    ? "豆包"
-    : "未知";
+const displayedPack = (packId: PackId) => versions[packId].name;
 
 export function MilitaryOrderCard({
   militaryOrder,
@@ -27,7 +21,7 @@ export function MilitaryOrderCard({
     <div className={styles.card}>
       <div>
         <div>
-          军令：{groupDisplay(packId)} {militaryOrder.id}
+          军令：{displayedPack(packId)} {militaryOrder.id}
         </div>
         <div className={styles.text}>{militaryOrder.description}</div>
       </div>

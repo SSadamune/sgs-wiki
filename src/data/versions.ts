@@ -3,7 +3,8 @@ import { Version, VersionId } from "./types/Version";
 export const versions: Record<VersionId, Version> = {
   official: {
     id: "official",
-    name: "官方线下（十年心）",
+    // 官正线下最新版本
+    name: "23国战典藏/十年心",
   },
   "half-official": {
     id: "half-official",
@@ -23,7 +24,7 @@ export const versions: Record<VersionId, Version> = {
   },
   "zixing-DIY": {
     id: "zixing-DIY",
-    name: "紫星居DIY/紫乔DIY",
+    name: "紫星DIY",
   },
   "xiliang-DIY": {
     id: "xiliang-DIY",
@@ -33,6 +34,7 @@ export const versions: Record<VersionId, Version> = {
     id: "dou-DIY",
     name: "豆的DIY",
   },
+  // 各种民间DIY，或者基于西凉/紫星作品的微调版本
   "fan-made": {
     id: "fan-made",
     name: "其他DIY",
