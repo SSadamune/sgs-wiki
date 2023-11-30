@@ -56,7 +56,6 @@ export default function Home() {
         <Link
           href="/tools/mo-drawer"
           className={styles.card}
-          target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
