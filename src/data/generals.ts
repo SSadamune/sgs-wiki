@@ -9,7 +9,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "fan-made",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "奸雄",
@@ -18,7 +18,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "half-official",
+        versionId: "half-official",
         skills: [
           {
             name: "奸雄",
@@ -28,7 +28,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "fan-made",
+        versionId: "fan-made",
         skills: [
           {
             name: "奸雄",
@@ -49,7 +49,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "official",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "反馈",
@@ -73,7 +73,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "fan-made",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "刚烈",
@@ -83,7 +83,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "official-mobile",
+        versionId: "official-mobile",
         skills: [
           {
             name: "刚烈",
@@ -93,7 +93,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "official-oversea",
+        versionId: "official-oversea",
         skills: [
           {
             name: "刚烈",
@@ -104,7 +104,7 @@ export const generals: Record<string, General> = {
         health: 2.5,
       },
       {
-        id: "fan-made",
+        versionId: "fan-made",
         skills: [
           {
             name: "刚烈",
@@ -125,7 +125,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "official",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "突袭",
@@ -146,7 +146,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "official",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "裸衣",
@@ -167,7 +167,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "official",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "天妒",
@@ -181,7 +181,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "official-online",
+        versionId: "official-online",
         skills: [
           {
             name: "天妒",
@@ -205,7 +205,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "official",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "倾国",
@@ -230,7 +230,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "official",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "神速",
@@ -240,7 +240,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "half-official",
+        versionId: "half-official",
         skills: [
           {
             name: "神速",
@@ -259,10 +259,10 @@ export const generals: Record<string, General> = {
     name: "张郃",
     faction: "魏",
     health: 2,
-    defaultVersion: "official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "巧变",
@@ -270,6 +270,17 @@ export const generals: Record<string, General> = {
               "你可以弃置一张手牌并跳过你的一个阶段（准备阶段和结束阶段除外），若你以此法跳过摸牌阶段，你可以获得至多两名其他角色各一张手牌；若你以此法跳过出牌阶段，你可以移动场上的一张牌。",
           },
         ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "巧变",
+            description:
+              "你可以弃置一张手牌并跳过你的一个阶段（准备阶段和结束阶段除外），若你以此法弃置了装备牌，你可以使用之。若你以此法跳过摸牌阶段，你可以获得至多两名其他角色各一张手牌；若你以此法跳过出牌阶段，你可以移动场上的一张牌。",
+          },
+        ],
+        relatedGenerals: ["张郃"],
       },
     ],
     expansionPack: "标准",
@@ -282,7 +293,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "fan-made",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "断粮",
@@ -292,7 +303,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "official-online",
+        versionId: "official-online",
         skills: [
           {
             name: "断粮",
@@ -302,7 +313,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "fan-made",
+        versionId: "fan-made",
         skills: [
           {
             name: "断粮",
@@ -329,7 +340,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "fan-made",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "强袭",
@@ -339,7 +350,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "half-official",
+        versionId: "half-official",
         skills: [
           {
             name: "强袭",
@@ -350,7 +361,7 @@ export const generals: Record<string, General> = {
         health: 2.5,
       },
       {
-        id: "fan-made",
+        versionId: "fan-made",
         skills: [
           {
             name: "强袭",
@@ -374,7 +385,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "dou-DIY",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "骁果",
@@ -384,7 +395,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "half-official",
+        versionId: "half-official",
         skills: [
           {
             name: "骁果",
@@ -394,7 +405,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "official-oversea",
+        versionId: "official-oversea",
         skills: [
           {
             name: "骁果",
@@ -404,7 +415,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "dou-DIY",
+        versionId: "dou-DIY",
         skills: [
           {
             name: "骁果",
@@ -428,7 +439,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "dou-DIY",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "横江",
@@ -438,7 +449,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "dou-DIY",
+        versionId: "dou-DIY",
         skills: [
           {
             name: "横江",
@@ -452,6 +463,201 @@ export const generals: Record<string, General> = {
     expansionPack: "势",
   },
 
+  WEI032: {
+    id: "WEI032",
+    name: "郭淮",
+    faction: "魏",
+    health: 1.5,
+    healthSub: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "断势",
+            description:
+              "主将技，锁定技，你计算体力上限减少1个单独的阴阳鱼。当一名角色因杀死与你势力相同的其他角色而摸牌时，其少摸一张牌，然后你摸一张牌。",
+            label: "主将技",
+          },
+          {
+            name: "精策",
+            description:
+              "回合结束时，若于本回合置入弃牌堆的牌数大于等于X，你可以执行一个额外的摸牌阶段，若你本回合使用过的牌数大于等于X，你可以执行一个额外的出牌阶段（X为你的体力值）。",
+          },
+        ],
+      },
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "精策",
+            description:
+              "结束阶段，若你本回合使用的牌数：大于体力值，你可以摸一张牌；等于体力值，你可以摸两张牌。",
+          },
+          {
+            name: "疲攻",
+            description:
+              "主将技，你计算体力上限减少1个单独的阴阳鱼。每回合限一次，当你使用基本牌时，你可以指定一名角色，与其势力相同的角色各交给其一张手牌。",
+            label: "主将技",
+          },
+          {
+            name: "屏御",
+            description:
+              "副将技，与你势力相同的其他角色需要使用【闪】时，其可以令你选择是否打出之，视为由其使用。",
+            label: "副将技",
+          },
+        ],
+        relatedGenerals: [],
+        expansionPack: "阵",
+      },
+      {
+        versionId: "xiliang-DIY",
+        health: 2,
+        skills: [
+          {
+            name: "精策",
+            description:
+              "当你于你的一个出牌阶段内使用第X张牌后（X为你当前体力值），你可以令一名与你势力不同的角色执行军令，若其不执行，你摸两张牌。",
+          },
+        ],
+        relatedGenerals: ["张郃"],
+        expansionPack: "阳",
+      },
+      {
+        versionId: "dou-DIY",
+        health: 2,
+        skills: [
+          {
+            name: "精策",
+            description:
+              "回合结束时，若你于本回合内使用过的牌数：大于体力值，你可以选择以下一项；等于体力值，你可以依次执行两项：1.获得一个额外的摸牌阶段；2.获得一个额外的出牌阶段。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["张郃", "夏侯渊"],
+    expansionPack: "SP",
+  },
+
+  WEI_048: {
+    id: ["WEI048", "QUN048"],
+    name: "张鲁",
+    faction: ["魏", "群"],
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "布施",
+            description:
+              "当你受到1点伤害后，你可令一名与你势力相同的角色摸一张牌；当你对其他角色造成伤害后，你令一名与其势力相同的角色摸一张牌。",
+          },
+          {
+            name: "米道",
+            description:
+              "与你势力相同的角色每回合限一次，其使用【杀】或伤害类锦囊牌指定目标时，其可以交给你一张手牌，你声明此牌的花色和伤害属性。",
+          },
+        ],
+      },
+      {
+        versionId: "official-mobile",
+        skills: [
+          {
+            name: "米道",
+            description:
+              "结束阶段，若你没有“米”，你可以摸两张牌并将两张牌置于武将牌上，称为“米”。当判定牌生效前，你可以打出一张“米”替换之。",
+          },
+          {
+            name: "布施",
+            description:
+              "回合结束时，你获得等同于体力值的“义舍”标记。其他角色的准备阶段，你可以移去1枚“义舍”，交给其一张牌并摸两张牌。准备阶段，你弃置X张牌（X为角色数-你的体力值-2）。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "米道",
+            description:
+              "每个回合结束时，若你没有“米”，你摸两张牌并将两张牌置为武将牌上，称为“米”。当判定结果确定前，你可以打出一张“米”代替之。",
+          },
+          {
+            name: "鬼卒",
+            description:
+              "与你势力相同的角色出牌阶段限一次，使用伤害类牌指定目标时，可以将一张手牌与一张“米”交换，令你声明此牌的花色和伤害属性。",
+          },
+          {
+            name: "布施",
+            description:
+              "你造成伤害后或受到1点伤害后，受到伤害的角色可以获得一张“米”。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "不臣",
+  },
+
+  WEI053: {
+    id: "WEI053",
+    name: "王基",
+    faction: "魏",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "奇制",
+            description:
+              "当你于回合内使用非装备牌时，你可以弃置不为此牌目标的一名角色的一张牌，令其摸一张牌，若你使用的牌带有强化且与弃置的牌花色相同，此牌无视条件触强化效果。",
+          },
+          {
+            name: "进趋",
+            description:
+              "结束阶段，你可以摸两张牌，然后将手牌弃置至X张（X为本回合你发动“奇制”的次数）。",
+          },
+        ],
+      },
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "奇制",
+            description:
+              "每回合限四次，当你使用基本牌或锦囊牌指定角色为目标后，你可以弃置不为此牌目标的一名角色的一张牌，然后其摸一张牌。",
+          },
+          {
+            name: "进趋",
+            description:
+              "结束阶段，你可以摸两张牌，然后将手牌弃置至X张（X为本回合你发动“奇制”的次数）。",
+          },
+        ],
+        faction: ["魏", "晋"],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "奇制",
+            description:
+              "每回合限五次，当你于回合内使用非装备牌时，你可以弃置不为此牌目标的角色一张牌，令其摸一张牌。若你使用的牌有应变强化且与弃置的牌花色相同，此牌无条件触发强化。",
+          },
+          {
+            name: "进趋",
+            description:
+              "结束阶段，你可以摸两张牌，然后将手牌弃置至X张（X为本回合你发动“奇制”的次数）。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "SP",
+  },
+
   // TODO: other WEI
   // TODO: other SHU
   SHU015: {
@@ -462,13 +668,13 @@ export const generals: Record<string, General> = {
     defaultVersion: "dou-DIY",
     versions: [
       {
-        id: "official",
+        versionId: "official",
         skills: [
           {
             name: "巨象",
             description:
               "锁定技，【南蛮入侵】对你无效；当其他角色使用的【南蛮入侵】结算结束后，你获得之。",
-            label: ["锁定技"],
+            label: "锁定技",
           },
           {
             name: "烈刃",
@@ -478,13 +684,13 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        id: "dou-DIY",
+        versionId: "dou-DIY",
         skills: [
           {
             name: "巨象",
             description:
               "锁定技，【南蛮入侵】对你无效。【南蛮入侵】在其他角色的回合内进入弃牌堆后，你获得之。",
-            label: ["锁定技"],
+            label: "锁定技",
           },
           {
             name: "烈刃",
@@ -498,23 +704,330 @@ export const generals: Record<string, General> = {
     expansionPack: "标准",
   },
 
-  //
+  SHU016: {
+    id: "SHU016",
+    name: "甘夫人",
+    faction: "蜀",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "神智",
+            description: "当你回复1点体力后，你可以令一名其他角色摸一张牌。",
+          },
+          {
+            name: "淑慎",
+            description:
+              "准备阶段开始时，你可以弃置所有手牌，若你以此法弃置的手牌数大于等于你的体力值，你回复1点体力。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "神智",
+            description: "当你回复1点体力后，你可以令一名角色摸一张牌。",
+          },
+          {
+            name: "淑慎",
+            description:
+              "准备阶段开始时，若X不小于0（X为你的手牌数与体力值之差），你可以弃置所有手牌，然后回复1点体力并令至多X名其他角色各摸一张牌。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["刘备"],
+    expansionPack: "标准",
+  },
+
+  // TODO: others
+
+  SHU020: {
+    id: "SHU020",
+    name: "沙摩柯",
+    faction: "蜀",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "蒺藜",
+            description:
+              "当你于一回合内使用或打出第X张牌时，你可以摸X张牌（X为你的攻击范围）。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "蒺藜",
+            description:
+              "每回合限三次，当你于一回合内使用或打出第X张牌时，你可以摸X张牌（X为你的攻击范围且至多为5）。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "变",
+  },
+
+  // TODO: others
+
+  WU002: {
+    id: "WU002",
+    name: "甘宁",
+    faction: "吴",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "奇袭",
+            description: "出牌阶段，你可以将一张黑色牌当【过河拆桥】使用。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "奇袭",
+            description:
+              "出牌阶段，你可以将一张黑色牌当【过河拆桥】使用。出牌阶段限一次，你可以将一张黑桃手牌当【逐近弃远】使用。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["凌统", "苏飞"],
+    expansionPack: "标准",
+  },
+
+  WU003: {
+    id: "WU003",
+    name: "吕蒙",
+    faction: "吴",
+    health: 2,
+    defaultVersion: "fan-made",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "克己",
+            description:
+              "锁定技，若你未于出牌阶段内使用过颜色不同的牌，你本回合的手牌上限+4。",
+            label: "锁定技",
+          },
+          {
+            name: "谋断",
+            description:
+              "结束阶段，若你于出牌阶段内使用过四种花色或三种类别的牌，你可以移动场上的一张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "fan-made",
+        skills: [
+          {
+            name: "克己",
+            description:
+              "锁定技，弃牌阶段开始时，你的手牌上限+X（X为你本回合未使用过的花色数）。",
+            label: "锁定技",
+          },
+          {
+            name: "谋断",
+            description:
+              "结束阶段，每满足以下一项，你可以移动场上的一张牌：①你本回合使用过四种花色的牌；②你本回合使用过三种类别的牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+
+  // TODO: others
+
+  WU023: {
+    id: "WU023",
+    name: "陈武&董袭",
+    faction: "吴",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "断绁",
+            description:
+              "出牌阶段限一次，你可以令至多X名其他角色横置（X为你已损失的体力值且至少为1），然后你横置。",
+          },
+          {
+            name: "奋命",
+            description:
+              "结束阶段，若你处于“连环状态”，则你可弃置所有处于“连环状态”的角色各一张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "奋命",
+            description:
+              "出牌阶段限一次，你可以令至多X名其他角色横置，然后你横置，然后你可以弃置所有处于“连环状态”的角色各一张牌。（X为你已损失的体力值且至少为1）",
+          },
+          {
+            name: "断绁",
+            description:
+              "你重置武将牌时，或你于回合内首次对横置的角色造成属性伤害时，你可以摸一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "势",
+  },
+
+  // TODO: others
+  WU070: {
+    id: "WU070",
+    name: "苏飞",
+    faction: ["吴", "群"],
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "联翩",
+            description:
+              "结束阶段，若你于此回合内弃置任意角色牌的总数大于你的体力值，你可以令一名与你势力相同的角色将手牌摸至其体力上限。其他角色的结束阶段，若其于此回合内弃置任意角色牌的总数大于你的体力值，其可以弃置你的一张牌或令你回复1点体力。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "联翩",
+            description:
+              "每个阶段结束时，若你此阶段弃置过任意角色的总计至少两张牌，你摸一张牌。其他角色于其回合内失去最后的手牌时，你可以弃置一张手牌，然后其获得此牌。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["甘宁"],
+    expansionPack: "不臣",
+  },
+
+  // TODO: others
+
+  WU086: {
+    id: "WU086",
+    name: "吴景",
+    faction: "吴",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "调归",
+            description:
+              "出牌阶段限一次，你可以将一张装备牌当【调虎离山】使用，若你的势力因此形成队列，则你摸X张牌（X为该队列的角色数）。",
+            label: "轮次技",
+          },
+          {
+            name: "风扬",
+            description:
+              "阵法技，其他势力角色不能弃置或获得与你处于同一队列的角色装备区里的牌。",
+            label: "阵法技",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "调归",
+            description:
+              "轮次技，任意角色的出牌阶段开始时，你可以将一张装备牌当【调虎离山】对当前回合角色以外的其他角色使用，使用时摸X张牌（X为与你的势力相邻的、且是此牌的目标的角色数）。",
+            label: "轮次技",
+          },
+          {
+            name: "风扬",
+            description:
+              "阵法技，其他势力角色不能弃置或获得与你处于同一队列的角色装备区里的牌。",
+            label: "阵法技",
+          },
+        ],
+        relatedGenerals: ["孙策"],
+      },
+    ],
+    expansionPack: "不臣",
+  },
+
+  // TODO: others
+
+  QUN015: {
+    id: "QUN015",
+    name: "纪灵",
+    faction: "群",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "双刃",
+            description:
+              "出牌阶段开始时，你可以与一名角色拼点，若你赢，你视为对一名与其势力相同的角色使用【杀】；若你没赢，本回合你不能对其他角色使用牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "双刃",
+            description:
+              "出牌阶段开始时，你可以与一名角色拼点，若你赢，你视为对一名与其势力相同的角色使用【杀】；若你没赢，本回合你不能使用【杀】。你的【杀】具有<富甲→目标+1>。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["袁术"],
+    expansionPack: "不臣",
+  },
+
+  // TODO: others
 
   DOU005: {
     id: "DOU005",
-    name: "雪瘾者",
+    name: "一到雪季就约不到人",
     faction: ["魏", "蜀", "吴", "群"],
     health: 1.5,
     defaultVersion: "dou-DIY",
     versions: [
       {
-        id: "dou-DIY",
+        versionId: "dou-DIY",
         skills: [
           {
             name: "速降",
             description:
               "锁定技，你/其他角色沿逆时针计算至其他角色/你的距离-1/+1。",
-            label: ["锁定技"],
+            label: "锁定技",
           },
           {
             name: "立刃",
@@ -547,15 +1060,44 @@ export const generals: Record<string, General> = {
     expansionPack: "DIY",
   },
 
+  DOU010: {
+    id: "DOU010",
+    name: "妈的，最烦打牌磨叽的人",
+    faction: ["魏", "蜀", "吴", "群"],
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "速战",
+            description:
+              "你于出牌阶段内使用的前三张牌，若为：基本牌，无视距离且无次数限制；装备牌，使用时摸一张牌；锦囊牌，使用时可弃置一名目标角色一张牌。",
+          },
+
+          {
+            name: "速决",
+            description:
+              "锁定技，你于出牌阶段内使用至少三张牌后，你使用基本牌或普通锦囊牌时须弃置一张手牌。杀死你的角色获得此技能。",
+            label: "锁定技",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["李典"],
+    expansionPack: "DIY",
+  },
+
   DOU011: {
     id: "DOU011",
-    name: "金牌狼王",
+    name: "狼人杀高端玩家",
     faction: ["魏", "蜀", "吴", "群"],
     health: 1.5,
     defaultVersion: "dou-DIY",
     versions: [
       {
-        id: "dou-DIY",
+        versionId: "dou-DIY",
         skills: [
           {
             name: "倒钩",
@@ -565,20 +1107,12 @@ export const generals: Record<string, General> = {
               {
                 name: "倒钩①",
                 description:
-                  "与你势力相同的其他角色受到伤害后，若伤害来源是你，你可以摸一张牌或令其摸两张牌。",
+                  "与你势力相同的其他角色/你受到伤害后，若伤害来源是你/与你势力相同，你可以摸一/两张牌或令其摸两/一张牌。",
                 type: "Trigger",
                 timing: "受到伤害后",
               },
               {
                 name: "倒钩②",
-                description:
-                  "你受到伤害后，若伤害来源与你势力相同，你可以摸两张牌或令其摸一张牌。",
-                type: "Trigger",
-                timing: "受到伤害后",
-                isConditional: true,
-              },
-              {
-                name: "倒钩③",
                 description:
                   "你/与你势力相同的角色死亡时，若杀死其的角色是与你势力相同的角色/你，奖惩改为“摸两张牌”。",
                 type: "Trigger",
@@ -612,6 +1146,65 @@ export const generals: Record<string, General> = {
       },
     ],
     relatedGenerals: ["孙策"],
+    expansionPack: "DIY",
+  },
+
+  DOU012: {
+    id: "DOU012",
+    name: "随便打牌的整活选手",
+    faction: ["魏", "蜀", "吴", "群"],
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "随适",
+            description:
+              "锁定技，当其它角色因牌或技能的效果令你执行描述为“除非/需…否则…”“选择一项：…”的动作时，或者其令你选择是否执行军令时，其指定其中一个选项。若你选择该选项，结算完成后你摸两张牌。",
+            label: "锁定技",
+          },
+          {
+            name: "驰援",
+            description:
+              "限定技，回合结束时，你可以叠置，然后令一名其他角色选择：1.摸两张牌，然后执行一个出牌阶段；2.执行一个摸牌阶段，然后使用至多两张牌。纵横：描述中的“两张牌”均改为“一张牌”。",
+            label: ["限定技"],
+            keywords: ["纵横"],
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["李典"],
+    expansionPack: "DIY",
+  },
+
+  DOU013: {
+    id: "DOU013",
+    name: "单走一个6",
+    faction: ["魏", "蜀", "吴", "群"],
+    health: 2,
+    healthSub: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "言六",
+            description:
+              "出牌阶段限一次，当一名其他角色的一张牌置入弃牌堆后，你可以弃置另一名角色一张牌。若这两张牌的点数可以计算得到6，你可以令其中一名角色将手牌摸至另一名的手牌数（最多为6）。",
+          },
+          {
+            name: "阴阳",
+            description:
+              "副将技，阴阳鱼-1。当你执行或你令其他角色执行“将手牌摸至X”的操作时，你可将此操作改为“摸X张牌，然后将手牌弃至X张”。",
+            label: "副将技",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["荀彧"],
     expansionPack: "DIY",
   },
 };
