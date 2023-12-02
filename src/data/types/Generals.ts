@@ -2,7 +2,7 @@ import { VersionId } from "./Version";
 import { Skill } from "./Skills";
 
 export type General = {
-  id: string;
+  id: string | string[];
   // 武将姓名
   name: string;
   // 势力
@@ -23,12 +23,14 @@ export type General = {
 };
 
 export type GeneralVersion = {
-  id: VersionId;
+  versionId: VersionId;
   // 武将技能
   skills: Skill[];
+  faction?: Faction | Faction[];
   health?: number;
   healthSub?: number;
   expansionPack?: string;
+  relatedGenerals?: string[];
 };
 
 export type ExpansionName =
