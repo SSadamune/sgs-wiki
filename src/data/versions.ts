@@ -4,11 +4,11 @@ export const versions: Record<VersionId, Version> = {
   official: {
     id: "official",
     // 官正线下最新版本
-    name: "2022国战/十年心",
+    name: "2023国战/十年心",
   },
   "half-official": {
     id: "half-official",
-    name: "官盗线下（十年经典）",
+    name: "官盗线下/十年经典",
   },
   "official-online": {
     id: "official-online",
