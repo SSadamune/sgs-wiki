@@ -1,9 +1,11 @@
 import { GeneralList } from "@/components/pages/guide/GeneralList";
 
-export default function GeneralDetailPage() {
+const detailLink = (key: string): string => `general/${key}`;
+
+export default function GeneralListPage() {
   return (
     <div>
-      <GeneralList />
+      <GeneralList detailLink={detailLink} />
     </div>
   );
 }
