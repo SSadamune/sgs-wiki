@@ -1,26 +1,41 @@
-import { GeneralDetail } from "@/components/pages/guide/GeneralDetail";
+// src\pages\guide\general\[id].tsx
+import { GetStaticPaths, GetStaticProps } from "next";
+import { GeneralDetail } from "@/components/pages/guide/GeneralDetail/GeneralDetail";
+import { generals as generalsData } from "@/data/generals";
 import { General } from "@/data/types/Generals";
-import { VersionId } from "@/data/types/Version";
+import { ParsedUrlQuery } from "querystring";
 import Error from "next/error";
-import { useRouter } from "next/router";
-import { useEffect, useMemo, useState } from "react";
 
-export default function GeneralDetailPage() {
-  const router = useRouter();
+type Props = {
+  generalData: General;
+};
 
-  const { id } = router.query;
-
-  if (!router.isReady) {
-    return <div>Loading...</div>;
+export default function GeneralDetailPage({ generalData }: Props) {
+  if (!generalData) {
+    return <Error statusCode={404} title="武将信息未找到" />;
   }
 
-  if (!id || typeof id !== "string") {
-    return <Error statusCode={404} title="武将id错误" />;
-  }
-
-  return (
-    <div>
-      <GeneralDetail id={id} />
-    </div>
-  );
+  return <GeneralDetail generalData={generalData} />;
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: Object.keys(generalsData)
+      .filter((key) => generalsData[key].defaultVersion !== "official")
+      .map((key) => ({ params: { id: key } })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
+  context
+) => {
+  const key = context.params?.id;
+  const generalData = generalsData[key ?? ""];
+
+  if (!generalData) {
+    return { notFound: true };
+  }
+
+  return { props: { generalData } };
+};
