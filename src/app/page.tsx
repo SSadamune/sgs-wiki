@@ -42,19 +42,19 @@ export default function Home() {
 
       <div className={styles.grid}>
         <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+          href="https://ssadamune.github.io/sgs-wiki/guide/general"
           className={styles.card}
           target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Docs <span>-&gt;</span>
+            面杀武将技能速览 <span>-&gt;</span>
           </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
+          <p>在官方线下版本的基础上，来自官盗、DIY的武将扩充和修订</p>
         </a>
 
-        <Link
-          href="/tools/mo-drawer"
+        <a
+          href="https://ssadamune.github.io/sgs-wiki/tools/mo-drawer"
           className={styles.card}
           rel="noopener noreferrer"
         >
@@ -62,7 +62,7 @@ export default function Home() {
             军令抽卡器 <span>-&gt;</span>
           </h2>
           <p>懒得去翻军令卡，那就拿出手机吧！别忘记点开你要选的军令！</p>
-        </Link>
+        </a>
 
         <a
           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
