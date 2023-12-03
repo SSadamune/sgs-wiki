@@ -7,4 +7,5 @@ const nextConfig = {
   assetPrefix: isProductionEnv ? "/sgs-wiki/" : "",
 };
 
+
 module.exports = nextConfig;

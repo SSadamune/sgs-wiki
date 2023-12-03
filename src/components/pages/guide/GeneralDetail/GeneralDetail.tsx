@@ -1,42 +1,17 @@
-import { General, GeneralVersion } from "@/data/types/Generals";
-import { useEffect, useMemo, useState } from "react";
+import { General } from "@/data/types/Generals";
+import { useMemo } from "react";
 import Error from "next/error";
-import { VersionId } from "@/data/types/Version";
 
 type Props = {
-  id: string;
+  generalData: General;
 };
 
-export function GeneralDetail({ id }: Props) {
-  const [generalData, setGeneralData] = useState<General | null>(null);
-  const [displayedVersionId, setDisplayedVersionId] =
-    useState<VersionId | null>(null);
-
-  useEffect(() => {
-    const fetchGeneralData = async () => {
-      try {
-        const allGeneralsData = await import("@/data/generals");
-        const loadedGeneral = allGeneralsData.generals[id];
-
-        if (loadedGeneral) {
-          setGeneralData(loadedGeneral);
-          setDisplayedVersionId(loadedGeneral.defaultVersion);
-        } else {
-          console.error("武将 ID 不存在");
-        }
-      } catch (err) {
-        console.error("无法加载数据:", err);
-      }
-    };
-
-    fetchGeneralData();
-  }, [id]);
-
+export function GeneralDetail({ generalData }: Props) {
   const version = useMemo(() => {
     return generalData?.versions.find(
-      (v) => v.versionId === displayedVersionId
+      (v) => v.versionId === generalData.defaultVersion
     );
-  }, [displayedVersionId, generalData?.versions]);
+  }, [generalData]);
 
   if (!generalData) {
     return <Error statusCode={404} title="武将信息未找到" />;
