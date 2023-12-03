@@ -1,6 +1,8 @@
 import { GeneralList } from "@/components/pages/guide/GeneralList";
 
-const detailLink = (key: string): string => `general/${key}`;
+// TODO: common homepage
+const detailLink = (key: string): string =>
+  `https://ssadamune.github.io/sgs-wiki/guide/general/${key}`;
 
 export default function GeneralListPage() {
   return (

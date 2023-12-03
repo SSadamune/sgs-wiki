@@ -3,7 +3,6 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { GeneralDetail } from "@/components/pages/guide/GeneralDetail/GeneralDetail";
 import { generals as generalsData } from "@/data/generals";
 import { General } from "@/data/types/Generals";
-import { ParsedUrlQuery } from "querystring";
 import Error from "next/error";
 
 type Props = {
@@ -22,15 +21,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: Object.keys(generalsData)
       .filter((key) => generalsData[key].defaultVersion !== "official")
-      .map((key) => ({ params: { id: key } })),
+      .map((key) => ({ params: { key } })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<Props, { id: string }> = async (
+export const getStaticProps: GetStaticProps<Props, { key: string }> = async (
   context
 ) => {
-  const key = context.params?.id;
+  const key = context.params?.key;
   const generalData = generalsData[key ?? ""];
 
   if (!generalData) {
