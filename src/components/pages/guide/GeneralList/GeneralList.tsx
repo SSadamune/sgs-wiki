@@ -2,7 +2,11 @@ import Link from "next/link";
 import { generals as generalsData } from "@/data/generals";
 import { useMemo } from "react";
 
-export function GeneralList() {
+type Props = {
+  detailLink: (key: string) => string;
+};
+
+export function GeneralList({ detailLink }: Props) {
   const generalList = useMemo(
     () =>
       Object.entries(generalsData)
@@ -21,7 +25,7 @@ export function GeneralList() {
       <ul>
         {generalList.map((general) => (
           <li key={general.key}>
-            <Link href={`/guide/general/${general.key}`}>
+            <Link href={detailLink(general.key)}>
               {general.name} - {joinStrings(general.faction)}
             </Link>
           </li>
