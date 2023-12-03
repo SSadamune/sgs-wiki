@@ -25,9 +25,9 @@ export function GeneralList({ detailLink }: Props) {
       <ul>
         {generalList.map((general) => (
           <li key={general.key}>
-            <Link href={detailLink(general.key)}>
+            <a href={detailLink(general.key)}>
               {general.name} - {joinStrings(general.faction)}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
