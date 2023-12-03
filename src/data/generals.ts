@@ -277,10 +277,10 @@ export const generals: Record<string, General> = {
           {
             name: "巧变",
             description:
-              "你可以弃置一张手牌并跳过你的一个阶段（准备阶段和结束阶段除外），若你以此法弃置了装备牌，你可以使用之。若你以此法跳过摸牌阶段，你可以获得至多两名其他角色各一张手牌；若你以此法跳过出牌阶段，你可以移动场上的一张牌。",
+              "你可以弃置一张手牌并跳过你的一个阶段（准备阶段和结束阶段除外），若你以此法弃置了装备牌，你可以使用之；若你以此法跳过摸牌阶段，你可以获得至多两名其他角色各一张手牌；若你以此法跳过出牌阶段，你可以移动场上的一张牌。",
           },
         ],
-        relatedGenerals: ["张郃"],
+        relatedGenerals: ["郭淮"],
       },
     ],
     expansionPack: "标准",
@@ -430,6 +430,52 @@ export const generals: Record<string, General> = {
   },
 
   // TODO: WEI017~
+
+  WEI018: {
+    id: "WEI018",
+    name: "曹洪",
+    faction: "魏",
+    health: 2,
+    defaultVersion: "half-official",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "护援",
+            description:
+              "结束阶段，你可以选择一名其他角色并选择一项：1.交给其一张非装备牌；2.将一张装备牌置于其装备区，然后你可以弃置场上一张牌。",
+          },
+          {
+            name: "鹤翼",
+            description:
+              "阵法技，与你处于同一队列的角色均拥有“飞影”（锁定技，其他角色计算与你的距离+1）。",
+            label: "阵法技",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "护援",
+            description:
+              "你的回合内，当一张装备牌置入一名角色的装备区后，你可以弃置其距离1的另一名角色区域内的一张牌；结束阶段，你可以将一张装备牌置于一名角色的装备区。",
+          },
+          {
+            name: "鹤翼",
+            description:
+              "阵法技，与你处于同一队列的角色均拥有“飞影”（锁定技，其他角色计算与你的距离+1）。",
+            label: "阵法技",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["曹仁"],
+    expansionPack: "阵",
+  },
+
+  // TODO: others
 
   WEI023: {
     id: "WEI023",
@@ -855,6 +901,110 @@ export const generals: Record<string, General> = {
 
   // TODO: others
 
+  WU007: {
+    id: "WU007",
+    name: "陆逊",
+    faction: "吴",
+    health: 1.5,
+    defaultVersion: "half-official",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "谦逊",
+            description:
+              "锁定技，你成为【顺手牵羊】或【乐不思蜀】的目标时，取消之。",
+            label: "锁定技",
+          },
+          {
+            name: "度势",
+            description:
+              "出牌阶段限四次，你可以将一张红色手牌当【以逸待劳】使用。",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "谦逊",
+            description:
+              "锁定技，你成为【顺手牵羊】或【乐不思蜀】的目标时，取消之。",
+            label: "锁定技",
+          },
+          {
+            name: "度势",
+            description:
+              "每轮限一次，与你势力相同的角色出牌阶段，其可以将一张红色手牌当【以逸待劳】使用，然后若你为小势力角色，你可以令一名与你势力相同的角色将X张手牌当【火烧联营】使用（X为此牌的目标数），此牌不能被响应。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["陆抗"],
+    expansionPack: "标准",
+  },
+
+  // TODO: others
+
+  WU016: {
+    id: "WU016",
+    name: "丁奉",
+    faction: "吴",
+    health: 2,
+    defaultVersion: "fan-made",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "短兵",
+            description: "你使用【杀】时可以多指定一名距离为1的角色为目标。",
+          },
+          {
+            name: "奋迅",
+            description:
+              "出牌阶段限一次，你可以弃置一张牌并指定一名其他角色，你与该角色本回合的距离视为1。",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "短兵",
+            description:
+              "你使用【杀】时可以多指定一名距离为1的角色为目标。当你使用【杀】指定唯一目标后，目标角色需多使用一张【闪】才能抵消",
+          },
+          {
+            name: "奋迅",
+            description:
+              "出牌阶段限一次，你可以弃置一张牌并指定一名其他角色，你与该角色本回合的距离视为1。",
+          },
+        ],
+      },
+      {
+        versionId: "fan-made",
+        skills: [
+          {
+            name: "短兵",
+            description:
+              "你使用【杀】时可以多指定一名距离为1的角色为目标。你对距离1的角色使用的【杀】需两张【闪】才能抵消",
+          },
+          {
+            name: "奋迅",
+            description:
+              "出牌阶段限一次，你可以选择一名其他角色，本回合你计算与其距离视为1，然后此回合结束时，若你未对其造成过伤害，你弃一张牌。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["徐盛", "诸葛恪"],
+    expansionPack: "标准",
+  },
+
+  // TODO: others
+
   WU023: {
     id: "WU023",
     name: "陈武&董袭",
@@ -920,7 +1070,7 @@ export const generals: Record<string, General> = {
           {
             name: "联翩",
             description:
-              "每个阶段结束时，若你此阶段弃置过任意角色的总计至少两张牌，你摸一张牌。其他角色于其回合内失去最后的手牌时，你可以弃置一张手牌，然后其获得此牌。",
+              "每个阶段结束时，若你此阶段弃置过任意角色的总计至少两张牌，你摸一张牌。其他角色于其出牌阶段内连续使用牌指定相同角色为目标（或之一）时，你可以弃一张牌，令其摸一张牌。",
           },
         ],
       },
