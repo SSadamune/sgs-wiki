@@ -1,6 +1,8 @@
 import { General } from "./types/Generals";
 
 export const generals: Record<string, General> = {
+  // ====================== Faction WEI ======================
+
   WEI001: {
     id: "WEI001",
     name: "曹操",
@@ -277,7 +279,7 @@ export const generals: Record<string, General> = {
           {
             name: "巧变",
             description:
-              "你可以弃置一张手牌并跳过你的一个阶段（准备阶段和结束阶段除外），若你以此法弃置了装备牌，你可以使用之；若你以此法跳过摸牌阶段，你可以获得至多两名其他角色各一张手牌；若你以此法跳过出牌阶段，你可以移动场上的一张牌。",
+              "你可以弃置一张手牌并跳过你的一个阶段（准备阶段和结束阶段除外）。若以此法：弃置装备牌，你可以使用之；跳过摸牌阶段，你可以获得至多两名角色各一张手牌；跳过出牌阶段，你可以移动场上的一张牌。",
           },
         ],
         relatedGenerals: ["郭淮"],
@@ -705,6 +707,9 @@ export const generals: Record<string, General> = {
   },
 
   // TODO: other WEI
+
+  // ====================== Faction SHU ======================
+
   // TODO: other SHU
   SHU015: {
     id: "SHU015",
@@ -824,6 +829,8 @@ export const generals: Record<string, General> = {
   },
 
   // TODO: others
+
+  // ====================== Faction WU ======================
 
   WU002: {
     id: "WU002",
@@ -947,6 +954,45 @@ export const generals: Record<string, General> = {
 
   // TODO: others
 
+  WU012: {
+    id: "WU012",
+    name: "太史慈",
+    faction: "吴",
+    health: 2,
+    defaultVersion: "half-official",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "天义",
+            description:
+              "出牌阶段限一次，你可以与一名其他角色拼点。若你赢，本回合你使用【杀】无距离限制、可多指定一个目标且可多使用一张【杀】；若你没赢，本回合你不能使用【杀】。",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "天义",
+            description:
+              "出牌阶段限一次，你可以与一名其他角色拼点。若你赢，本回合你使用【杀】无距离限制、可多指定一个目标且可多使用一张【杀】；若你没赢，本回合你不能使用【杀】。",
+          },
+          {
+            name: "酣战",
+            description:
+              "当你拼点后，没赢的角色可以获得与其拼点的角色装备区里的一张牌。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["孙策"],
+    expansionPack: "标准",
+  },
+
+  // TODO: others
+
   WU016: {
     id: "WU016",
     name: "丁奉",
@@ -1004,6 +1050,120 @@ export const generals: Record<string, General> = {
   },
 
   // TODO: others
+
+  WU020: {
+    id: "WU020",
+    name: "徐盛",
+    faction: "吴",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "疑城",
+            description:
+              "你或与你处于相同队列的其他角色使用【杀】指定目标后或成为【杀】的目标后，其可以摸一张牌，然后弃置一张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "疑城",
+            description:
+              "与你势力相同的角色成为【杀】的目标后，你可以令其摸一张牌，然后其可以使用一张装备牌。若如此做，其于当前回合结束时弃置X张牌（X为本回合你对其发动此技能的次数）。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "破军",
+            description:
+              "你使用【杀】指定目标后，你可以弃置其一张牌。结束阶段，其从弃牌堆中获得此牌。",
+          },
+          {
+            name: "疑城",
+            description:
+              "与你势力相同的角色成为【杀】的目标后，你可以令其摸一张牌，且其可以使用一张装备牌。当前回合结束阶段，其弃置等量于此回合被发动“疑城”次数的牌。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["丁奉"],
+    expansionPack: "阵",
+  },
+
+  // TODO: others
+
+  WU022: {
+    id: "WU022",
+    name: "吕范",
+    faction: "吴",
+    health: 1.5,
+    defaultVersion: "half-official",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "调度",
+            description:
+              "与你势力相同的角色使用装备牌时可以摸一张牌。出牌阶段开始时，你可以获得与你势力相同的角色装备区一张牌，并交给另一名角色。",
+          },
+          {
+            name: "典财",
+            description:
+              "其他角色的出牌阶段结束时，若你此阶段失去的牌数大于等于X（X为你的体力值），你可以摸牌至体力上限，然后你可以变更一次副将。",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "调度",
+            description:
+              "出牌阶段开始时，你可以获得与你势力相同的角色装备区里的一张牌，然后交给另一名角色。每回合每种类别限一次，与你势力相同的角色使用指定自己为目标的牌时，其可以摸一张牌。",
+            standardizedDescription: [
+              {
+                name: "调度①",
+                description:
+                  "出牌阶段开始时，你可获得与你势力相同的一名角色装备区里的一张牌▶若其：为你，你将此牌交给一名角色；不为你，你可将此牌交给另一名角色。",
+                memo: "即：你从角色A的装备区里获得的牌，不能把它还给A（若A是你自己，则不能留在自己手上）。",
+                type: "Trigger",
+                timing: "出牌阶段开始时",
+              },
+              {
+                name: "调度②",
+                description:
+                  "当牌被使用时，若使用者与你势力相同，且此牌的目标角色包含其，（你令）其可摸一张牌→本回合内，其使用与此牌同类别的牌时不能发动此技能。",
+                type: "Trigger",
+                timing: "牌被使用时",
+              },
+            ],
+          },
+          {
+            name: "典财",
+            description:
+              "其他角色的出牌阶段结束时，若你此阶段失去的牌数大于等于X（X为你的体力值），你可以将手牌摸至体力上限，然后你可以变更一次副将。",
+            standardizedDescription: {
+              name: "典财",
+              description:
+                "其他角色的出牌阶段结束时，若你于此阶段内失去过至少X张牌（X为你的体力值且至少为1），你可将你的手牌补至Y张（Y为你的体力上限）▶你可变更。 ",
+              type: "Trigger",
+              timing: "出牌阶段结束时",
+            },
+          },
+        ],
+      },
+    ],
+    expansionPack: "变",
+  },
 
   WU023: {
     id: "WU023",
@@ -1070,7 +1230,7 @@ export const generals: Record<string, General> = {
           {
             name: "联翩",
             description:
-              "每个阶段结束时，若你此阶段弃置过任意角色的总计至少两张牌，你摸一张牌。其他角色于其出牌阶段内连续使用牌指定相同角色为目标（或之一）时，你可以弃一张牌，令其摸一张牌。",
+              "每个阶段结束时，若你此阶段弃置过任意角色的总计至少两张牌，你可以摸一张牌。其他角色于其出牌阶段内使用牌连续指定同一名角色为目标（或之一）后，你可以弃置一张牌，令此牌的使用者摸一张牌。",
           },
         ],
       },
@@ -1129,6 +1289,108 @@ export const generals: Record<string, General> = {
 
   // TODO: others
 
+  // ====================== Faction QUN ======================
+
+  QUN005: {
+    id: "QUN005",
+    name: "颜良&文丑",
+    faction: "群",
+    health: 2,
+    defaultVersion: "half-official",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "双雄",
+            description:
+              "摸牌阶段，你可以改为判定并获得生效后的判定牌。若如此做，本回合你可以将一张与判定结果颜色不同的手牌当【决斗】使用。",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "双雄",
+            description:
+              "摸牌阶段，你可以改为判定。当你的判定牌于回合内生效后，你获得之，本回合你可以将一张与此牌颜色不同的手牌当【决斗】使用。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["袁绍"],
+    expansionPack: "标准",
+  },
+
+  QUN006: {
+    id: "QUN006",
+    name: "董卓",
+    faction: "群",
+    health: 2,
+    defaultVersion: "half-official",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "横征",
+            description:
+              "摸牌阶段，若你的体力值为1或没有手牌，你可以改为获得所有其他角色区域里各一张牌。",
+          },
+          {
+            name: "暴凌",
+            description:
+              "主将技，锁定技，出牌阶段结束时，若此武将牌已明置，则你移除副将，然后加3点体力上限并恢复3点体力，失去“暴凌”并获得“崩坏”。",
+            label: ["主将技", "锁定技"],
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "横征",
+            description:
+              "摸牌阶段，若你的体力值为1或没有手牌，你可以改为获得所有其他角色区域里各一张牌。",
+          },
+          {
+            name: "暴凌",
+            description:
+              "主将技，锁定技，出牌阶段结束时，你移除副将，然后加3点体力上限并恢复3点体力，获得“崩坏”。",
+            label: ["主将技", "锁定技"],
+          },
+          {
+            name: "崩坏",
+            description:
+              "锁定技，结束阶段，若你体力值不为最小，你选择一至两项：1.失去1点体力；2.减1点体力上限。若你选择两项，你执行一个额外的摸牌阶段。",
+            label: ["锁定技"],
+            isConditional: true,
+          },
+        ],
+      },
+      {
+        versionId: "official-mobile",
+        skills: [
+          {
+            name: "横征",
+            description:
+              "摸牌阶段，若你的体力值为1或没有手牌，你可以改为获得所有其他角色区域里各一张牌。",
+          },
+          {
+            name: "暴凌",
+            description:
+              "主将技，限定技，锁定技，出牌阶段结束时，若你有副将，则你移除副将，然后加3点体力上限并恢复3点体力，获得“崩坏”。",
+            label: ["主将技", "锁定技", "限定技"],
+          },
+        ],
+      },
+    ],
+    expansionPack: "势",
+  },
+
+  // others
+
   QUN015: {
     id: "QUN015",
     name: "纪灵",
@@ -1158,10 +1420,55 @@ export const generals: Record<string, General> = {
       },
     ],
     relatedGenerals: ["袁术"],
-    expansionPack: "不臣",
+    expansionPack: "标准",
   },
 
   // TODO: others
+
+  QUN020: {
+    id: "QUN020",
+    name: "何太后",
+    faction: "群",
+    health: 1.5,
+    defaultVersion: "half-official",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "鸩毒",
+            description:
+              "其他角色的出牌阶段开始时，你可以弃置一张手牌，令该角色视为使用一张【酒】，然后你对其造成1点伤害。",
+          },
+          {
+            name: "戚乱",
+            description:
+              "一名角色的回合结束时，若你于本回合杀死过角色，你可以摸三张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "鸩毒",
+            description:
+              "其他角色的出牌阶段开始时，你可以弃置一张手牌，令该角色视为使用一张【酒】，然后若该角色不为你，你对其造成1点伤害。",
+          },
+          {
+            name: "戚乱",
+            description:
+              "一名角色的回合结束时，你可以摸X张牌（X为本回合你杀死的角色数的两倍与本回合死亡的角色数之和）。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "阵",
+  },
+
+  // TODO: others
+
+  // ====================== Dou DIY ======================
 
   DOU005: {
     id: "DOU005",

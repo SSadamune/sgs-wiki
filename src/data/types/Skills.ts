@@ -3,17 +3,18 @@ export type Skill = {
   description: string;
   // 标准化描述
   standardizedDescription?: StandardizedDescription | StandardizedDescription[];
+  // 衍生类技能
+  isConditional?: boolean;
   // TODO: keywords
   keywords?: string[];
   label?: SkillLabel | SkillLabel[];
 };
 
 type StandardizedDescription = {
-  name: string;
+  name?: string;
   description: string;
   // 关于此技能的各种备注
   memo?: string;
-  // 衍生类技能
   isConditional?: boolean;
 } & (
   | {
