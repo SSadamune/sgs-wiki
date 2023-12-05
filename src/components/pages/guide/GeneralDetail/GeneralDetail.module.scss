@@ -1,6 +1,13 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .versionList {
   display: flex;
-  gap: 1vw;
+  gap: 2vw;
+  align-items: center;
 }
 
 .activeVersion {

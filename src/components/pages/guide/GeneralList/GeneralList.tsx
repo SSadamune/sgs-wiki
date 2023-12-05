@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { generals as generalsData } from "@/data/generals";
 import { useMemo } from "react";
+import { joinStrings } from "@/utils/string";
 
 type Props = {
   detailLink: (key: string) => string;
@@ -32,15 +33,10 @@ export function GeneralList({ detailLink }: Props) {
       <ul>
         {generalList.map((general) => (
           <li key={general.key}>
-            <a href={detailLink(general.key)}>
-              {general.name} - {joinStrings(general.faction)}
-            </a>
+            <a href={detailLink(general.key)}>{general.name}</a>
           </li>
         ))}
       </ul>
     </div>
   );
 }
-
-const joinStrings = (toJoin: string | string[]) =>
-  Array.isArray(toJoin) ? toJoin.join("&") : toJoin;
