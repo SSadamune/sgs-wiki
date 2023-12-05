@@ -5,6 +5,9 @@ import { versions } from "@/data/versions";
 import { VersionId } from "@/data/types/Version";
 import styles from "./GeneralDetail.module.scss";
 import classNames from "classnames";
+import { Skill as SkillType } from "@/data/types/Skills";
+import { joinStrings } from "@/utils/string";
+import { Skill } from "./Skill";
 
 type Props = {
   generalData: General;
@@ -16,8 +19,8 @@ export function GeneralDetail({ generalData }: Props) {
   );
 
   const activeVersion = useMemo(() => {
-    return generalData?.versions.find((v) => v.versionId === activeVersionId);
-  }, [activeVersionId, generalData?.versions]);
+    return parseGeneral(generalData, activeVersionId);
+  }, [activeVersionId, generalData]);
 
   if (!generalData) {
     return <Error statusCode={404} title="武将信息未找到" />;
@@ -29,31 +32,85 @@ export function GeneralDetail({ generalData }: Props) {
 
   return (
     <div>
-      <h2>{generalData.name}</h2>
-      {generalData.versions.length > 0 && (
-        <div className={styles.versionList}>
-          其它版本：
-          {generalData.versions.map((version) => (
-            <span
-              key={version.versionId}
-              onClick={() => setActiveVersionId(version.versionId)}
-              className={classNames({
-                [styles.activeVersion]: version.versionId === activeVersionId,
-              })}
-            >
-              {versions[version.versionId].shortName}
-            </span>
-          ))}
+      <div className={styles.title}>
+        <h2>{generalData.name}</h2>
+        <div>
+          {generalData.versions.length > 1 && (
+            <div className={styles.versionList}>
+              {generalData.versions.map((version) => (
+                <span
+                  key={version.versionId}
+                  onClick={() => setActiveVersionId(version.versionId)}
+                  className={classNames({
+                    [styles.activeVersion]:
+                      version.versionId === activeVersionId,
+                  })}
+                >
+                  {versions[version.versionId].shortName}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+      </div>
+
+      <div>
+        <div>{`${activeVersion.faction}`}</div>
+        <div>
+          <span>
+            {typeof activeVersion.health === "number"
+              ? `体力：${activeVersion.health}`
+              : `体力：主 ${activeVersion.health.main}，副 ${activeVersion.health.sub}`}
+          </span>
+        </div>
+        {!!activeVersion.relatedGenerals && (
+          <div>珠联璧合：{activeVersion.relatedGenerals.join("，")}</div>
+        )}
+      </div>
+
       <div>
         {activeVersion.skills.map((skill) => (
-          <div key={skill.name}>
-            <h4>{skill.name}</h4>
-            <div>{skill.description}</div>
-          </div>
+          <Skill skill={skill} key={skill.name} />
         ))}
       </div>
     </div>
   );
 }
+
+type ParsedGeneral = {
+  versionId: VersionId;
+  parsedGeneralId: string;
+  skills: SkillType[];
+  faction: string;
+  health: number | HealthWithSub;
+  expansionPack: string;
+  relatedGenerals?: string[];
+};
+
+type HealthWithSub = { main: number; sub: number };
+
+const parseGeneral = (
+  generalData: General,
+  versionId: VersionId
+): ParsedGeneral | null => {
+  const versionData = generalData.versions.find(
+    (v) => v.versionId === versionId
+  );
+  if (!versionData) return null;
+
+  const mainHealth = versionData.health ?? generalData.health;
+  const subHealth = versionData.healthSub ?? generalData.healthSub;
+  const health: number | HealthWithSub = !!subHealth
+    ? { main: mainHealth, sub: subHealth }
+    : mainHealth;
+
+  return {
+    versionId,
+    parsedGeneralId: joinStrings(versionData.generalId ?? generalData.id),
+    skills: versionData.skills,
+    faction: joinStrings(versionData.faction ?? generalData.faction),
+    health,
+    expansionPack: versionData.expansionPack ?? generalData.expansionPack,
+    relatedGenerals: versionData.relatedGenerals ?? generalData.relatedGenerals,
+  };
+};
