@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { generals as generalsData } from "@/data/generals";
 import { useMemo } from "react";
-import { joinStrings } from "@/utils/string";
+import styles from "./GeneralList.module.scss";
 
 type Props = {
   detailLink: (key: string) => string;
@@ -30,10 +29,13 @@ export function GeneralList({ detailLink }: Props) {
   return (
     <div>
       <h1>武将列表</h1>
-      <ul>
+      <ul className={styles.linkList}>
         {generalList.map((general) => (
           <li key={general.key}>
-            <a href={detailLink(general.key)}>{general.name}</a>
+            <a
+              href={detailLink(general.key)}
+              className={styles.generalLink}
+            >{`${general.key} ${general.name}`}</a>
           </li>
         ))}
       </ul>

@@ -45,7 +45,7 @@ type SingleSkill = {
 
 type TriggerSkill = {
   type: "Trigger";
-  timing: string;
+  timing: string | string[];
 };
 
 type StateSkill = {
