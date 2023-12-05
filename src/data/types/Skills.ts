@@ -5,6 +5,9 @@ export type Skill = {
   standardizedDescription?: StandardizedDescription | StandardizedDescription[];
   // 衍生类技能
   isConditional?: boolean;
+  // 关于此技能的各种备注
+  memo?: string;
+  references?: { name: string; url: string }[];
   // TODO: keywords
   keywords?: string[];
   label?: SkillLabel | SkillLabel[];
@@ -13,14 +16,12 @@ export type Skill = {
 type StandardizedDescription = {
   name?: string;
   description: string;
-  // 关于此技能的各种备注
-  memo?: string;
   isConditional?: boolean;
 } & (
   | {
       type: "Trigger";
       // TODO: Timing type
-      timing: string | string[];
+      timing: string;
     }
   | {
       type: "State";

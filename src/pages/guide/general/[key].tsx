@@ -17,10 +17,16 @@ export default function GeneralDetailPage({ generalData }: Props) {
   return <GeneralDetail generalData={generalData} />;
 }
 
+// TODO: common
+const displayExpansions = ["SP", "纵横捭阖", "海外专属"];
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: Object.keys(generalsData)
-      .filter((key) => generalsData[key].defaultVersion !== "official")
+      .filter(
+        (key) =>
+          generalsData[key].defaultVersion !== "official" ||
+          displayExpansions.includes(generalsData[key].expansionPack)
+      )
       .map((key) => ({ params: { key } })),
     fallback: false,
   };
