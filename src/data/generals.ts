@@ -1147,7 +1147,7 @@ export const generals: Record<string, General> = {
             name: "恪守",
             description:
               "当你受到伤害时，你依次执行：1.你可以弃置两张颜色相同的牌，令此伤害-1；2.若没有其他与你势力相同的角色，你判定，若结果为红色，你摸一张牌。",
-            standardizedDescription: {
+            standardizedSkill: {
               description:
                 "当你受到伤害时，你可弃置两张颜色相同的牌▶伤害值-1。若没有与你势力相同的其他角色，你判定，若结果为红色，你摸一张牌。",
               type: "Trigger",
@@ -1158,7 +1158,7 @@ export const generals: Record<string, General> = {
             name: "筑围",
             description:
               "当你的判定牌生效后，若此牌为【杀】或伤害类锦囊，你可获得之，然后你可令当前回合角色本回合使用【杀】的次数上限和手牌上限+1。",
-            standardizedDescription: {
+            standardizedSkill: {
               description:
                 "当你进行的判定结果确定后，若判定牌为包含使用者对目标对应的角色造成伤害的效果的牌，你可获得此牌▶你可令当前回合角色使用【杀】的次数上限于此回合内+1且其手牌上限于此回合内+1。 ",
               type: "Trigger",
@@ -1253,16 +1253,18 @@ export const generals: Record<string, General> = {
             description:
               "出牌阶段开始时，你可以获得与你势力相同的角色装备区里的一张牌，然后交给另一名角色。每回合每种类别限一次，与你势力相同的角色使用指定自己为目标的牌时，其可以摸一张牌。",
             memo: "你从角色A的装备区里获得的牌，不能把它还给A（若A是你自己，则不能留在自己手上）。",
-            standardizedDescription: [
+            standardizedSkill: [
               {
-                name: "调度①",
+                isChild: true,
+                index: 1,
                 description:
                   "出牌阶段开始时，你可获得与你势力相同的一名角色装备区里的一张牌▶若其：为你，你将此牌交给一名角色；不为你，你可将此牌交给另一名角色。",
                 type: "Trigger",
                 timing: "出牌阶段开始时",
               },
               {
-                name: "调度②",
+                isChild: true,
+                index: 2,
                 description:
                   "当牌被使用时，若使用者与你势力相同，且此牌的目标角色包含其，且其本回合未因使用相同类别的牌而发动过此技能，（你令）其可摸一张牌。",
                 type: "Trigger",
@@ -1274,8 +1276,7 @@ export const generals: Record<string, General> = {
             name: "典财",
             description:
               "其他角色的出牌阶段结束时，若你此阶段失去的牌数大于等于X（X为你的体力值），你可以将手牌摸至体力上限，然后你可以变更一次副将。",
-            standardizedDescription: {
-              name: "典财",
+            standardizedSkill: {
               description:
                 "其他角色的出牌阶段结束时，若你于此阶段内失去过至少X张牌（X为你的体力值且至少为1），你可将你的手牌补至Y张（Y为你的体力上限）▶你可变更。 ",
               type: "Trigger",
@@ -1543,16 +1544,18 @@ export const generals: Record<string, General> = {
             name: "役鬼",
             description:
               "你首次明置此武将牌时，将两张剩余武将牌扣置于武将牌上，称为“魂”；每回合每种牌名限一次，你可以移去一张“魂”，视为使用任意一种基本牌或普通锦囊牌（目标仅包括与此“魂”牌面势力相同或未确定势力的角色）。",
-            standardizedDescription: [
+            standardizedSkill: [
               {
-                name: "役鬼①",
+                isChild: true,
+                index: 1,
                 description:
                   "当你明置此武将牌后，若你未发动过此技能，你随机将武将牌堆里的两张牌扣置于武将牌上（称为“魂”）。",
                 type: "Trigger",
                 timing: "明置武将牌后",
               },
               {
-                name: "役鬼②",
+                isChild: true,
+                index: 2,
                 description:
                   "当你需要使用与你于当前回合内以此法使用过的牌的牌名均不同的除【闪】外的基本牌/除【无懈可击】外的普通锦囊牌时，你可将一张“魂”置入武将牌堆▶你使用无对应的实体牌的此基本牌/普通锦囊牌（有势力且与你以此法置入武将牌堆的“魂”代表的武将牌势力不同的角色不是你以此法使用的牌的合法目标）。",
                 type: "Trigger",
@@ -1574,16 +1577,18 @@ export const generals: Record<string, General> = {
             name: "汲魂",
             description:
               "当你受到伤害后，或与你势力不同的角色从濒死被救回后，你可以将一张剩余武将牌扣置为“魂”。",
-            standardizedDescription: [
+            standardizedSkill: [
               {
-                name: "汲魂①",
+                isChild: true,
+                index: 1,
                 description:
                   "当你受到伤害后，你可随机将武将牌堆里的一张牌扣置于武将牌上（称为“魂”）。",
                 type: "Trigger",
                 timing: "明置武将牌后",
               },
               {
-                name: "汲魂②",
+                isChild: true,
+                index: 2,
                 description:
                   "当一名角色的濒死结算结束后，若其与你势力不同且存活，你可随机将武将牌堆里的一张牌扣置于武将牌上（称为“魂”）。 ",
                 type: "Trigger",
@@ -1600,16 +1605,18 @@ export const generals: Record<string, General> = {
             name: "役鬼",
             description:
               "你首次明置此武将牌时，将两张剩余武将牌扣置于武将牌上，称为“魂”；每回合每种类别限一次，你可以移去一张“魂”，视为使用任意一种基本牌或普通锦囊牌（【闪】和【无懈可击】除外，目标不能包含与此“魂”牌面势力相同或未确定势力的角色）。",
-            standardizedDescription: [
+            standardizedSkill: [
               {
-                name: "役鬼①",
+                isChild: true,
+                index: 1,
                 description:
                   "当你明置此武将牌后，若你未发动过此技能，你随机将武将牌堆里的两张牌扣置于武将牌上（称为“魂”）。",
                 type: "Trigger",
                 timing: "明置武将牌后",
               },
               {
-                name: "役鬼②",
+                isChild: true,
+                index: 2,
                 description:
                   "当你需要使用与你于当前回合内以此法使用过的牌的类别均不同的除【闪】外的基本牌/除【无懈可击】外的普通锦囊牌时，你可将一张“魂”置入武将牌堆▶你使用无对应的实体牌的此基本牌/普通锦囊牌（有势力且与你以此法置入武将牌堆的“魂”代表的武将牌势力不同的角色不是你以此法使用的牌的合法目标）。",
                 type: "Trigger",
@@ -1631,16 +1638,18 @@ export const generals: Record<string, General> = {
             name: "汲魂",
             description:
               "当你受到伤害后，或与你势力不同的角色从濒死被救回后，你可以将一张剩余武将牌扣置为“魂”。准备阶段，你可以移去至多两张“魂”，获得等量的“魂”。",
-            standardizedDescription: [
+            standardizedSkill: [
               {
-                name: "汲魂①",
+                isChild: true,
+                index: 1,
                 description:
                   "当你受到伤害后，你可随机将武将牌堆里的一张牌扣置于武将牌上（称为“魂”）。",
                 type: "Trigger",
                 timing: "明置武将牌后",
               },
               {
-                name: "汲魂②",
+                isChild: true,
+                index: 2,
                 description:
                   "当一名角色的濒死结算结束后，若其与你势力不同且存活，你可随机将武将牌堆里的一张牌扣置于武将牌上（称为“魂”）。 ",
                 type: "Trigger",
@@ -1648,7 +1657,8 @@ export const generals: Record<string, General> = {
               },
 
               {
-                name: "汲魂③",
+                isChild: true,
+                index: 3,
                 description:
                   "准备阶段，你可将至多两张“魂”置入武将牌堆▶你随机将武将牌堆里的等量张牌扣置于武将牌上（称为“魂”）。 ",
                 type: "Trigger",
@@ -1767,27 +1777,36 @@ export const generals: Record<string, General> = {
             name: "立刃",
             description:
               "出牌阶段开始时，你可以横置或重置。你横置/重置后，可以将“板”标记移动到你上家的左边/下家的右边，你视为位于此位置（不改变回合顺序）。",
-            standardizedDescription: [
+            standardizedSkill: [
               {
-                name: "立刃①",
+                isChild: true,
+                index: 1,
                 description: "出牌阶段开始时，你可以横置或重置。",
                 type: "Trigger",
                 timing: "出牌阶段开始时",
               },
               {
-                name: "立刃②",
-                description:
-                  "你横置后，（若你没有“板”，你获得一枚“板”）你可以将“板”移动到你上家的左边。→在距离、座次和阵法的计算中，你视为处于“板”所在的位置。",
+                isChild: true,
+                index: 2,
+                description: "你横置后，你可以将“板”置于你上家的左边。",
                 type: "Trigger",
                 timing: "横置后",
               },
               {
-                name: "立刃③",
-                description:
-                  "你重置后，（若你没有“板”，你获得一枚“板”）你可以将“板”移动到你下家的右边。→在距离、座次和阵法的计算中，你视为处于“板”所在的位置。",
+                isChild: true,
+                index: 3,
+                description: "你重置后，你可以将“板”置于你下家的右边。",
                 type: "Trigger",
                 timing: "重置后",
               },
+              {
+                isChild: true,
+                index: 4,
+                description:
+                  "若场上有“板”，在距离、座次和阵法的计算中，你视为处于“板”所在的位置。",
+                type: "State",
+              },
+              //
             ],
           },
           {
@@ -1844,16 +1863,18 @@ export const generals: Record<string, General> = {
             name: "倒钩",
             description:
               "你或与你势力相同的角色受到对方造成的伤害后，你可以令伤害来源摸一张牌，或受伤角色摸两张牌。你与其击杀对方的奖惩均改为摸两张牌。",
-            standardizedDescription: [
+            standardizedSkill: [
               {
-                name: "倒钩①",
+                isChild: true,
+                index: 1,
                 description:
-                  "与你势力相同的其他角色/你受到伤害后，若伤害来源是你/与你势力相同，你可以摸一/两张牌或令其摸两/一张牌。",
+                  "你受到伤害后，若伤害来源与你势力相同，你可以摸两张牌或令其摸一张牌。一名与你势力相同的其他角色受到伤害后，若伤害来源是你，你可以摸一张牌或令其摸两张牌。",
                 type: "Trigger",
                 timing: "受到伤害后",
               },
               {
-                name: "倒钩②",
+                isChild: true,
+                index: 2,
                 description:
                   "你/与你势力相同的角色死亡时，若杀死其的角色是与你势力相同的角色/你，奖惩改为“摸两张牌”。",
                 type: "Trigger",
@@ -1866,25 +1887,28 @@ export const generals: Record<string, General> = {
             description:
               "主将技，转换技，阳：回合开始时或明置此武将牌时，若你未确定势力，你可以声明任意势力并视为此势力角色（直到你死亡），然后移除、变更副将。阴：若其他角色的势力均与你相同或均与你不同，你以暗置状态恢复初始副将，你视为未确定势力。",
             label: ["主将技", "转换技"],
-            standardizedDescription: [
+            standardizedSkill: [
               {
-                name: "悍跳①",
+                isChild: true,
+                index: 1,
                 description:
-                  "你明置此武将牌时，若你未确定势力，你可以不公开你的真实势力，你声明任意未以此法声明过的势力▶（→直到你即将进行死亡结算，你视为此势力角色）你变更副将（以此法失去的副将牌不需要翻至正面朝上，被称为“初始副将”）。▷你失去“悍跳①”和“悍跳②”并获得“悍跳③”",
+                  "你明置此武将牌时，若你未确定势力，你可以不公开你的真实势力，你声明任意未以此法声明过的势力，直到你即将进行死亡结算，你视为此势力角色▶你变更副将（以此法失去的副将牌不需要翻至正面朝上，被称为“初始副将”），你失去“悍跳①”和“悍跳②”并获得“悍跳③”。",
                 type: "Trigger",
                 timing: "明置武将牌时",
               },
               {
-                name: "悍跳②",
+                isChild: true,
+                index: 2,
                 description:
-                  "回合开始时，若你未确定势力且此武将牌处于明置状态，你声明任意未以此法声明过的势力▶（→直到你即将进行死亡结算，你视为此势力角色）你变更副将（以此法失去的副将牌不需要翻至正面朝上，被称为“初始副将”）。▷你失去“悍跳①”和“悍跳②”并获得“悍跳③”",
+                  "回合开始时，若你未确定势力且此武将牌处于明置状态，你声明任意未以此法声明过的势力，直到你即将进行死亡结算，你视为此势力角色▶你变更副将（以此法失去的副将牌不需要翻至正面朝上，被称为“初始副将”），你失去“悍跳①”和“悍跳②”并获得“悍跳③”。",
                 type: "Trigger",
                 timing: "回合开始时",
               },
               {
-                name: "悍跳③",
+                isChild: true,
+                index: 3,
                 description:
-                  "任意势力的角色数变化后，若其他角色的势力均与你相同或均与你不同，你将你的副将变更为“初始副将”（以此法作为你的副将的武将牌处于暗置状态）。→直到你明置副将武将牌，你视为未确定势力。▷你失去“悍跳③”并获得“悍跳①”和“悍跳②”",
+                  "任意势力的角色数变化后，若其他角色的势力均与你相同或均与你不同，你将你的副将变更为“初始副将”（以此法作为你的副将的武将牌处于暗置状态），你视为未确定势力，你失去“悍跳③”并获得“悍跳①”和“悍跳②”。",
                 type: "Trigger",
                 timing: "DIY时机",
                 isConditional: true,
