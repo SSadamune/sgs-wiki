@@ -14,7 +14,11 @@ export default function GeneralDetailPage({ generalData }: Props) {
     return <Error statusCode={404} title="武将信息未找到" />;
   }
 
-  return <GeneralDetail generalData={generalData} />;
+  return (
+    <div>
+      <GeneralDetail generalData={generalData} />
+    </div>
+  );
 }
 
 // TODO: common

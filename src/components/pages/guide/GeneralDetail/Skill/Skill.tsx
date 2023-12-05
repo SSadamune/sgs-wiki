@@ -13,10 +13,10 @@ export function Skill({ skill }: Props) {
   const [displayStandard, setDisplayStandard] = useState(false);
 
   return (
-    <div>
+    <div className={classNames({ [styles.conditional]: skill.isConditional })}>
       <h3>
         {skill.name}
-        {skill.isConditional && <span>{` <衍>`}</span>}
+        {/* {skill.isConditional && <span>{` <衍>`}</span>} */}
       </h3>
 
       {displayStandard && !!skill.standardizedSkill ? (
@@ -38,11 +38,7 @@ export function Skill({ skill }: Props) {
           )}
         </div>
       ) : (
-        <div
-          className={classNames({ [styles.conditional]: skill.isConditional })}
-        >
-          {skill.description}
-        </div>
+        <div>{skill.description}</div>
       )}
 
       {!!skill.memo && !displayStandard && (
