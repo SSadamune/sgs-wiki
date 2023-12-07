@@ -20,7 +20,7 @@ export function Skill({ skill }: Props) {
       </h3>
 
       {displayStandard && !!skill.standardizedSkill ? (
-        <div>
+        <div className={styles.childSkillList}>
           {ensureArray(skill.standardizedSkill).map(
             (standardizedSkill, index) => (
               <div
