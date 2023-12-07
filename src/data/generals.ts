@@ -1329,7 +1329,7 @@ export const generals: Record<string, General> = {
                 isChild: true,
                 index: 2,
                 description:
-                  "当牌被使用时，若使用者与你势力相同，且此牌的目标角色包含其，且其本回合未因使用相同类别的牌而发动过此技能，（你令）其可摸一张牌。",
+                  "当牌被使用时，若使用者与你势力相同，且此牌的目标角色包含其，且本回合未因其使用相同类别的牌而发动过此技能，（你令）其可摸一张牌。",
                 type: "Trigger",
                 timing: "牌被使用时",
               },
@@ -1834,7 +1834,7 @@ export const generals: Record<string, General> = {
               description:
                 "出牌阶段，若你于此回合内{未发动过此技能或上一次因发动此技能而使用的牌为【知己知彼】/【远交近攻】}，你可使用对应的实体牌为你的一张♠手牌的【远交近攻】/【知己知彼】。",
               type: "Trigger",
-              timing: ["出牌阶段的空闲时间点"],
+              timing: "出牌阶段的空闲时间点",
             },
           },
           {
@@ -1931,10 +1931,97 @@ export const generals: Record<string, General> = {
             name: "嗜雪",
             description:
               "你对攻击范围内没有你的角色造成伤害时，或受到其造成的伤害时，视为冰属性伤害。当你受到冰属性伤害时，你可以弃置一张红色手牌取消此伤害。",
+            keywords: ["冰属性伤害"],
+            memo: "伤害来源造成冰属性伤害时选择是否取消此伤害并改为弃置你两张牌，若其不取消此伤害，才会进入“受到伤害时”的时机",
           },
         ],
       },
     ],
+    expansionPack: "DIY",
+  },
+
+  DOU009: {
+    id: "DOU009",
+    name: "杠精",
+    faction: ["魏", "蜀", "吴", "群"],
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "抬杠",
+            description:
+              "当你判定/拼点时，你可以卜算2，然后你可以将牌堆底的一张牌当作此判定结果/拼点牌。",
+            standardizedSkill: [
+              {
+                isChild: true,
+                index: 1,
+                description:
+                  "当你判定时，你可以卜算2▶你可以将牌堆底的一张牌置入处理区来作为判定牌。",
+                type: "Trigger",
+                timing: "判定时",
+              },
+              {
+                isChild: true,
+                index: 2,
+                description:
+                  "一名角色进行拼点时，若你是拼点的发起者或拼点的目标，你可以卜算2▶你选择拼点的牌的范围为你手牌区里或牌堆底的一张牌。",
+                type: "Trigger",
+                timing: "进行拼点时",
+              },
+            ],
+          },
+          {
+            name: "牌主",
+            description:
+              "主将技，每项限一次：1.你可以将一张手牌当作任意普通锦囊牌使用；2.你可以视为使用一枚野心家标记；3.当你可以发动副将的触发类技能时，可以改为发动任意同时机的无标签技能。",
+            label: "主将技",
+            standardizedSkill: [
+              {
+                isChild: true,
+                index: 1,
+                description:
+                  "主将技，当你需要使用任意普通锦囊牌时，若你没有发动过牌主①，你可使用对应的实体牌为你的一张黑色牌的此锦囊。",
+                type: "Trigger",
+                timing: "需要使用牌时",
+              },
+              {
+                isChild: true,
+                index: 2,
+                description:
+                  "主将技，当你需要使用阴阳鱼标记、珠联璧合标记或先驱标记时，若你没有发动过牌主②，你可以视为使用此标记。",
+                type: "Trigger",
+                timing: "DIY时机",
+              },
+              {
+                isChild: true,
+                index: 3,
+                description:
+                  "主将技，当你副将拥有的一个触发类技能的时机被触发时，若你满足此触发类技能的发动条件，且你没有发动过牌主③，你可以令此触发类技能于此时机内失效▶你可以发动任意武将的没有技能标签的在此时机触发的技能。",
+                type: "Trigger",
+                timing: "DIY时机",
+              },
+            ],
+          },
+          {
+            name: "约局",
+            description:
+              "副将技，限定技，出牌阶段，你可以对所有其他角色发起议事，若结果为：红色，你视为对所有意见为红色的角色使用【联军盛宴】；黑色，你对所有角色造成1点冰属性伤害。",
+            label: ["副将技", "限定技"],
+            keywords: ["议事", "冰属性伤害"],
+            standardizedSkill: {
+              description:
+                "副将技，限定技，出牌阶段，你可以令所有其他有手牌的角色同时展示一张手牌▶若以此法展示的红色牌多于黑色牌，你对所有以此法展示红色牌的角色使用一张无对应实体牌的【联军盛宴】；若以此法展示的黑色牌多于红色牌，你对所有角色造成1点冰属性伤害。",
+              type: "Trigger",
+              timing: "出牌阶段的空闲时间点",
+            },
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["李典"],
     expansionPack: "DIY",
   },
 
@@ -2045,7 +2132,7 @@ export const generals: Record<string, General> = {
           {
             name: "随适",
             description:
-              "锁定技，当其它角色因牌或技能的效果令你执行描述为“除非/需…否则…”“选择一项：…”的动作时，或者其令你选择是否执行军令时，其指定其中一个选项。若你选择该选项，结算完成后你摸两张牌。",
+              "锁定技，当其它角色因牌或技能的效果令你执行描述为“除非/需…否则…”“选择一项：…”的动作时，或者其令你选择是否执行军令时，或其对你发起议事时，其指定其中一个选项。若你选择该选项，结算完成后你摸两张牌。",
             label: "锁定技",
           },
           {
