@@ -1,3 +1,16 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filterList {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: end;
+}
+
 .linkList {
   display: flex;
   flex-direction: column;
@@ -7,4 +20,8 @@
 
 .generalLink {
   text-decoration: none;
+}
+
+.activeFilter {
+  background-color: aquamarine;
 }

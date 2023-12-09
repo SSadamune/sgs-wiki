@@ -1,6 +1,8 @@
 import { Version, VersionId } from "./types/Version";
 
-export const versions: Record<VersionId, Version> = {
+export const versions: {
+  [K in VersionId]: Version & { id: K };
+} = {
   official: {
     id: "official",
     // 官正线下最新版本
@@ -31,6 +33,11 @@ export const versions: Record<VersionId, Version> = {
     id: "official-oversea",
     name: "三国杀海外版",
     shortName: "海外",
+  },
+  "official-old-version": {
+    id: "official-old-version",
+    name: "官方旧版",
+    shortName: "旧版",
   },
   QSanguosha: {
     id: "QSanguosha",
