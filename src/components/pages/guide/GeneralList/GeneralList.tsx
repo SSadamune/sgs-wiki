@@ -45,9 +45,9 @@ export function GeneralList({ detailLink }: Props) {
   const [filters, setFilters] = useState<{
     [key in FilterKeys]: boolean;
   }>({
-    showsNewExpansions: true,
-    showsHalfOfficial: true,
-    showsOtherOfficial: true,
+    showsNewExpansions: false,
+    showsHalfOfficial: false,
+    showsOtherOfficial: false,
     showsDouDiy: true,
     showsOtherDiy: true,
   });

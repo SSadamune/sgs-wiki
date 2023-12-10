@@ -480,6 +480,54 @@ export const generals: Record<string, General> = {
   },
 
   // TODO: others
+  WEI022: {
+    id: "WEI022",
+    name: "卞夫人",
+    faction: "魏",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "横江",
+            description:
+              "当你受到1点伤害后，若当前回合角色的手牌上限大于0，你可以令其本回合手牌上限-1。此回合结束时，若其未于弃牌阶段弃置牌，你摸X张牌（X为你本回合发动此技能的次数）。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "挽危",
+            description:
+              "当确定你被其他角色获得的牌时，你可以改为自己选择失去的牌。",
+            standardizedSkill: {
+              description:
+                "当确定你因其他角色的获得而移动的牌时，若你的能被该角色获得的牌数大于X，你可将此次移动的牌改为你的X张牌（X为此次移动的牌数）。",
+              type: "Trigger",
+              timing: "确定移动的牌时",
+            },
+          },
+          {
+            name: "约俭",
+            description:
+              "每回合限一次，你或当前回合角色的牌被弃置后，若因此失去牌的角色的手牌数不大于你，你可以令其获得其中的一张。",
+            standardizedSkill: {
+              description:
+                "每回合限一次，一名角色的牌因弃置而移至弃牌堆后，若该角色：为你，你可以获得此次被移动的牌中的一张；为当前回合角色，且其手牌数不大于你，你可以令其选择此次被移动的牌中的一张，其获得之。",
+              type: "Trigger",
+              timing: "移至目标区域后",
+            },
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["曹操"],
+    expansionPack: "变",
+  },
 
   WEI023: {
     id: "WEI023",
@@ -1537,7 +1585,7 @@ export const generals: Record<string, General> = {
           {
             name: "调归",
             description:
-              "轮次技，任意角色的出牌阶段开始时，你可以将一张装备牌当【调虎离山】对当前回合角色以外的其他角色使用，使用时摸X张牌（X为与你的势力相邻的、且是此牌的目标的角色数）。",
+              "轮次技，任意角色的出牌阶段开始时，你可以将一张装备牌当【调虎离山】对当前回合角色以外的其他角色使用，使用时，你摸X张牌（X为与此牌的目标相邻且与你势力相同的角色数）。",
             label: "轮次技",
           },
           {
@@ -1629,8 +1677,7 @@ export const generals: Record<string, General> = {
           {
             name: "闭月",
             description:
-              "结束阶段，你可以令你和任意名没有手牌的角色各摸一张牌。",
-            memo: "自己没有手牌时可以摸至多两张牌。",
+              "结束阶段，你可以摸一张牌，然后你可以令本回合造成过伤害的角色各摸一张牌。",
           },
         ],
       },
@@ -1800,11 +1847,12 @@ export const generals: Record<string, General> = {
         ],
         references: [
           {
-            title: "左慈的各服结算差异和“役鬼”可以转化的锦囊牌",
+            title: "左慈的各版本图鉴，和〖役鬼〗可以转化的锦囊牌",
             url: "https://www.bilibili.com/read/cv16731260/",
           },
           {
-            title: "左慈的各服描述差异和“目标收敛、势力条件” 的详细解释",
+            title:
+              "左慈的各服描述差异，和〖役鬼〗“目标收敛、势力条件” 等概念的详细解释和举例",
             url: "https://www.bilibili.com/read/cv16158225/",
           },
         ],
@@ -1876,7 +1924,7 @@ export const generals: Record<string, General> = {
           },
           {
             title:
-              "左慈的各服描述差异，和“目标收敛、势力条件” 等概念的详细解释和举例",
+              "左慈的各服描述差异，和〖役鬼〗“目标收敛、势力条件” 等概念的详细解释和举例",
             url: "https://www.bilibili.com/read/cv16158225/",
           },
         ],
@@ -1963,6 +2011,59 @@ export const generals: Record<string, General> = {
       },
     ],
     expansionPack: "阵",
+  },
+
+  QUN028: {
+    id: "QUN028",
+    name: "陈宫",
+    faction: ["群", "魏"],
+    health: 1.5,
+    defaultVersion: "xiliang-DIY",
+    versions: [
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "引叛",
+            description:
+              "出牌阶段限一次，你可以选择一名其他角色，令所有与其势力不同的角色依次选择是否对其使用一张【杀】，然后其下回合使用【杀】次数+X (X为其以此法受到的伤害数)，若其以此法进入过濒死则其回复1点体力。",
+          },
+          {
+            name: "与谋",
+            description:
+              "锁定技，你杀死其他角色或其他角色杀死你均不执行奖惩，其他角色因奖惩而摸牌时，你摸一张牌。",
+            label: "锁定技",
+          },
+        ],
+      },
+      {
+        versionId: "xiliang-DIY",
+        faction: "群",
+        skills: [
+          {
+            name: "明策",
+            description:
+              // TODO: 修订版描述：https://www.bilibili.com/read/cv25257253
+              "出牌阶段限一次，你可以弃置一张【杀】或武器牌，对一名没有军令的其他角色献策并指定另一名角色。结束阶段，其须选择一项：令你指定的角色执行军令；弃置此军令，摸两张牌。",
+            keywords: ["献策"],
+          },
+          {
+            name: "智迟",
+            description:
+              "锁定技，当你于回合外受到伤害后，本回合普通锦囊牌和【杀】指定你为目标时，取消之。",
+            label: "锁定技",
+          },
+        ],
+        references: [
+          {
+            title: "陈宫设计思路及献策机制讲解",
+            url: "https://www.bilibili.com/read/cv14434956/",
+          },
+        ],
+        expansionPack: "治",
+      },
+    ],
+    expansionPack: "不臣",
   },
 
   // TODO: others

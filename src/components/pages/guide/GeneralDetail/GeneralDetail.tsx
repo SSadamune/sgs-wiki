@@ -31,8 +31,6 @@ export function GeneralDetail({ generalData }: Props) {
     return <Error statusCode={404} title="技能版本信息未找到" />;
   }
 
-  console.log(activeVersion);
-
   return (
     <div>
       <div className={styles.title}>
@@ -83,7 +81,7 @@ export function GeneralDetail({ generalData }: Props) {
             className={styles.referencesTitle}
             onClick={() => setExpandReferences(!expandReferences)}
           >
-            参考链接 {expandReferences ? "▼" : "▶"}
+            {expandReferences ? "▿" : "▹"} 参考链接
           </h3>
           {expandReferences && (
             <ul>
