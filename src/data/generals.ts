@@ -795,6 +795,7 @@ export const generals: Record<string, General> = {
             name: "烈刃",
             description:
               "当你使用【杀】对一个目标造成伤害后，你可以与该角色拼点，若你赢，你获得其一张牌。",
+            keywords: ["拼点"],
           },
         ],
       },
@@ -811,6 +812,7 @@ export const generals: Record<string, General> = {
             name: "烈刃",
             description:
               "你使用的【杀】对目标造成伤害后，你可以与其拼点，若你：赢，你获得其一张牌；没赢，你与其获得对方拼点的牌。",
+            keywords: ["拼点"],
           },
         ],
       },
@@ -1076,6 +1078,7 @@ export const generals: Record<string, General> = {
             name: "天义",
             description:
               "出牌阶段限一次，你可以与一名其他角色拼点。若你赢，本回合你使用【杀】无距离限制、可多指定一个目标且可多使用一张【杀】；若你没赢，本回合你不能使用【杀】。",
+            keywords: ["拼点"],
           },
         ],
       },
@@ -1086,11 +1089,13 @@ export const generals: Record<string, General> = {
             name: "天义",
             description:
               "出牌阶段限一次，你可以与一名其他角色拼点。若你赢，本回合你使用【杀】无距离限制、可多指定一个目标且可多使用一张【杀】；若你没赢，本回合你不能使用【杀】。",
+            keywords: ["拼点"],
           },
           {
             name: "酣战",
             description:
               "当你拼点后，没赢的角色可以获得与其拼点的角色装备区里的一张牌。",
+            keywords: ["拼点"],
           },
         ],
       },
@@ -1101,11 +1106,13 @@ export const generals: Record<string, General> = {
             name: "天义",
             description:
               "出牌阶段限一次，你可以与一名其他角色拼点。若你赢，本回合你使用【杀】无距离限制、可多指定一个目标且可多使用一张【杀】；若你没赢，本回合你不能使用【杀】。",
+            keywords: ["拼点"],
           },
           {
             name: "酣战",
             description:
               "当你拼点后，没赢的角色可以获得对方装备区里的一张牌；赢的角色可以获得拼点牌里的【杀】。",
+            keywords: ["拼点"],
           },
         ],
       },
@@ -1766,16 +1773,6 @@ export const generals: Record<string, General> = {
                 timing: "需要使用牌时",
               },
             ],
-            references: [
-              {
-                name: "左慈的各服结算差异和“役鬼”可以转化的锦囊牌",
-                url: "https://www.bilibili.com/read/cv16731260/",
-              },
-              {
-                name: "左慈的各服描述差异和“目标收敛、势力条件” 的详细解释",
-                url: "https://www.bilibili.com/read/cv16158225/",
-              },
-            ],
           },
           {
             name: "汲魂",
@@ -1799,6 +1796,16 @@ export const generals: Record<string, General> = {
                 timing: "需要使用牌时",
               },
             ],
+          },
+        ],
+        references: [
+          {
+            title: "左慈的各服结算差异和“役鬼”可以转化的锦囊牌",
+            url: "https://www.bilibili.com/read/cv16731260/",
+          },
+          {
+            title: "左慈的各服描述差异和“目标收敛、势力条件” 的详细解释",
+            url: "https://www.bilibili.com/read/cv16158225/",
           },
         ],
       },
@@ -1827,16 +1834,7 @@ export const generals: Record<string, General> = {
                 timing: "需要使用牌时",
               },
             ],
-            references: [
-              {
-                name: "左慈的各服结算差异和“役鬼”可以转化的锦囊牌",
-                url: "https://www.bilibili.com/read/cv16731260/",
-              },
-              {
-                name: "左慈的各服描述差异和“目标收敛、势力条件” 的详细解释",
-                url: "https://www.bilibili.com/read/cv16158225/",
-              },
-            ],
+            memo: "〖役鬼〗转化的牌的目标为满足牌的合法性的目标与满足役鬼势力的目标的交集。详见参考链接。",
           },
           {
             name: "汲魂",
@@ -1871,6 +1869,17 @@ export const generals: Record<string, General> = {
             ],
           },
         ],
+        references: [
+          {
+            title: "左慈的各版本图鉴，和〖役鬼〗可以转化的锦囊牌",
+            url: "https://www.bilibili.com/read/cv16731260/",
+          },
+          {
+            title:
+              "左慈的各服描述差异，和“目标收敛、势力条件” 等概念的详细解释和举例",
+            url: "https://www.bilibili.com/read/cv16158225/",
+          },
+        ],
       },
     ],
     expansionPack: "变",
@@ -1892,6 +1901,7 @@ export const generals: Record<string, General> = {
             name: "双刃",
             description:
               "出牌阶段开始时，你可以与一名角色拼点，若你赢，你视为对一名与其势力相同的角色使用【杀】；若你没赢，本回合你不能对其他角色使用牌。",
+            keywords: ["拼点"],
           },
         ],
       },
@@ -1901,7 +1911,9 @@ export const generals: Record<string, General> = {
           {
             name: "双刃",
             description:
-              "出牌阶段开始时，你可以与一名角色拼点，若你赢，你视为对一名与其势力相同的角色使用【杀】；若你没赢，本回合你不能使用【杀】。你的【杀】具有<富甲→目标+1>。",
+              "出牌阶段开始时，你可与一名角色拼点，若你赢，你视为对一名与其势力相同的角色使用【杀】；若你没赢，此阶段你不能使用【杀】或伤害类锦囊。你的【杀】有<富甲→选择唯一目标后，可以令其相邻的一名角色也成为目标>。",
+            memo: "无对应实体牌的【杀】无距离限制。",
+            keywords: ["拼点", "富甲"],
           },
         ],
       },
@@ -2111,6 +2123,7 @@ export const generals: Record<string, General> = {
                 timing: "进行拼点时",
               },
             ],
+            keywords: ["拼点"],
           },
           // {
           //   name: "牌主",
