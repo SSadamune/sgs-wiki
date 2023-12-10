@@ -9,7 +9,6 @@ export type Skill = {
   isConditional?: boolean;
   // 关于此技能的各种备注
   memo?: string;
-  references?: { name: string; url: string }[];
   // TODO: keywords
   keywords?: string[];
   label?: SkillLabel | SkillLabel[];

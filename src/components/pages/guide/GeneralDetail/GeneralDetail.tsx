@@ -17,6 +17,7 @@ export function GeneralDetail({ generalData }: Props) {
   const [activeVersionId, setActiveVersionId] = useState<VersionId>(
     generalData.defaultVersion
   );
+  const [expandReferences, setExpandReferences] = useState(false);
 
   const activeVersion = useMemo(() => {
     return parseGeneral(generalData, activeVersionId);
@@ -29,6 +30,8 @@ export function GeneralDetail({ generalData }: Props) {
   if (!activeVersion) {
     return <Error statusCode={404} title="技能版本信息未找到" />;
   }
+
+  console.log(activeVersion);
 
   return (
     <div>
@@ -73,6 +76,26 @@ export function GeneralDetail({ generalData }: Props) {
           <Skill skill={skill} key={skill.name} />
         ))}
       </div>
+
+      {!!activeVersion.references && activeVersion.references.length > 0 && (
+        <div>
+          <h3
+            className={styles.referencesTitle}
+            onClick={() => setExpandReferences(!expandReferences)}
+          >
+            参考链接 {expandReferences ? "▼" : "▶"}
+          </h3>
+          {expandReferences && (
+            <ul>
+              {activeVersion.references.map((reference, index) => (
+                <li key={index} className={styles.referencesItem}>
+                  <a href={reference.url}>{reference.title}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -85,6 +108,7 @@ type ParsedGeneral = {
   health: number | HealthWithSub;
   expansionPack: string;
   relatedGenerals?: string[];
+  references?: { title: string; url: string }[];
 };
 
 type HealthWithSub = { main: number; sub: number };
@@ -105,9 +129,9 @@ const parseGeneral = (
     : mainHealth;
 
   return {
+    ...versionData,
     versionId,
     parsedGeneralId: joinStrings(versionData.generalId ?? generalData.id),
-    skills: versionData.skills,
     faction: joinStrings(versionData.faction ?? generalData.faction),
     health,
     expansionPack: versionData.expansionPack ?? generalData.expansionPack,

@@ -32,6 +32,7 @@ export type GeneralVersion = {
   healthSub?: number;
   expansionPack?: string;
   relatedGenerals?: string[];
+  references?: { title: string; url: string }[];
 };
 
 export type ExpansionName =
