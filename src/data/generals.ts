@@ -784,7 +784,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        versionId: "official",
+        versionId: "half-official",
         skills: [
           {
             name: "望归",
