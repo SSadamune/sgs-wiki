@@ -6,13 +6,18 @@ export const versions: {
   official: {
     id: "official",
     // 官正线下最新版本
-    name: "2023国战/十年心",
+    name: "23典藏/十年心",
     shortName: "官正",
   },
   "half-official": {
     id: "half-official",
-    name: "官盗线下/十年经典",
+    name: "官盗(十年经典)",
     shortName: "官盗",
+  },
+  "half-official-other": {
+    id: "half-official-other",
+    name: "其他官盗版本",
+    shortName: "官盗2",
   },
   "official-online": {
     id: "official-online",

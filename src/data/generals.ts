@@ -507,7 +507,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "当确定你因其他角色的获得而移动的牌时，若你的能被该角色获得的牌数大于X，你可将此次移动的牌改为你的X张牌（X为此次移动的牌数）。",
-              type: "Trigger",
+
               timing: "确定移动的牌时",
             },
           },
@@ -518,7 +518,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "每回合限一次，一名角色的牌因弃置而移至弃牌堆后，若该角色：为你，你可以获得此次被移动的牌中的一张；为当前回合角色，且其手牌数不大于你，你可以令其选择此次被移动的牌中的一张，其获得之。",
-              type: "Trigger",
+
               timing: "移至目标区域后",
             },
           },
@@ -793,7 +793,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "当你造成或受到伤害后，若你于当前回合内未发动过此技能且此武将牌处于明置状态且你的另一张武将牌：处于明置状态，你可令与你势力相同的角色各摸一张牌；处于暗置状态，你可对与你势力不同的一名角色造成1点普通伤害。",
-              type: "Trigger",
+
               timing: ["造成伤害后", "受到伤害后"],
             },
             memo: "不能通过发动“望归”明置此武将牌（暗置时不满足任何发动条件）。",
@@ -805,7 +805,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "当黑色【杀】或黑色普通锦囊牌于其他角色的出牌阶段内指定目标后，若使用者为该角色且其于此回合内于使用此牌之前未使用过黑色【杀】或黑色普通锦囊牌且目标对应的角色数为1，你可发动此技能▶{若其手牌数小于体力值，其将手牌补至X张（X为其体力值），其于此回合内不能使用对应的实体牌均是其手牌区的牌的牌}。若你与其所有武将牌均处于明置状态，你可暗置你的一张不为君主武将牌且不为士兵牌的武将牌▷其暗置你选择的其一张不为君主武将牌且不为士兵牌的武将牌，你与其于此回合内不能明置以此法暗置的武将牌。 ",
-              type: "Trigger",
+
               timing: ["牌指定目标后"],
             },
             memo: "如果不满足‘手牌小于体力值’，则无法执行补牌和封出牌的效果；但如果双方均已明置武将牌，仍然可以执行暗置武将牌的操作。",
@@ -1325,7 +1325,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "当你受到伤害时，你可弃置两张颜色相同的牌▶伤害值-1。若没有与你势力相同的其他角色，你判定，若结果为红色，你摸一张牌。",
-              type: "Trigger",
+
               timing: "受到伤害时",
             },
           },
@@ -1336,7 +1336,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "当你进行的判定结果确定后，若判定牌为包含使用者对目标对应的角色造成伤害的效果的牌，你可获得此牌▶你可令当前回合角色使用【杀】的次数上限于此回合内+1且其手牌上限于此回合内+1。 ",
-              type: "Trigger",
+
               timing: "判定结果确定后",
             },
             keywords: ["伤害类牌"],
@@ -1430,19 +1430,17 @@ export const generals: Record<string, General> = {
             memo: "你从角色A的装备区里获得的牌，不能把它还给A（若A是你自己，则不能留在自己手上）。",
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description:
                   "出牌阶段开始时，你可获得与你势力相同的一名角色装备区里的一张牌▶若其：为你，你将此牌交给一名角色；不为你，你可将此牌交给另一名角色。",
-                type: "Trigger",
+
                 timing: "出牌阶段开始时",
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "当牌被使用时，若使用者与你势力相同，且此牌的目标角色包含其，且本回合未因其使用相同类别的牌而发动过此技能，（你令）其可摸一张牌。",
-                type: "Trigger",
+
                 timing: "牌被使用时",
               },
             ],
@@ -1454,7 +1452,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "其他角色的出牌阶段结束时，若你于此阶段内失去过至少X张牌（X为你的体力值且至少为1），你可将你的手牌补至Y张（Y为你的体力上限）▶你可变更。 ",
-              type: "Trigger",
+
               timing: "出牌阶段结束时",
             },
           },
@@ -1804,19 +1802,17 @@ export const generals: Record<string, General> = {
               "你首次明置此武将牌时，将两张剩余武将牌扣置于武将牌上，称为“魂”；每回合每种牌名限一次，你可以移去一张“魂”，视为使用任意一种基本牌或普通锦囊牌（目标仅包括与此“魂”牌面势力相同或未确定势力的角色）。",
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description:
                   "当你明置此武将牌后，若你未发动过此技能，你随机将武将牌堆里的两张牌扣置于武将牌上（称为“魂”）。",
-                type: "Trigger",
+
                 timing: "明置武将牌后",
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "当你需要使用与你于当前回合内以此法使用过的牌的牌名均不同的除【闪】外的基本牌/除【无懈可击】外的普通锦囊牌时，你可将一张“魂”置入武将牌堆▶你使用无对应的实体牌的此基本牌/普通锦囊牌（有势力且与你以此法置入武将牌堆的“魂”代表的武将牌势力不同的角色不是你以此法使用的牌的合法目标）。",
-                type: "Trigger",
+
                 timing: "需要使用牌时",
               },
             ],
@@ -1827,19 +1823,17 @@ export const generals: Record<string, General> = {
               "当你受到伤害后，或与你势力不同的角色从濒死被救回后，你可以将一张剩余武将牌扣置为“魂”。",
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description:
                   "当你受到伤害后，你可随机将武将牌堆里的一张牌扣置于武将牌上（称为“魂”）。",
-                type: "Trigger",
+
                 timing: "明置武将牌后",
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "当一名角色的濒死结算结束后，若其与你势力不同且存活，你可随机将武将牌堆里的一张牌扣置于武将牌上（称为“魂”）。 ",
-                type: "Trigger",
+
                 timing: "需要使用牌时",
               },
             ],
@@ -1866,19 +1860,17 @@ export const generals: Record<string, General> = {
               "你首次明置此武将牌时，将两张剩余武将牌扣置于武将牌上，称为“魂”；每回合每种类别限一次，你可以移去一张“魂”，视为使用任意一种基本牌或普通锦囊牌（【闪】和【无懈可击】除外，目标不能包含与此“魂”牌面势力相同或未确定势力的角色）。",
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description:
                   "当你明置此武将牌后，若你未发动过此技能，你随机将武将牌堆里的两张牌扣置于武将牌上（称为“魂”）。",
-                type: "Trigger",
+
                 timing: "明置武将牌后",
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "当你需要使用与你于当前回合内以此法使用过的牌的类别均不同的除【闪】外的基本牌/除【无懈可击】外的普通锦囊牌时，你可将一张“魂”置入武将牌堆▶你使用无对应的实体牌的此基本牌/普通锦囊牌（有势力且与你以此法置入武将牌堆的“魂”代表的武将牌势力不同的角色不是你以此法使用的牌的合法目标）。",
-                type: "Trigger",
+
                 timing: "需要使用牌时",
               },
             ],
@@ -1890,28 +1882,25 @@ export const generals: Record<string, General> = {
               "当你受到伤害后，或与你势力不同的角色从濒死被救回后，你可以将一张剩余武将牌扣置为“魂”。准备阶段，你可以移去至多两张“魂”，获得等量的“魂”。",
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description:
                   "当你受到伤害后，你可随机将武将牌堆里的一张牌扣置于武将牌上（称为“魂”）。",
-                type: "Trigger",
+
                 timing: "明置武将牌后",
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "当一名角色的濒死结算结束后，若其与你势力不同且存活，你可随机将武将牌堆里的一张牌扣置于武将牌上（称为“魂”）。 ",
-                type: "Trigger",
+
                 timing: "濒死结算结束后",
               },
 
               {
-                isChild: true,
                 index: 3,
                 description:
                   "准备阶段，你可将至多两张“魂”置入武将牌堆▶你随机将武将牌堆里的等量张牌扣置于武将牌上（称为“魂”）。 ",
-                type: "Trigger",
+
                 timing: "准备阶段",
               },
             ],
@@ -2085,7 +2074,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "出牌阶段，若你于此回合内{未发动过此技能或上一次因发动此技能而使用的牌为【知己知彼】/【远交近攻】}，你可使用对应的实体牌为你的一张♠手牌的【远交近攻】/【知己知彼】。",
-              type: "Trigger",
+
               timing: "出牌阶段的空闲时间点",
             },
           },
@@ -2097,7 +2086,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "锁定技，当你受到伤害时，若你不在来源的攻击范围内，你令伤害值-1。 ",
-              type: "Trigger",
+
               timing: ["受到伤害时"],
             },
           },
@@ -2127,6 +2116,151 @@ export const generals: Record<string, General> = {
   //
   // =========================================================================
 
+  AM001: {
+    id: "AM001",
+    name: "司马昭",
+    faction: "野心家",
+    health: 1.5,
+    defaultVersion: "official",
+    relatedGenerals: ["司马懿"],
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "夙智",
+            description:
+              "锁定技，你的回合内，你拥有以不效果：1.你的【杀】或【决斗】对其他角色造成伤害+1；2.你使用非转化锦囊牌时无距离限制且摸一张牌；3.其他角色因弃置而失去牌时，你获得其一张牌。若你发动以上效果达到三次，本回合此技能失效，否则回合结束时你获得“反馈”直到下回合开始。",
+            standardizedSkill: [
+              {
+                index: 1,
+                description:
+                  "当你于回合内因执行【杀】或【决斗】的效果而造成伤害时，若使用者为你且X＜3，你令伤害值+1。",
+                timing: "造成伤害时",
+              },
+              {
+                index: 2,
+                description:
+                  "当非转化的锦囊牌于你的回合内被使用时，若使用者为你且X＜3，你摸一张牌。",
+                timing: "牌被使用时",
+              },
+              {
+                index: 3,
+                description:
+                  "当其他角色的牌于你的回合内因弃置而置入弃牌堆后，若X＜3，你获得其一张牌。",
+                timing: "移至目标区域后",
+              },
+              {
+                index: 4,
+                description:
+                  "若X＜3，你于回合内使用非转化的锦囊牌无距离关系的限制。",
+                timing: null,
+              },
+              {
+                index: 5,
+                description:
+                  "回合结束前，若X＜3，你于你的下个回合开始之前拥有〖反馈〗。（X为你于此回合内发动〖夙智①〗、〖夙智②〗和〖夙智③〗的次数之和） ",
+                timing: "回合结束前",
+              },
+            ],
+            label: "锁定技",
+          },
+          {
+            name: "昭心",
+            description:
+              "当你受到伤害后，你可以展示所有手牌，然后与一名手牌数小于等于你的其他角色交换手牌。",
+            standardizedSkill: {
+              description:
+                "当你受到伤害后，你可展示所有手牌▶你与一名手牌数不大于你的其他角色交换手牌。",
+              timing: "受到伤害后",
+            },
+          },
+        ],
+      },
+    ],
+    expansionPack: "不臣",
+  },
+
+  AM002: {
+    id: "AM002",
+    name: "钟会",
+    faction: "野心家",
+    health: 2,
+    defaultVersion: "half-official-other",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "权计",
+            description:
+              "每回合各限一次，当你造成或受到伤害后，你楼可以摸一张牌并将一张牌置于武将牌上，称为“权”；你的手牌上限+X（X为“权”数）。",
+            standardizedSkill: [
+              {
+                index: 1,
+                description:
+                  "当你受到伤害后，若你于当前回合内未发动过此技能，你可摸一张牌▶你将一张牌置于武将牌上（称为“权”）。",
+                timing: "受到伤害后",
+              },
+              {
+                index: 2,
+                description:
+                  "当你造成伤害后，若你于当前回合内未发动过此技能，你可摸一张牌▶你将一张牌置于武将牌上（称为“权”）。",
+                timing: "造成伤害后",
+              },
+              {
+                index: 3,
+                description: "你的手牌上限+X（X为“权”数）。",
+                timing: null,
+              },
+            ],
+          },
+          {
+            name: "排异",
+            description:
+              "出牌阶段限一次，你可移去一张“权”，令-名角色摸X张牌（X为“权”数且至多为7）若其手牌数大于你，你对其造成1点伤害。",
+            standardizedSkill: {
+              description:
+                "出牌阶段限一次，你可将一张“权”置入弃牌堆并选择一名角色▶其摸X张牌（X=min{“权”数,7}）。若其手牌数大于你，你对其造成1点普通伤害。 ",
+              timing: "出牌阶段的空闲时间点",
+            },
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "权计",
+            description:
+              "每回合各限一次，当你造成或受到伤害后，你可以摸X张牌，然后你将等量的牌置于武将牌上，称为“权”；你的手牌上限+X（X为“权”数，至少为1，至多为你的体力上限）。",
+          },
+          {
+            name: "排异",
+            description:
+              "出牌阶段限一次，你可以对一名角色发起一次“军令”，若其执行，你摸X张牌并移去一张“权”；若其不执行，你可以对与其势力相同的至多X名角色各造成1点伤害并移去等量的“权”（X为“权”数，至少为1，至多为你的体力上限）。",
+          },
+        ],
+      },
+      {
+        versionId: "half-official-other",
+        skills: [
+          {
+            name: "权计",
+            description:
+              "当你造成或受到1点伤害后，你可以摸一张牌，然后弃置一张牌，若X小于你的体力上限，将此牌置于武将牌上，称为“权”；你的手牌上限+X（X为“权”数）。",
+          },
+          {
+            name: "排异",
+            description:
+              "出牌阶段限一次，你可对一名角色发起“军令若其执行，你摸X张牌，移去一张“权”若其不执行，你可以对与其势力相同的至多X名角色各造成1点伤害，移去等量的“权”（X为“权”数）。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "不臣",
+  },
+
   // TODO: others
 
   // ================================ Dou DIY ================================
@@ -2155,26 +2289,21 @@ export const generals: Record<string, General> = {
               "出牌阶段开始时，你可以横置或重置。你横置/重置后，可以将“板”标记移动到你上家的左边/下家的右边，你视为位于此位置（不改变回合顺序）。",
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description: "出牌阶段开始时，你可以横置或重置。",
-                type: "Trigger",
                 timing: "出牌阶段开始时",
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "你横置后/重置后，（若场上没有“板”，你获得“板”标记）你可以将“板”置于你上家的左边/下家的右边。",
-                type: "Trigger",
                 timing: ["横置后", "重置后"],
               },
               {
-                isChild: true,
                 index: 3,
                 description:
                   "若场上有“板”，在距离、座次和阵法的计算中，你视为处于“板”所在的位置。",
-                type: "State",
+                timing: null,
               },
               //
             ],
@@ -2208,19 +2337,17 @@ export const generals: Record<string, General> = {
               "当你判定/拼点时，你可以卜算2，然后你可以将牌堆底的一张牌当作此判定结果/拼点牌。",
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description:
                   "当你判定时，你可以卜算2▶你可以将牌堆底的一张牌置入处理区来作为判定牌。",
-                type: "Trigger",
+
                 timing: "判定时",
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "当一名角色进行拼点时，若你是拼点的发起者或拼点的目标，你可以卜算2▶你选择拼点的牌的范围为你手牌区里或牌堆底的一张牌。",
-                type: "Trigger",
+
                 timing: "进行拼点时",
               },
             ],
@@ -2232,27 +2359,27 @@ export const generals: Record<string, General> = {
           //     "每项限一次：1.你可以视为使用任意普通锦囊牌；2.你可以视为使用野心家标记；3.发动另一张武将牌的触发类技能时，可以改为发动任意同时机的无标签技能。执行过全部选项后，“组局”视为未发动过。",
           //   standardizedSkill: [
           //     {
-          //       isChild: true,
+          //
           //       index: 1,
           //       description:
           //         "当你需要使用任意普通锦囊牌时，若你没有发动过〖牌主①〗，你可使用无对应实体牌的此锦囊▷若你发动过〖牌主②〗和〖牌主③〗，且你发动过〖约局〗，你令〖约局〗的发动次数上限+1。",
-          //       type: "Trigger",
+          //
           //       timing: "需要使用牌时",
           //     },
           //     {
-          //       isChild: true,
+          //
           //       index: 2,
           //       description:
           //         "当你需要使用阴阳鱼标记、珠联璧合标记或先驱标记时，若你没有发动过〖牌主②〗，你可以视为使用此标记▷若你发动过〖牌主①〗和〖牌主③〗，且你发动过〖约局〗，你令〖约局〗的发动次数上限+1。",
-          //       type: "Trigger",
+          //
           //       timing: "DIY时机",
           //     },
           //     {
-          //       isChild: true,
+          //
           //       index: 3,
           //       description:
           //         "当你另一张武将牌上的一个触发类技能的时机被触发时，若你满足此触发类技能的发动条件，且你没有发动过〖牌主③〗，你可以令此触发类技能于此时机内失效▶你可以发动任意武将的没有技能标签的在此时机触发的技能▷若你发动过〖牌主②〗和〖牌主③〗，且你发动过〖约局〗，你令〖约局〗的发动次数上限+1。",
-          //       type: "Trigger",
+          //
           //       timing: "DIY时机",
           //     },
           //   ],
@@ -2260,14 +2387,14 @@ export const generals: Record<string, General> = {
           {
             name: "襄举",
             description:
-              "摸牌阶段开始时，你可以对所有其他角色发起议事，若结果为：红，你可以跳过此阶段，并视为对你和红色意见角色使用【联军盛宴】；黑，你判定，你可以对议事牌花色与判定结果相同的角色和你自己造成1点冰冻伤害。",
+              "摸牌阶段开始时，你可以对所有其他角色发起议事，若结果为：红，你跳过此阶段，并视为对你和红色意见角色使用【联军盛宴】；黑，你判定，你可以对议事牌花色与判定结果相同的一名角色和你自己造成1点冰冻伤害。",
             keywords: ["议事", "冰属性伤害"],
             standardizedSkill: {
               description:
                 // 用“议事”关键字描述
-                "摸牌阶段开始时，你可以令所有有手牌的其他角色同时展示一张手牌▶若以此法展示的红色牌多于黑色牌，你可以跳过此阶段▷你对你和所有以此法展示红色牌的其他角色使用一张无对应实体牌的【联军盛宴】（你因执行此牌的效果而摸牌或回复的总数为以此法展示红色牌的角色数）。若以此法展示的黑色牌多于红色牌，你判定，你可以对你和以此法展示的牌与判定结果花色相同的角色造成1点冰属性伤害。",
+                "摸牌阶段开始时，你可以令所有有手牌的其他角色同时展示一张手牌▶若以此法展示的红色牌多于黑色牌，你跳过此阶段，你对你和所有以此法展示红色牌的其他角色使用一张无对应实体牌的【联军盛宴】（你因执行此牌的效果而摸牌或回复的总数为以此法展示红色牌的角色数）。若以此法展示的黑色牌多于红色牌，你判定，你可以对你和一名以此法展示的牌与判定结果花色相同的角色造成1点冰属性伤害。",
               // "准备阶段，你可以令所有有手牌的角色同时展示一张手牌▶若以此法展示的红色牌多于黑色牌→本回合的下一个摸牌阶段开始时，跳过此阶段并对所有以此法展示红色牌的其他角色使用一张无对应实体牌的【联军盛宴】。若以此法展示的黑色牌多于红色牌→本回合的下一个出牌阶段开始时，跳过此阶段并判定，你对以此法展示的牌点数不大于判定结果的角色造成1点冰属性伤害。",
-              type: "Trigger",
+
               timing: "摸牌阶段开始时",
             },
           },
@@ -2323,19 +2450,17 @@ export const generals: Record<string, General> = {
               "你或与你势力相同的角色受到对方造成的伤害后，你可以令伤害来源摸一张牌，或受伤角色摸两张牌。你与其击杀对方的奖惩均改为摸两张牌。",
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description:
                   "你受到伤害后，若伤害来源与你势力相同，你可以摸两张牌或令其摸一张牌。一名与你势力相同的其他角色受到伤害后，若伤害来源是你，你可以摸一张牌或令其摸两张牌。",
-                type: "Trigger",
+
                 timing: "受到伤害后",
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "你/与你势力相同的角色死亡时，若杀死其的角色是与你势力相同的角色/你，奖惩改为“摸两张牌”。",
-                type: "Trigger",
+
                 timing: "死亡时",
               },
             ],
@@ -2347,19 +2472,17 @@ export const generals: Record<string, General> = {
             label: ["主将技", "转换技"],
             standardizedSkill: [
               {
-                isChild: true,
                 index: 1,
                 description:
                   "回合开始时或你明置此武将牌时，若你未确定势力，你可以不公开你的真实势力，你声明任意未以此法声明过的势力▶你视为此势力角色（直到你即将进行死亡结算），你变更副将（以此法失去的副将牌不需要翻至正面朝上，被称为“初始副将”），你失去〖悍跳①〗并获得〖悍跳②〗。",
-                type: "Trigger",
+
                 timing: ["回合开始时", "明置武将牌时"],
               },
               {
-                isChild: true,
                 index: 2,
                 description:
                   "任意势力的角色数变化后，若其他角色的势力均与你相同或均与你不同，你将你的副将变更为“初始副将”（以此法作为你的副将的武将牌处于暗置状态），你视为未确定势力，你失去〖悍跳②〗并获得〖悍跳①〗。",
-                type: "Trigger",
+
                 timing: "DIY时机",
                 isConditional: true,
               },

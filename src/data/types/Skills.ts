@@ -4,7 +4,7 @@ export type Skill = {
   name: string;
   description: string;
   // 标准化描述
-  standardizedSkill?: StandardizedSkill | StandardizedSkill[];
+  standardizedSkill?: StandardizedSkill | StandardizedSkillChild[];
   // 衍生类技能
   isConditional?: boolean;
   // 关于此技能的各种备注
@@ -14,9 +14,15 @@ export type Skill = {
   label?: SkillLabel | SkillLabel[];
 };
 
-type StandardizedSkill = BaseSkill &
-  (ChildSkill | SingleSkill) &
-  (TriggerSkill | StateSkill);
+type StandardizedSkill = {
+  description: string;
+  isConditional?: boolean;
+  timing: string | string[] | null;
+};
+
+type StandardizedSkillChild = StandardizedSkill & {
+  index: Index;
+};
 
 type SkillLabel =
   | "锁定技"
@@ -26,27 +32,3 @@ type SkillLabel =
   | "副将技"
   | "阵法技"
   | "转换技";
-
-type BaseSkill = {
-  description: string;
-  isConditional?: boolean;
-};
-
-type ChildSkill = {
-  isChild: true;
-  index: Index;
-};
-
-type SingleSkill = {
-  isChild?: false;
-  index?: undefined;
-};
-
-type TriggerSkill = {
-  type: "Trigger";
-  timing: string | string[];
-};
-
-type StateSkill = {
-  type: "State";
-};
