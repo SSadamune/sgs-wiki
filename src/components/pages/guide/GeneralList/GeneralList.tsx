@@ -12,6 +12,7 @@ type Props = {
 // TODO: common
 const newExpansions: ExpansionName[] = ["SP", "纵横捭阖", "海外专属"];
 const otherOfficialVersions: VersionId[] = [
+  "half-official-other",
   "official-online-new",
   "official-mobile",
   "official-oversea",
@@ -37,7 +38,7 @@ export function GeneralList({ detailLink }: Props) {
   } = {
     showsNewExpansions: "新扩展",
     showsHalfOfficial: "官盗增修",
-    showsOtherOfficial: "采用旧版",
+    showsOtherOfficial: "其它版本",
     showsDouDiy: "豆包DIY",
     showsOtherDiy: "其它DIY",
   };

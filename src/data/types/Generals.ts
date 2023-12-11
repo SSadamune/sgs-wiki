@@ -48,4 +48,4 @@ export type ExpansionName =
   | "DIY"
   | "其它";
 
-export type Faction = "魏" | "蜀" | "吴" | "群" | "汉" | "晋";
+export type Faction = "魏" | "蜀" | "吴" | "群" | "汉" | "晋" | "野心家";

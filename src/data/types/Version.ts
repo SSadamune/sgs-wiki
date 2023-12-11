@@ -1,6 +1,7 @@
 export type VersionId =
   | "official"
   | "half-official"
+  | "half-official-other"
   | "official-online"
   | "official-online-new"
   | "official-mobile"
