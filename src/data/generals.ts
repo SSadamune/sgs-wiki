@@ -2443,7 +2443,7 @@ export const generals: Record<string, General> = {
     id: "DOU005",
     name: "一到雪季就不见",
     faction: ["魏", "蜀", "吴", "群"],
-    health: 1.5,
+    health: 2,
     defaultVersion: "dou-DIY",
     versions: [
       {
@@ -2490,6 +2490,7 @@ export const generals: Record<string, General> = {
         ],
       },
     ],
+    relatedGenerals: ["陆逊"],
     expansionPack: "DIY",
   },
 
@@ -2714,6 +2715,7 @@ export const generals: Record<string, General> = {
             name: "言六",
             description:
               "出牌阶段限一次，当一名其他角色的一张牌置入弃牌堆后，若此时没有角色处于濒死状态，你可以弃置另一名角色一张牌。若这两张牌的点数可以计算得到6，你可以令其中一名角色将手牌摸至另一名的手牌数（最多为6）。",
+            memo: "“计算”时必须使用两张牌的点数各一次，仅允许进行四则运算、开方 √ 和阶乘 ! 。例如：(8 - 5)! = 6 是允许的；3和6拼成36再开方是不允许的。",
           },
           {
             name: "阴阳",
