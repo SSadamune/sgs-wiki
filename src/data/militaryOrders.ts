@@ -33,7 +33,7 @@ export const Official: MilitaryOrderPack = {
 };
 
 export const Xiliang: MilitaryOrderPack = {
-  id: "xiliang",
+  id: "xiliang-DIY",
   name: "西凉军令包",
   size: 12,
   militaryOrders: [
@@ -89,7 +89,7 @@ export const Xiliang: MilitaryOrderPack = {
 };
 
 export const Dou: MilitaryOrderPack = {
-  id: "dou",
+  id: "dou-DIY",
   name: "豆的军令包",
   size: 10,
   militaryOrders: [

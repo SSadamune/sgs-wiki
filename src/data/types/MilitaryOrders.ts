@@ -1,3 +1,5 @@
+import { VersionId } from "./Version";
+
 export type MilitaryOrder = {
   id: number;
   description: string;
@@ -11,4 +13,4 @@ export type MilitaryOrderPack = {
   militaryOrders: MilitaryOrder[];
 };
 
-export type PackId = "official" | "xiliang" | "dou" | "other";
+export type PackId = VersionId;

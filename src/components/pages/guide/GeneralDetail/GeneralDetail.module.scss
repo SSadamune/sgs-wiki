@@ -1,0 +1,25 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.versionList {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.activeVersion {
+  background-color: aquamarine;
+}
+
+.referencesTitle {
+  color: darkgrey;
+  display: flex;
+  flex-direction: flex-end;
+}
+
+.referencesItem {
+  margin-top: 0.5rem;
+}

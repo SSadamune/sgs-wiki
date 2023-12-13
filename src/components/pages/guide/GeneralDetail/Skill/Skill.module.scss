@@ -1,0 +1,24 @@
+.childSkillList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.conditional {
+  color: darkgrey;
+}
+
+.memo {
+  color: darkgrey;
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.switchLink {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  color: darkgrey;
+  text-decoration: underline;
+}

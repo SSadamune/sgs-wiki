@@ -4,7 +4,7 @@ import type {
   MilitaryOrder,
   MilitaryOrderPack,
 } from "@/data/types/MilitaryOrders";
-import { MilitaryOrderCard } from "./MilitaryOrderCard/MilitaryOrderCard";
+import { MilitaryOrderCard } from "./MilirayOrderCard/MilitaryOrderCard";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 
@@ -15,7 +15,7 @@ export function MilitaryOrderDrawer() {
 
   const [drawCount, setDrawCount] = useState<number>(2);
   const [shuffledPack, setShuffledPack] = useState<MilitaryOrderPack>(
-    packList[0],
+    packList[0]
   );
   const [process, setProcess] = useState<Process>("allCards");
   const [ableToStop, setAbleToStop] = useState(false);
@@ -25,7 +25,7 @@ export function MilitaryOrderDrawer() {
   const [showsSelected, setShowsSelected] = useState(false);
 
   const [shufflingTimer, setShufflingTimer] = useState<NodeJS.Timeout | null>(
-    null,
+    null
   );
 
   const handleClickShuffle = () => {
@@ -82,7 +82,7 @@ export function MilitaryOrderDrawer() {
 
   const incrementDrawCount = () => {
     setDrawCount((prevCount) =>
-      prevCount < shuffledPack.size ? prevCount + 1 : shuffledPack.size,
+      prevCount < shuffledPack.size ? prevCount + 1 : shuffledPack.size
     );
   };
 
@@ -99,8 +99,8 @@ export function MilitaryOrderDrawer() {
     setAbleToReset(true);
     setSelectedMilitaryOrder(
       shuffledPack.militaryOrders.filter(
-        (militaryOrder) => militaryOrder.id === id,
-      )[0],
+        (militaryOrder) => militaryOrder.id === id
+      )[0]
     );
     setShowsSelected(true);
   };

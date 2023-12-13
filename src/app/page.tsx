@@ -1,5 +1,6 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,9 +16,9 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
-              src="/vercel.svg"
+              src="https://ssadamune.github.io/sgs-wiki/vercel.svg"
               alt="Vercel Logo"
               className={styles.vercelLogo}
               width={100}
@@ -31,7 +32,7 @@ export default function Home() {
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
+          src="https://ssadamune.github.io/sgs-wiki/next.svg"
           alt="Next.js Logo"
           width={180}
           height={37}
@@ -40,29 +41,27 @@ export default function Home() {
       </div>
 
       <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <Link
+          href="/guide/general"
           className={styles.card}
-          target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Docs <span>-&gt;</span>
+            面杀武将技能速览 <span>-&gt;</span>
           </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          <p>在官方线下版本的基础上，来自官盗、DIY的武将扩充和修订</p>
+        </Link>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <Link
+          href="/tools/mo-drawer"
           className={styles.card}
-          target="_blank"
           rel="noopener noreferrer"
         >
           <h2>
-            Learn <span>-&gt;</span>
+            军令抽卡器 <span>-&gt;</span>
           </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+          <p>懒得去翻军令卡，那就拿出手机吧！别忘记点开你要选的军令！</p>
+        </Link>
 
         <a
           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -91,5 +90,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
