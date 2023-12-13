@@ -10,7 +10,7 @@ type Props = {
 };
 
 // TODO: common
-const newExpansions: ExpansionName[] = ["SP", "纵横捭阖", "海外专属"];
+const newExpansions: ExpansionName[] = ["不臣", "纵横捭阖", "SP", "海外专属"];
 const otherOfficialVersions: VersionId[] = [
   "half-official-other",
   "official-online-new",

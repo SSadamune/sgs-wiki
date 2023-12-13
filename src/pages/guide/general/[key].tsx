@@ -22,7 +22,7 @@ export default function GeneralDetailPage({ generalData }: Props) {
 }
 
 // TODO: common
-const displayExpansions = ["SP", "纵横捭阖", "海外专属"];
+const displayExpansions = ["SP", "纵横捭阖", "海外专属", "不臣"];
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: Object.keys(generalsData)

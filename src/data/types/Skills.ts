@@ -14,13 +14,13 @@ export type Skill = {
   label?: SkillLabel | SkillLabel[];
 };
 
-type StandardizedSkill = {
+export type StandardizedSkill = {
   description: string;
   isConditional?: boolean;
   timing: string | string[] | null;
 };
 
-type StandardizedSkillChild = StandardizedSkill & {
+export type StandardizedSkillChild = StandardizedSkill & {
   index: Index;
 };
 

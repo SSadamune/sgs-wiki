@@ -1,4 +1,8 @@
-import { Skill } from "@/data/types/Skills";
+import {
+  Skill,
+  StandardizedSkill,
+  StandardizedSkillChild,
+} from "@/data/types/Skills";
 import classNames from "classnames";
 import styles from "./Skill.module.scss";
 import { useState } from "react";
@@ -21,21 +25,21 @@ export function Skill({ skill }: Props) {
 
       {displayStandard && !!skill.standardizedSkill ? (
         <div className={styles.childSkillList}>
-          {ensureArray(skill.standardizedSkill).map(
-            (standardizedSkill, index) => (
-              <div
-                key={index}
-                className={classNames({
-                  [styles.conditional]: standardizedSkill.isConditional,
-                })}
-              >
-                {!!standardizedSkill.index && (
-                  <span>{`${circledNumber(standardizedSkill.index)} `}</span>
-                )}
-                <span>{`${standardizedSkill.description}`}</span>
-              </div>
-            )
-          )}
+          {ensureArray<StandardizedSkill | StandardizedSkillChild>(
+            skill.standardizedSkill
+          ).map((standardizedSkill, index) => (
+            <div
+              key={index}
+              className={classNames({
+                [styles.conditional]: standardizedSkill.isConditional,
+              })}
+            >
+              {"index" in standardizedSkill && (
+                <span>{`${circledNumber(standardizedSkill.index)} `}</span>
+              )}
+              <span>{`${standardizedSkill.description}`}</span>
+            </div>
+          ))}
         </div>
       ) : (
         <div>{skill.description}</div>
