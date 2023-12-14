@@ -2322,7 +2322,7 @@ export const generals: Record<string, General> = {
     name: "孙綝",
     faction: "野心家",
     health: 2,
-    defaultVersion: "half-official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -2397,6 +2397,23 @@ export const generals: Record<string, General> = {
             name: "凶虐",
             description:
               "锁定技，当你使用【杀】造成伤害或受到【杀】造成的伤害时，若受伤角色或伤害来源与“戮”的势力相同，此伤害+1，与“戮”势力相同的角色不因【杀】对你造成伤害时，此伤害-1。",
+            label: "锁定技",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "嗜戮",
+            description:
+              "你被变更的副将置于此武将牌旁，称为“戮”。回合结束时，若你的副将暗置，你变更为副将牌不包含的势力。回合开始时，你可以暗置副将，然后弃置所有手牌，摸X张牌（X为“戮”包含的势力数，至多为你的体力上限）。",
+            keywords: ["变更"],
+          },
+          {
+            name: "凶虐",
+            description:
+              "锁定技，当你造成/受到渠道为【杀】的伤害时，若“戮”包含受伤角色/来源的势力，此伤害+1。当你受到渠道不为【杀】的伤害时，若“戮”包含来源的势力，此伤害-1。",
             label: "锁定技",
           },
         ],
