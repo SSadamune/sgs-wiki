@@ -669,7 +669,7 @@ export const generals: Record<string, General> = {
           },
         ],
         relatedGenerals: ["张郃"],
-        expansionPack: "阳",
+        expansionPack: "DIY",
       },
       {
         versionId: "dou-DIY",
@@ -683,8 +683,44 @@ export const generals: Record<string, General> = {
         ],
       },
     ],
-    relatedGenerals: ["张郃", "夏侯渊"],
+    relatedGenerals: ["张郃"],
     expansionPack: "SP",
+  },
+
+  WEI034: {
+    id: "WEI034",
+    name: "曹真",
+    faction: "魏",
+    health: 2,
+    defaultVersion: "QSanguosha",
+    versions: [
+      {
+        versionId: "QSanguosha",
+        skills: [
+          {
+            name: "司敌",
+            description:
+              "与你势力相同的角色受到伤害后，其可将与所有“驭”类别均不同的一张牌置于你的武将牌上，称为“驭”。其他势力角色的回合开始时，你可以移去任意张“驭”，执行等量项：1.选择被移去的一张“驭”，其此回合内不能使用同类别的牌；2.选择其一个技能，于此回合内无效；3.令其选择的一名与你势力相同的其他角色回复１点体力。",
+            standardizedSkill: [
+              {
+                index: 1,
+                description:
+                  "当一名角色受到伤害后，若其与你势力相同且有牌且你：有“驭”且“驭”的类别数<3，你可发动此技能▶其可将与所有“驭”类别均不同的一张牌置于你的武将牌上（称为“驭”）；没有“驭”，你可发动此技能▶其可将一张牌置于你的武将牌上（称为“驭”）。",
+                timing: "受到伤害后",
+              },
+              {
+                index: 2,
+                description:
+                  "其他势力角色的回合开始时，若其存活，你可将至多三张“驭”置入弃牌堆▶你选择等量的项：1.你选择一种与以此法置入弃牌堆的“驭”相同的类别，其于此回合内不能使用此类别的牌；2.你选择其的一个处于明置状态的武将牌上的技能，此技能于此回合内无效；3.令其选择一名与你势力相同的其他角色，该角色回复1点体力。 ",
+                timing: "回合开始时",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["曹丕"],
+    expansionPack: "DIY",
   },
 
   WEI048: {
@@ -871,7 +907,48 @@ export const generals: Record<string, General> = {
   //
   // =========================================================================
 
+  SHU002: {
+    id: "SHU002",
+    name: "关羽",
+    faction: "蜀",
+    health: 2.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "武圣",
+            description:
+              "你可以将一张红色牌当【杀】使用或打出；你使用♦【杀】无距离限制。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        health: 2,
+        healthSub: 2.5,
+        skills: [
+          {
+            name: "武圣",
+            description:
+              "你可以将一张红色牌当【杀】使用或打出；你使用♦【杀】无距离限制。",
+          },
+          {
+            name: "震威",
+            description:
+              "主将技，你计算体力上限减少1个单独的阴阳鱼。出牌阶段限一次，你可以失去1点体力，视为使用【水淹七军】，目标因此牌的效果而弃置装备区里的牌后，你获得其中一张；你因此牌的效果对目标造成伤害后，你令目标的一个非锁定技于本回合失效。",
+          },
+        ],
+        relatedGenerals: ["刘备", "张飞"],
+      },
+    ],
+    relatedGenerals: ["刘备"],
+    expansionPack: "标准",
+  },
+
   // TODO: other SHU
+
   SHU015: {
     id: "SHU015",
     name: "祝融",
@@ -2133,7 +2210,7 @@ export const generals: Record<string, General> = {
             url: "https://www.bilibili.com/read/cv14434956/",
           },
         ],
-        expansionPack: "治",
+        expansionPack: "DIY",
       },
     ],
     expansionPack: "不臣",
@@ -2205,7 +2282,7 @@ export const generals: Record<string, General> = {
     name: "司马昭",
     faction: "野心家",
     health: 1.5,
-    defaultVersion: "official",
+    defaultVersion: "dou-DIY",
     relatedGenerals: ["司马懿"],
     versions: [
       {
@@ -2248,6 +2325,31 @@ export const generals: Record<string, General> = {
               },
             ],
             label: "锁定技",
+          },
+          {
+            name: "昭心",
+            description:
+              "当你受到伤害后，你可以展示所有手牌，然后与一名手牌数小于等于你的其他角色交换手牌。",
+            standardizedSkill: {
+              description:
+                "当你受到伤害后，你可展示所有手牌▶你与一名手牌数不大于你的其他角色交换手牌。",
+              timing: "受到伤害后",
+            },
+          },
+          {
+            name: "反馈",
+            description: "当你受到伤害后，你可以获得伤害来源的一张牌。 ",
+            isConditional: true,
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "夙智",
+            description:
+              "明置此武将牌时，或你的回合开始时，将“夙”补至三枚。若你有“夙”，你拥有“反馈”。你可以弃一枚“夙”发动以下效果：①你使用的【杀】或【决斗】造成伤害时，伤害值+1；②你使用非转化锦囊牌时，摸一张牌；③你不因此法而弃置/获得其他角色的牌后，你获得/弃置其一张牌。",
           },
           {
             name: "昭心",
@@ -2813,7 +2915,7 @@ export const generals: Record<string, General> = {
           {
             name: "言六",
             description:
-              "出牌阶段限一次，当一名其他角色的一张牌置入弃牌堆后，若此时没有角色处于濒死状态，你可以弃置另一名角色一张牌。若你将这两张牌的点数计算得到6，你令其中一名角色将手牌摸至另一名的手牌数（最多为6）。",
+              "轮次技，一名角色受到另一名角色的伤害后，你可以以任意顺序弃置二者的各一张牌，然后若你将这两张牌的点数计算得到6，你令其中一名角色将手牌摸至另一名的手牌数（最多为6）。",
             memo: "“计算”时必须且仅可使用两张牌的点数各一次，仅允许进行四则运算、开方 √ 和阶乘 ! 。例如：(8 - 5)! = 6 是允许的；3和6拼成36再开方是不允许的。",
           },
           {

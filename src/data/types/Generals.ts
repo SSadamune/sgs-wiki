@@ -30,7 +30,7 @@ export type GeneralVersion = {
   faction?: Faction | Faction[];
   health?: number;
   healthSub?: number;
-  expansionPack?: string;
+  expansionPack?: ExpansionName;
   relatedGenerals?: string[];
   references?: { title: string; url: string }[];
 };
