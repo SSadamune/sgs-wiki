@@ -322,11 +322,12 @@ export const generals: Record<string, General> = {
           {
             name: "断粮",
             description:
-              "你可以将一张黑色基本牌或装备牌当一张无视距离的【兵粮寸断】对其它角色使用，然后若你至其距离大于2，本阶段此技能失效。",
+              "你可以将一张黑色基本牌或装备牌当一张无视距离的【兵粮寸断】对其它角色使用，然后若你至其距离大于2，本阶段“断粮”失效。",
           },
           {
             name: "截辎",
-            description: "当一名其他角色跳过一个阶段后，你可以摸一张牌。",
+            description:
+              "一名角色跳过一个阶段后，你可以摸一张牌，然后若其为你，你弃置一张牌。",
           },
         ],
       },
@@ -480,6 +481,7 @@ export const generals: Record<string, General> = {
   },
 
   // TODO: others
+
   WEI022: {
     id: "WEI022",
     name: "卞夫人",
@@ -491,9 +493,57 @@ export const generals: Record<string, General> = {
         versionId: "official",
         skills: [
           {
-            name: "横江",
+            name: "挽危",
             description:
-              "当你受到1点伤害后，若当前回合角色的手牌上限大于0，你可以令其本回合手牌上限-1。此回合结束时，若其未于弃牌阶段弃置牌，你摸X张牌（X为你本回合发动此技能的次数）。",
+              "当确定你因被其他角色弃置或获得而失去的牌时，你可以改为自己选择失去的牌。",
+            standardizedSkill: {
+              description:
+                "当确定你因其他角色的弃置/获得而移动的牌时，若你的能被该角色弃置/获得的牌数大于X，你可将此次移动的牌改为你的X张牌（X为此次移动的牌数）。 ",
+              timing: "确定移动的牌时",
+            },
+          },
+          {
+            name: "约俭",
+            description:
+              "锁定技，与你势力相同的角色的弃牌阶段开始时，若该角色本回合未使用牌指定过其他势力的角色为目标，则其本回合手牌上限等同于其体力上限。",
+            standardizedSkill: {
+              description:
+                "锁定技，与你势力相同的角色的弃牌阶段开始时，若其处于明置状态时未使用牌指定过其他势力的角色为目标，则该角色本回合的手牌上限等于其体力上限。 ",
+              timing: "移至目标区域后",
+            },
+            label: "锁定技",
+          },
+        ],
+      },
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "挽危",
+            description:
+              "每回合限一次，你的牌被其他角色弃置或获得后，你可以从弃牌堆获得一张同名牌（若没有同名牌或你失去多于一张牌，则改为摸一张牌）。",
+          },
+          {
+            name: "约俭",
+            description:
+              "锁定技，与你势力相同的角色的弃牌阶段开始时，若该角色本回合未使用牌指定过其他势力的角色为目标，则其本回合手牌上限等同于其体力上限。",
+            label: "锁定技",
+          },
+        ],
+      },
+      {
+        versionId: "official-online",
+        skills: [
+          {
+            name: "挽危",
+            description:
+              "每回合限一次，你的牌被其他角色弃置或获得后，你可以从牌堆获得一张同名牌（若没有同名牌或你失去多于一张牌，则改为摸一张牌）。",
+          },
+          {
+            name: "约俭",
+            description:
+              "锁定技，与你势力相同的角色的弃牌阶段开始时，若该角色本回合未使用牌指定过其他势力的角色为目标，则其本回合手牌上限等同于其体力上限。",
+            label: "锁定技",
           },
         ],
       },
@@ -507,7 +557,6 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 "当确定你因其他角色的获得而移动的牌时，若你的能被该角色获得的牌数大于X，你可将此次移动的牌改为你的X张牌（X为此次移动的牌数）。",
-
               timing: "确定移动的牌时",
             },
           },
@@ -620,7 +669,7 @@ export const generals: Record<string, General> = {
           },
         ],
         relatedGenerals: ["张郃"],
-        expansionPack: "阳",
+        expansionPack: "DIY",
       },
       {
         versionId: "dou-DIY",
@@ -634,8 +683,44 @@ export const generals: Record<string, General> = {
         ],
       },
     ],
-    relatedGenerals: ["张郃", "夏侯渊"],
+    relatedGenerals: ["张郃"],
     expansionPack: "SP",
+  },
+
+  WEI034: {
+    id: "WEI034",
+    name: "曹真",
+    faction: "魏",
+    health: 2,
+    defaultVersion: "QSanguosha",
+    versions: [
+      {
+        versionId: "QSanguosha",
+        skills: [
+          {
+            name: "司敌",
+            description:
+              "与你势力相同的角色受到伤害后，其可将与所有“驭”类别均不同的一张牌置于你的武将牌上，称为“驭”。其他势力角色的回合开始时，你可以移去任意张“驭”，执行等量项：1.选择被移去的一张“驭”，其此回合内不能使用同类别的牌；2.选择其一个技能，于此回合内无效；3.令其选择的一名与你势力相同的其他角色回复１点体力。",
+            standardizedSkill: [
+              {
+                index: 1,
+                description:
+                  "当一名角色受到伤害后，若其与你势力相同且有牌且你：有“驭”且“驭”的类别数<3，你可发动此技能▶其可将与所有“驭”类别均不同的一张牌置于你的武将牌上（称为“驭”）；没有“驭”，你可发动此技能▶其可将一张牌置于你的武将牌上（称为“驭”）。",
+                timing: "受到伤害后",
+              },
+              {
+                index: 2,
+                description:
+                  "其他势力角色的回合开始时，若其存活，你可将至多三张“驭”置入弃牌堆▶你选择等量的项：1.你选择一种与以此法置入弃牌堆的“驭”相同的类别，其于此回合内不能使用此类别的牌；2.你选择其的一个处于明置状态的武将牌上的技能，此技能于此回合内无效；3.令其选择一名与你势力相同的其他角色，该角色回复1点体力。 ",
+                timing: "回合开始时",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["曹丕"],
+    expansionPack: "DIY",
   },
 
   WEI048: {
@@ -822,7 +907,48 @@ export const generals: Record<string, General> = {
   //
   // =========================================================================
 
+  SHU002: {
+    id: "SHU002",
+    name: "关羽",
+    faction: "蜀",
+    health: 2.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "武圣",
+            description:
+              "你可以将一张红色牌当【杀】使用或打出；你使用♦【杀】无距离限制。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        health: 2,
+        healthSub: 2.5,
+        skills: [
+          {
+            name: "武圣",
+            description:
+              "你可以将一张红色牌当【杀】使用或打出；你使用♦【杀】无距离限制。",
+          },
+          {
+            name: "震威",
+            description:
+              "主将技，你计算体力上限减少1个单独的阴阳鱼。出牌阶段限一次，你可以失去1点体力，视为使用【水淹七军】，目标因此牌的效果而弃置装备区里的牌后，你获得其中一张；你因此牌的效果对目标造成伤害后，你令目标的一个非锁定技于本回合失效。",
+          },
+        ],
+        relatedGenerals: ["刘备", "张飞"],
+      },
+    ],
+    relatedGenerals: ["刘备"],
+    expansionPack: "标准",
+  },
+
   // TODO: other SHU
+
   SHU015: {
     id: "SHU015",
     name: "祝融",
@@ -1012,7 +1138,7 @@ export const generals: Record<string, General> = {
           {
             name: "奇袭",
             description:
-              "出牌阶段，你可以将一张黑色牌当【过河拆桥】使用。出牌阶段限一次，你可以将一张黑桃手牌当【逐近弃远】使用。",
+              "出牌阶段，你可以将一张黑色牌当【过河拆桥】使用。你的【过河拆桥】若弃置与其花色相同的牌，后者进入弃牌堆前你可以改为获得之，然后本阶段“奇袭”失效。",
           },
         ],
       },
@@ -1050,7 +1176,7 @@ export const generals: Record<string, General> = {
           {
             name: "克己",
             description:
-              "锁定技，弃牌阶段开始时，你的手牌上限+X（X为你本回合未使用过的花色数）。",
+              "锁定技，你本回合的手牌上限+X（X为你此回合未使用过的花色数）。",
             label: "锁定技",
           },
           {
@@ -1962,6 +2088,38 @@ export const generals: Record<string, General> = {
     expansionPack: "标准",
   },
 
+  QUN017: {
+    id: "QUN017",
+    name: "潘凤",
+    faction: "群",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "狂斧",
+            description:
+              "出牌阶段限一次，当你使用【杀】指定一个目标后，你可以获得其装备区里的一张牌，然后若此【杀】未造成伤害，则你弃置两张手牌.",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "狂斧",
+            description:
+              "每回合每名角色限一次，当你使用【杀】指定目标后，你可以获得其装备区里的一张牌，你可以立即使用以此法获得的武器牌。然后若此【杀】未对其造成伤害，你弃置两张手牌。",
+            memo: "若以此法装备武器牌，此武器的触发时机早于“指定目标后”的技能在此【杀】的对此目标的结算中不会被触发，包括〖方天画戟〗〖青龙偃月刀〗〖五行鹤翎扇〗等。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+
   // TODO: others
 
   QUN020: {
@@ -2052,7 +2210,7 @@ export const generals: Record<string, General> = {
             url: "https://www.bilibili.com/read/cv14434956/",
           },
         ],
-        expansionPack: "治",
+        expansionPack: "DIY",
       },
     ],
     expansionPack: "不臣",
@@ -2124,7 +2282,7 @@ export const generals: Record<string, General> = {
     name: "司马昭",
     faction: "野心家",
     health: 1.5,
-    defaultVersion: "official",
+    defaultVersion: "dou-DIY",
     relatedGenerals: ["司马懿"],
     versions: [
       {
@@ -2167,6 +2325,31 @@ export const generals: Record<string, General> = {
               },
             ],
             label: "锁定技",
+          },
+          {
+            name: "昭心",
+            description:
+              "当你受到伤害后，你可以展示所有手牌，然后与一名手牌数小于等于你的其他角色交换手牌。",
+            standardizedSkill: {
+              description:
+                "当你受到伤害后，你可展示所有手牌▶你与一名手牌数不大于你的其他角色交换手牌。",
+              timing: "受到伤害后",
+            },
+          },
+          {
+            name: "反馈",
+            description: "当你受到伤害后，你可以获得伤害来源的一张牌。 ",
+            isConditional: true,
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "夙智",
+            description:
+              "明置此武将牌时，或你的回合开始时，将“夙”补至三枚。若你有“夙”，你拥有“反馈”。你可以弃一枚“夙”发动以下效果：①你使用的【杀】或【决斗】造成伤害时，伤害值+1；②你使用非转化锦囊牌时，摸一张牌；③你不因此法而弃置/获得其他角色的牌后，你获得/弃置其一张牌。",
           },
           {
             name: "昭心",
@@ -2274,7 +2457,7 @@ export const generals: Record<string, General> = {
     name: "孙綝",
     faction: "野心家",
     health: 2,
-    defaultVersion: "half-official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -2353,6 +2536,23 @@ export const generals: Record<string, General> = {
           },
         ],
       },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "嗜戮",
+            description:
+              "你被变更的副将置于此武将牌旁，称为“戮”。回合结束时，若你的副将牌暗置，你选择此牌不包含的一个势力，变更副将为此势力。准备阶段，你可以执行至多两项：①暗置副将；②将手牌摸至X张（X为“戮”包含的势力数）。",
+            keywords: ["变更"],
+          },
+          {
+            name: "凶虐",
+            description:
+              "锁定技，当你造成/受到渠道为【杀】的伤害时，若“戮”包含受伤角色/来源的势力，此伤害+1。当你受到渠道不为【杀】的伤害时，若“戮”包含来源的势力，此伤害-1。",
+            label: "锁定技",
+          },
+        ],
+      },
     ],
     expansionPack: "不臣",
   },
@@ -2362,7 +2562,7 @@ export const generals: Record<string, General> = {
     name: "公孙渊",
     faction: "野心家",
     health: 2,
-    defaultVersion: "half-official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -2371,7 +2571,6 @@ export const generals: Record<string, General> = {
             name: "怀异",
             description:
               "出牌阶段限一次，你可以展示所有手牌，若其中包含两种颜色，你弃置其中一种颜色的牌，然后获得至多等同弃置牌数的其他角色各一张牌，将以此法获得的装备牌置于武将牌上，称为“异”。你可以将“异”如手牌般使用或打出。",
-            keywords: ["移除"],
           },
           {
             name: "恣睢",
@@ -2388,13 +2587,14 @@ export const generals: Record<string, General> = {
             name: "怀异",
             description:
               "出牌阶段限一次，你可以弃置一个区域的所有牌或移除副将，令所有大势力角色依次交给你至少一张牌，然后你选择交给你牌数较少的势力，移除此势力一名角色的副将。",
-            keywords: ["移除"],
+            keywords: ["移除", "破釜"],
           },
           {
             name: "恣睢",
             description:
               "锁定技，被你移除的副将改为置于你武将牌旁，称为“异”；摸牌阶段，你多摸X张牌，结束阶段若X大于体力上限，你死亡（X为“异”数）。",
             label: "锁定技",
+            keywords: ["移除"],
           },
         ],
       },
@@ -2405,13 +2605,14 @@ export const generals: Record<string, General> = {
             name: "怀异",
             description:
               "出牌阶段限一次，你可以展示所有手牌，并弃置一种颜色的所有牌，然后令至多等量名角色依次交给你至少一张牌，结算完成后，你令其中一名交给你牌数最少且已确定势力的角色移除副将。",
-            keywords: ["议事", "移除"],
+            keywords: ["移除"],
           },
           {
             name: "恣睢",
             description:
               "锁定技，被你移除的副将改为置于你武将牌旁，称为“异”；摸牌阶段，你多摸X张牌；结束阶段，若X大于体力上限，你死亡（X为“异”数）。",
             label: "锁定技",
+            keywords: ["移除"],
           },
         ],
       },
@@ -2421,13 +2622,15 @@ export const generals: Record<string, General> = {
           {
             name: "怀异",
             description:
-              "出牌阶段限一次，你可以对所有其他角色发起议事，你获得结果颜色的议事牌，展示手牌并弃置另一种颜色的所有手牌。若你以此法弃置的牌数不小于获得的牌数，你可以令一名没有被你获得议事牌的角色移除副将。",
+              "出牌阶段限一次，你可以对所有其他角色发起	“议事”，你获得所有与结果颜色相同的议事牌，展示手牌并弃置另一种颜色的所有手牌。结算后，若你以此法弃置的牌数不小于获得的牌数，你可以令一名没有被你获得议事牌的大势力角色移除副将。",
+            keywords: ["议事", "移除"],
           },
           {
             name: "恣睢",
             description:
-              "锁定技，被你移除的副将改为置于你武将牌旁，称为“异”；摸牌阶段，你多摸X张牌；结束阶段，若X大于体力上限，你死亡（X为“异”数）。",
+              "锁定技，被你移除的副将置于此武将牌旁，称为“异”。摸牌阶段，你多摸X张牌。结束阶段，若X大于体力上限，你死亡（X为“异”数）。",
             label: "锁定技",
+            keywords: ["移除"],
           },
         ],
       },
@@ -2443,7 +2646,7 @@ export const generals: Record<string, General> = {
     id: "DOU005",
     name: "一到雪季就不见",
     faction: ["魏", "蜀", "吴", "群"],
-    health: 1.5,
+    health: 2,
     defaultVersion: "dou-DIY",
     versions: [
       {
@@ -2477,7 +2680,6 @@ export const generals: Record<string, General> = {
                   "若场上有“板”，在距离、座次和阵法的计算中，你视为处于“板”所在的位置。",
                 timing: null,
               },
-              //
             ],
           },
           {
@@ -2490,6 +2692,7 @@ export const generals: Record<string, General> = {
         ],
       },
     ],
+    relatedGenerals: ["陆逊"],
     expansionPack: "DIY",
   },
 
@@ -2564,7 +2767,7 @@ export const generals: Record<string, General> = {
             standardizedSkill: {
               description:
                 // 用“议事”关键字描述
-                "摸牌阶段开始时，你可以令所有有手牌的其他角色同时展示一张手牌▶若以此法展示的红色牌多于黑色牌，你跳过此阶段，你对你和所有以此法展示红色牌的其他角色使用一张无对应实体牌的【联军盛宴】（你因执行此牌的效果而摸牌或回复的总数为以此法展示红色牌的角色数）。若以此法展示的黑色牌多于红色牌，你判定，你可以对你和一名以此法展示的牌与判定结果花色相同的角色造成1点冰冻伤害。",
+                "摸牌阶段开始时，你可以令所有有手牌的其他角色同时展示一张手牌▶若以此法展示的红色牌多于黑色牌，你跳过此阶段，你对你和所有以此法展示红色牌的其他角色使用一张无对应实体牌的【联军盛宴】（你因执行此牌的效果而摸牌或回复的总数为以此法展示红色牌的角色数）。若以此法展示的黑色牌多于红色牌，你判定，你可以对你和所有以此法展示的牌与判定结果花色相同的角色造成1点冰冻伤害。",
               timing: "摸牌阶段开始时",
             },
           },
@@ -2630,7 +2833,6 @@ export const generals: Record<string, General> = {
                 index: 2,
                 description:
                   "你/与你势力相同的角色死亡时，若杀死其的角色是与你势力相同的角色/你，奖惩改为“摸两张牌”。",
-
                 timing: "死亡时",
               },
             ],
@@ -2644,13 +2846,13 @@ export const generals: Record<string, General> = {
               {
                 index: 1,
                 description:
-                  "回合开始时或你明置此武将牌时，若你发动过〖悍跳①〗和〖悍跳②〗的次数之和为偶数，且你未确定势力，你可以不公开你的真实势力，你声明任意未以此法声明过的势力▶你视为此势力角色（直到你即将进行死亡结算），你变更副将（以此法进行的变更在一局游戏内无次数限制，以此法失去的副将牌不需要翻至正面朝上，被称为“初始副将”）。",
+                  "回合开始时或你明置此武将牌时，若你发动过〖悍跳①〗和〖悍跳②〗的次数之和为偶数，且你未确定势力，你可以不公开你的真实势力，你声明任意未以此法声明过的势力▶你视为此势力角色（直到你即将进行死亡结算），你变更副将（以此法进行的变更在一局游戏内无次数限制，以此法失去的副将牌不需要翻至正面朝上，改为置于此武将牌下方，被称为“初始副将”）。",
                 timing: ["回合开始时", "明置武将牌时"],
               },
               {
                 index: 2,
                 description:
-                  "任意势力的角色数变化后，若你发动过〖悍跳①〗和〖悍跳②〗的次数之和为奇数，且其他角色的势力均与你相同或均与你不同，且你的副将的武将牌不是“初始副将”，你将你的副将变更为“初始副将”（以此法作为你的副将的武将牌处于暗置状态），你视为未确定势力，你失去〖悍跳②〗并获得〖悍跳①〗。",
+                  "任意势力的角色数变化后，若你发动过〖悍跳①〗和〖悍跳②〗的次数之和为奇数，且其他角色的势力均与你相同或均与你不同，且你的副将的武将牌没有成为过“初始副将”，你将你的副将变更为“初始副将”（以此法作为你的副将的武将牌处于暗置状态），你视为未确定势力，你失去〖悍跳②〗并获得〖悍跳①〗。",
                 timing: "DIY时机",
               },
             ],
@@ -2713,7 +2915,8 @@ export const generals: Record<string, General> = {
           {
             name: "言六",
             description:
-              "出牌阶段限一次，当一名其他角色的一张牌置入弃牌堆后，若此时没有角色处于濒死状态，你可以弃置另一名角色一张牌。若这两张牌的点数可以计算得到6，你可以令其中一名角色将手牌摸至另一名的手牌数（最多为6）。",
+              "轮次技，一名角色受到另一名角色的伤害后，你可以以任意顺序弃置二者的各一张牌，然后若你将这两张牌的点数计算得到6，你令其中一名角色将手牌摸至另一名的手牌数（最多为6）。",
+            memo: "“计算”时必须且仅可使用两张牌的点数各一次，仅允许进行四则运算、开方 √ 和阶乘 ! 。例如：(8 - 5)! = 6 是允许的；3和6拼成36再开方是不允许的。",
           },
           {
             name: "阴阳",
