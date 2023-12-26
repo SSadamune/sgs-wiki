@@ -935,7 +935,7 @@ export const generals: Record<string, General> = {
               "你可以将一张红色牌当【杀】使用或打出;你使用♦【杀】无距离限制。",
           },
           {
-            name: "震威",
+            name: "水袭",
             description:
               "主将技,你计算体力上限减少1个单独的阴阳鱼。出牌阶段限一次,你可以失去1点体力,视为使用【水淹七军】,目标因此牌的效果而弃置装备区里的牌后,你获得其中一张;你因此牌的效果对目标造成伤害后,你令目标的一个非锁定技于本回合失效。",
           },
@@ -1646,6 +1646,28 @@ export const generals: Record<string, General> = {
     expansionPack: "势",
   },
 
+  WU031: {
+    id: "WU031",
+    name: "朱然",
+    faction: "吴",
+    health: 2,
+    defaultVersion: "half-official",
+    versions: [
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "胆守",
+            description:
+              "轮次技,一名角色的准备阶段,你可以弃置区域内所有牌。本回合每个主要阶段开始时,若你的手牌数不大于以此法弃置的牌数,你选择:1.摸X张牌(X初始为1),若X大于3,你对其造成1点伤害;2.令Ⅹ的数值在本回合+1。",
+            label: ["轮次技"],
+          },
+        ],
+      },
+    ],
+    expansionPack: "SP",
+  },
+
   // TODO: others
   WU070: {
     id: "WU070",
@@ -1695,7 +1717,6 @@ export const generals: Record<string, General> = {
             name: "调归",
             description:
               "出牌阶段限一次,你可以将一张装备牌当【调虎离山】使用,若你的势力因此形成队列,则你摸X张牌(X为该队列的角色数)。",
-            label: "轮次技",
           },
           {
             name: "风扬",
@@ -1770,6 +1791,74 @@ export const generals: Record<string, General> = {
   // =========================================================================
 
   // TODO: others
+
+  QUN002: {
+    id: "QUN002",
+    name: "吕布",
+    faction: "群",
+    health: 2.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "无双",
+            description:
+              "锁定技，你的【杀】需两张【闪】才能抵消；与你【决斗】的角色每次需打出两张【杀】；你使用非转化的【决斗】目标上限+2。",
+            label: ["锁定技"],
+            standardizedSkill: [
+              {
+                index: 1,
+                description:
+                  "锁定技，当【杀】指定目标后，若使用者是你，你将此目标对应的角色抵消此【杀】的方式改为依次使用两张【闪】。",
+                timing: "指定目标后",
+              },
+              {
+                index: 2,
+                description:
+                  "锁定技，当【决斗】指定目标后，若使用者是你，你将此目标对应的角色因执行此【决斗】的效果而响应此【决斗】的方式改为依次打出两张【杀】。",
+                timing: "指定目标后",
+              },
+              {
+                index: 3,
+                description:
+                  "锁定技，当你成为【决斗】的目标后，你将使用者因执行此【决斗】的效果而响应此【决斗】的方式改为依次打出两张【杀】。",
+                timing: "成为目标后",
+              },
+              {
+                index: 4,
+                description:
+                  "锁定技，当非转化的【决斗】选择目标后，若使用者为你，你可令至多两名角色也成为此【决斗】的目标。 ",
+                timing: "选择目标后",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        health: 2,
+        healthSub: 2.5,
+        skills: [
+          {
+            name: "无双",
+            description:
+              "锁定技，你的【杀】需两张【闪】才能抵消；与你【决斗】的角色每次需打出两张【杀】；你使用非转化的【决斗】目标上限+2。",
+            label: ["锁定技"],
+          },
+          {
+            name: "利驭",
+            description:
+              "主将技，你计算体力上限减少1个单独的阴阳鱼。你对其他角色造成伤害后，你可以令其展示一张牌，其选择一名与其势力不同的其他角色，然后你可以获得此牌并视为对其选择的角色使用【决斗】。你于一回合内以此法第二次造成伤害后，失去此技能。",
+            label: ["主将技"],
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["吕布"],
+    expansionPack: "标准",
+  },
 
   QUN003: {
     id: "QUN003",
@@ -2916,6 +3005,7 @@ export const generals: Record<string, General> = {
             description:
               "轮次技,一名角色受到另一名角色的伤害后,你可以以任意顺序弃置二者的各一张牌,然后若你将这两张牌的点数计算得到6,你令其中一名角色将手牌摸至另一名的手牌数(最多为6)。",
             memo: "“计算”时必须且仅可使用两张牌的点数各一次,仅允许进行四则运算、开方 √ 和阶乘 ! 。例如:(8 - 5)! = 6 是允许的;3和6拼成36再开方是不允许的。",
+            label: ["轮次技"],
           },
           {
             name: "阴阳",
