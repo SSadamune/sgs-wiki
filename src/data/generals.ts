@@ -692,10 +692,10 @@ export const generals: Record<string, General> = {
     name: "曹真",
     faction: "魏",
     health: 2,
-    defaultVersion: "QSanguosha",
+    defaultVersion: "qSanguosha",
     versions: [
       {
-        versionId: "QSanguosha",
+        versionId: "qSanguosha",
         skills: [
           {
             name: "司敌",
@@ -1066,6 +1066,49 @@ export const generals: Record<string, General> = {
       },
     ],
     expansionPack: "变",
+  },
+
+  SHU066: {
+    id: "SHU066",
+    name: "严颜",
+    faction: "蜀",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "half-official",
+        skills: [
+          {
+            name: "拒战",
+            description:
+              "转换技，阳：当你成为【杀】的目标后，你可以与使用者各摸X张牌，然后若其武将牌均明置，你可以暗置其一张武将牌，本回合不能再明置。阴：当你使用【杀】指定目标后，你可以获得其X张牌(X为此【杀】使用者已损失的体力值且至少为1)，然后若你武将牌均明置，其可以暗置此武将牌，本回合不能再明置。",
+            label: "转换技",
+          },
+        ],
+      },
+      {
+        versionId: "qSanguosha",
+        skills: [
+          {
+            name: "拒战",
+            description:
+              "当你成为【杀】的目标后，若你发动过此技能的次数为偶数，你可以与使用者各摸一张牌，然后若其武将牌均明置，你可以暗置其一张武将牌，本回合不能再明置。当你使用【杀】指定目标后，若你发动过此技能的次数为奇数，你可以获得其一张牌，然后你本回合不能对其使用牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        faction: ["蜀", "群"],
+        skills: [
+          {
+            name: "拒战",
+            description:
+              "当你成为【杀】的目标后，你可以明置此武将牌并与使用者各摸一张牌，若其武将牌均明置，你可以暗置其一张武将牌且本回合不能明置。当你使用【杀】指定目标后，若你武将牌均明置，你可以暗置此武将牌并获得其一张牌，你本回合不能对其使用牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "SP",
   },
 
   SHU072: {
@@ -1441,7 +1484,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        versionId: "QSanguosha",
+        versionId: "qSanguosha",
         skills: [
           {
             name: "恪守",
@@ -2985,7 +3028,7 @@ export const generals: Record<string, General> = {
         ],
       },
     ],
-    relatedGenerals: ["李典"],
+    relatedGenerals: ["贾诩"],
     expansionPack: "DIY",
   },
 

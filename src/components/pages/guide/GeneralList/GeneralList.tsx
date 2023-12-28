@@ -19,7 +19,7 @@ const otherOfficialVersions: VersionId[] = [
   "official-old-version",
 ];
 const otherDiy: VersionId[] = [
-  "QSanguosha",
+  "qSanguosha",
   "zixing-DIY",
   "xiliang-DIY",
   "fan-made",

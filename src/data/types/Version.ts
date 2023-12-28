@@ -7,7 +7,7 @@ export type VersionId =
   | "official-mobile"
   | "official-oversea"
   | "official-old-version"
-  | "QSanguosha"
+  | "qSanguosha"
   | "zixing-DIY"
   | "xiliang-DIY"
   | "dou-DIY"

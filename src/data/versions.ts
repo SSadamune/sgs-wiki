@@ -44,8 +44,8 @@ export const versions: {
     name: "官方旧版",
     shortName: "旧版",
   },
-  QSanguosha: {
-    id: "QSanguosha",
+  qSanguosha: {
+    id: "qSanguosha",
     name: "太阳神三国杀DIY",
     shortName: "神杀",
   },
