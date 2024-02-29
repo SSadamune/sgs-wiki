@@ -1,5 +1,5 @@
 import { General } from "@/data/types/Generals";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback, useEffect } from "react";
 import Error from "next/error";
 import { versions } from "@/data/versions";
 import { VersionId } from "@/data/types/Version";
@@ -19,7 +19,7 @@ export function GeneralDetail({ generalData }: Props) {
     generalData.defaultVersion
   );
   const [expandReferences, setExpandReferences] = useState(false);
-  const [avatarLoaded, setAvatarLoaded] = useState(false);
+  const [avatarLoaded, setAvatarLoaded] = useState(true);
 
   const activeVersion = useMemo(() => {
     return parseGeneral(generalData, activeVersionId);
@@ -75,15 +75,15 @@ export function GeneralDetail({ generalData }: Props) {
           <Image
             src={`/images/avatar/${generalData.id}.png`}
             alt={generalData.name}
-            layout="fill"
-            objectFit="cover"
-            onLoadingComplete={() => setAvatarLoaded(true)}
+            fill
             onError={() => setAvatarLoaded(false)}
           />
         </div>
         <div className={styles.information}>
           <div className={styles.informationLine}>
             <h2 className={styles.name}>{generalData.name}</h2>
+          </div>
+          <div className={styles.informationLine}>
             <div>{`${activeVersion.faction}`}</div>
             <div>
               <span>
@@ -98,7 +98,6 @@ export function GeneralDetail({ generalData }: Props) {
               <div>珠联璧合：{activeVersion.relatedGenerals.join("，")}</div>
             )}
           </div>
-          <div className={styles.informationLine}>{/* TODO */}</div>
         </div>
       </div>
 
