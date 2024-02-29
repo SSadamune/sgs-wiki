@@ -37,7 +37,7 @@ export const generals: Record<string, General> = {
           {
             name: "奸雄",
             description:
-              "当你受到伤害后,你可以摸一张牌。然后你可以弃一张牌,并获得造成此伤害的牌。",
+              "当你受到1点伤害后,你可以摸一张牌。然后你可以弃一张牌,并获得造成此伤害的牌。",
           },
         ],
       },
@@ -50,7 +50,7 @@ export const generals: Record<string, General> = {
     name: "司马懿",
     faction: "魏",
     health: 1.5,
-    defaultVersion: "official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -65,6 +65,20 @@ export const generals: Record<string, General> = {
           },
         ],
       },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "反馈",
+            description: "当你受到1点伤害后,你可以获得对你造成伤害的牌。",
+          },
+          {
+            name: "鬼才",
+            description:
+              "当一名角色的判定牌生效前,你可以打出一张颜色不同的牌代替之，或打出一张颜色相同的牌替换之。",
+          },
+        ],
+      },
     ],
     relatedGenerals: ["司马昭"],
     expansionPack: "标准",
@@ -74,7 +88,7 @@ export const generals: Record<string, General> = {
     name: "夏侯惇",
     faction: "魏",
     health: 2,
-    defaultVersion: "fan-made",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -108,14 +122,22 @@ export const generals: Record<string, General> = {
         health: 2.5,
       },
       {
-        versionId: "fan-made",
+        versionId: "dou-DIY",
         skills: [
           {
             name: "刚烈",
             description:
-              "当你受到伤害后,你可以判定,然后令伤害来源选择:1.弃置两张与判定结果颜色不同的手牌;2.受到你造成的1点伤害。",
+              "当你受到伤害后,你可以判定,若为:红色,你对伤害来源造成1点伤害;黑色,你弃置伤害来源的一张牌。",
+          },
+          {
+            name: "清俭",
+            label: "副将技",
+            description:
+              "每个回合结束时，你可以从弃牌堆选择一张此回合被你弃置的牌，令一名其他角色获得之。",
           },
         ],
+        health: 2.5,
+        healthSub: 2,
       },
     ],
     relatedGenerals: ["夏侯渊", "于禁"],
@@ -147,7 +169,7 @@ export const generals: Record<string, General> = {
     name: "许褚",
     faction: "魏",
     health: 2,
-    defaultVersion: "official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -156,6 +178,16 @@ export const generals: Record<string, General> = {
             name: "裸衣",
             description:
               "摸牌阶段结束时,你可以弃置一张牌,然后本回合你使用【杀】或【决斗】造成的伤害+1。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "裸衣",
+            description:
+              "摸牌阶段结束时，你可以弃置一张牌，然后直到你的下个回合开始时，你因【杀】或【决斗】的效果造成的伤害+1。",
           },
         ],
       },
@@ -168,7 +200,7 @@ export const generals: Record<string, General> = {
     name: "郭嘉",
     faction: "魏",
     health: 1.5,
-    defaultVersion: "official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -198,6 +230,21 @@ export const generals: Record<string, General> = {
           },
         ],
       },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "天妒",
+            description:
+              "当你的判定牌生效后,你可以获得此牌。当你于回合内明置此武将牌后，你须进行一次判定，若结果为♠，你受到一点伤害。",
+          },
+          {
+            name: "遗计",
+            description:
+              "当你受到1点伤害后,你可以观看牌堆顶两张牌,将其中一至两张交给一名角色,然后将其余的牌交给一名角色。",
+          },
+        ],
+      },
     ],
     expansionPack: "标准",
   },
@@ -206,7 +253,7 @@ export const generals: Record<string, General> = {
     name: "甄姬",
     faction: "魏",
     health: 1.5,
-    defaultVersion: "official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -222,6 +269,20 @@ export const generals: Record<string, General> = {
           },
         ],
       },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "倾国",
+            description: "你可以将一张黑色手牌当【闪】使用或打出。",
+          },
+          {
+            name: "洛神",
+            description:
+              "准备阶段,你可以判定,若结果为黑色,你可以重复此流程,直到判定结果为红色,然后你获得所有黑色的判定牌，你的手牌上限+X（X为当前回合你以此法获得的牌数）。",
+          },
+        ],
+      },
     ],
     relatedGenerals: ["曹丕"],
     expansionPack: "标准",
@@ -231,7 +292,7 @@ export const generals: Record<string, General> = {
     name: "夏侯渊",
     faction: "魏",
     health: 2.5,
-    defaultVersion: "official",
+    defaultVersion: "half-official",
     versions: [
       {
         versionId: "official",
@@ -326,8 +387,7 @@ export const generals: Record<string, General> = {
           },
           {
             name: "截辎",
-            description:
-              "一名角色跳过一个阶段后,你可以摸一张牌,然后若其为你,你弃置一张牌。",
+            description: "一名角色跳过一个阶段后,你可以摸一张牌。",
           },
         ],
       },
@@ -335,7 +395,41 @@ export const generals: Record<string, General> = {
     expansionPack: "标准",
   },
 
-  // TODO: WEI011
+  WEI011: {
+    id: "WEI011",
+    name: "曹仁",
+    faction: "魏",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "据守",
+            description:
+              "结束阶段，你可以摸X张牌 (X为势力数），然后弃置一张手牌，若以此法弃置的牌为装备牌，则改为你使用之。若X大于2，则你将武将牌叠置。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "断粮",
+            description:
+              "结束阶段，你可以摸X张牌（X为势力数），弃置一张手牌或使用一张装备牌，然后若X大于2，你叠置。",
+          },
+          {
+            name: "解围",
+            description:
+              "你可以将装备区里的一张牌当【无懈可击】使用。当你从叠置状态变为平置状态时，你可以弃置一张手牌，移动场上的一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
 
   WEI012: {
     id: "WEI012",
@@ -366,17 +460,66 @@ export const generals: Record<string, General> = {
         health: 2.5,
       },
       {
-        versionId: "fan-made",
+        versionId: "dou-DIY",
         skills: [
           {
             name: "强袭",
             description:
-              "出牌阶段每名角色限一次,你可以对你攻击范围内的一名其他角色造成1点伤害,然后你选择:1.受到其造成的1点伤害,若其已死亡,改为受到1点无来源伤害;2.弃置一张武器牌。",
+              "出牌阶段每名角色限一次,你可以对你攻击范围内的一名其他角色造成1点伤害,然后你选择:1.受到1点无来源伤害；2.弃置一张武器牌。",
+          },
+          {
+            name: "护卫",
+            label: ["副将技", "轮次技"],
+            description: "其他角色受到伤害时，你可以转移此伤害给你。",
           },
         ],
+        health: 2.5,
+        healthSub: 2,
       },
     ],
     relatedGenerals: ["曹操"],
+    expansionPack: "标准",
+  },
+
+  WEI013: {
+    id: "WEI013",
+    name: "荀彧",
+    faction: "魏",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "驱虎",
+            description:
+              "出牌阶段限一次，你可以与一名体力值大于你的角色拼点，若你赢，该角色对其攻击范围内你选择的一名角色造成1点伤害；若你没赢，该角色对你造成1点伤害。",
+          },
+          {
+            name: "节命",
+            description:
+              "当你受到伤害后，你可以令一名角色将手牌摸至X张（X为其体力上限且最多为5）。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "驱虎",
+            description:
+              "出牌阶段限一次，你可以与一名体力值大于你的角色拼点，若你赢，该角色对其攻击范围内你选择的一名角色造成1点伤害；若你没赢，该角色对你造成1点伤害。",
+          },
+          {
+            name: "节命",
+            description:
+              "当你受到1点伤害后，你可以令一名角色将手牌摸至X张（X为其体力上限且最多为5）。",
+          },
+        ],
+        relatedGenerals: ["荀攸"],
+      },
+    ],
     expansionPack: "标准",
   },
 
@@ -441,7 +584,7 @@ export const generals: Record<string, General> = {
     name: "曹洪",
     faction: "魏",
     health: 2,
-    defaultVersion: "half-official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -472,6 +615,22 @@ export const generals: Record<string, General> = {
             description:
               "阵法技,与你处于同一队列的角色均拥有“飞影”(锁定技,其他角色计算与你的距离+1)。",
             label: "阵法技",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "护援",
+            description:
+              "你的回合内,当一张装备牌置入一名角色的装备区后,你可以弃置其距离1的另一名角色区域内的一张牌;结束阶段,你可以将一张装备牌置于一名角色的装备区。",
+          },
+          {
+            name: "鹤翼",
+            description:
+              "队列角色均拥有“飞影”(锁定技,其他势力角色计算与你的距离+1)。",
+            label: "阵法技<队列>",
           },
         ],
       },
@@ -1735,7 +1894,7 @@ export const generals: Record<string, General> = {
           {
             name: "联翩",
             description:
-              "每个阶段结束时,若你此阶段弃置过任意角色的总计至少两张牌,你可以摸一张牌。其他角色于其出牌阶段内使用牌连续指定同一名角色为目标(或之一)后,你可以弃置一张牌,令此牌的使用者摸一张牌。",
+              "每回合限三次，其他角色于其出牌阶段内使用牌连续指定同一名角色为目标（或之一）后，你可以弃置一张牌，令其摸一张牌。此阶段结束时，若你发动过三次此技能，其选择一项：1.交给你三张牌；2.你重置并回复1点体力。",
           },
         ],
       },
