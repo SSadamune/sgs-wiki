@@ -883,7 +883,7 @@ export const generals: Record<string, General> = {
   },
 
   WEI048: {
-    id: ["WEI048", "QUN048"],
+    id: "WEI&QUN048",
     name: "张鲁",
     faction: ["魏", "群"],
     health: 1.5,
@@ -969,7 +969,7 @@ export const generals: Record<string, General> = {
       },
       {
         versionId: "zixing-DIY",
-        generalId: ["WEI053", "JIN053"],
+        generalId: "WEI&JIN053",
         skills: [
           {
             name: "奇制",
@@ -1271,7 +1271,7 @@ export const generals: Record<string, General> = {
   },
 
   SHU072: {
-    id: ["SHU072", "QUN072"],
+    id: "SHU&QUN072",
     name: "彭羕",
     faction: ["蜀", "群"],
     health: 1.5,

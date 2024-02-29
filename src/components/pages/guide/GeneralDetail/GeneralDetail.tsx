@@ -8,6 +8,7 @@ import classNames from "classnames";
 import { Skill as SkillType } from "@/data/types/Skills";
 import { joinStrings } from "@/utils/string";
 import { Skill } from "./Skill";
+import Image from "next/image";
 
 type Props = {
   generalData: General;
@@ -33,8 +34,18 @@ export function GeneralDetail({ generalData }: Props) {
 
   return (
     <div>
-      <div className={styles.title}>
-        <h2>{generalData.name}</h2>
+      <div className={styles.header}>
+        <div>
+          <a
+            href={
+              process.env.NODE_ENV === "production"
+                ? `https://ssadamune.github.io/sgs-wiki/guide/general`
+                : `/guide/general`
+            }
+          >
+            返回
+          </a>
+        </div>
         <div>
           {generalData.versions.length > 1 && (
             <div className={styles.versionList}>
@@ -55,18 +66,34 @@ export function GeneralDetail({ generalData }: Props) {
         </div>
       </div>
 
-      <div>
-        <div>{`${activeVersion.faction}`}</div>
-        <div>
-          <span>
-            {typeof activeVersion.health === "number"
-              ? `体力：${activeVersion.health}`
-              : `体力：主 ${activeVersion.health.main}，副 ${activeVersion.health.sub}`}
-          </span>
+      <div className={styles.title}>
+        <div className={styles.avatar}>
+          <Image
+            src={`/images/avatar/${generalData.id}.png`}
+            alt={generalData.name}
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
-        {!!activeVersion.relatedGenerals && (
-          <div>珠联璧合：{activeVersion.relatedGenerals.join("，")}</div>
-        )}
+        <div className={styles.information}>
+          <div className={styles.informationLine}>
+            <h2 className={styles.name}>{generalData.name}</h2>
+            <div>{`${activeVersion.faction}`}</div>
+            <div>
+              <span>
+                {typeof activeVersion.health === "number"
+                  ? `${activeVersion.health} 阴阳鱼`
+                  : `主 ${activeVersion.health.main}，副 ${activeVersion.health.sub}  阴阳鱼`}
+              </span>
+            </div>
+          </div>
+          <div className={styles.informationLine}>
+            {!!activeVersion.relatedGenerals && (
+              <div>珠联璧合：{activeVersion.relatedGenerals.join("，")}</div>
+            )}
+          </div>
+          <div className={styles.informationLine}>{/* TODO */}</div>
+        </div>
       </div>
 
       <div>
@@ -129,7 +156,7 @@ const parseGeneral = (
   return {
     ...versionData,
     versionId,
-    parsedGeneralId: joinStrings(versionData.generalId ?? generalData.id),
+    parsedGeneralId: versionData.generalId ?? generalData.id,
     faction: joinStrings(versionData.faction ?? generalData.faction),
     health,
     expansionPack: versionData.expansionPack ?? generalData.expansionPack,

@@ -5,6 +5,9 @@ const nextConfig = {
   output: "export",
   basePath: isProductionEnv ? "/sgs-wiki" : "",
   assetPrefix: isProductionEnv ? "/sgs-wiki/" : "",
+  images: {
+    unoptimized: true,
+  },
 };
 
 
