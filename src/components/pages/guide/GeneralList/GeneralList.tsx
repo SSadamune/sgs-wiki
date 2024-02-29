@@ -4,6 +4,7 @@ import styles from "./GeneralList.module.scss";
 import { VersionId } from "@/data/types/Version";
 import { ExpansionName } from "@/data/types/Generals";
 import classNames from "classnames";
+import Image from "next/image";
 
 type Props = {
   detailLink: (key: string) => string;
@@ -71,6 +72,7 @@ export function GeneralList({ detailLink }: Props) {
         .map(([key, general]) => ({
           name: general.name,
           faction: general.faction,
+          imageId: general.id,
           key,
         })),
     [filters]
@@ -106,10 +108,15 @@ export function GeneralList({ detailLink }: Props) {
       <ul className={styles.linkList}>
         {generalList.map((general) => (
           <li key={general.key}>
-            <a
-              href={detailLink(general.key)}
-              className={styles.generalLink}
-            >{`${general.key} ${general.name}`}</a>
+            <a href={detailLink(general.key)} className={styles.generalLink}>
+              <Image
+                src={`/images/avatar/${general.imageId}.png`}
+                alt={general.key}
+                width={50}
+                height={50}
+              />
+              {` ${general.name}`}
+            </a>
           </li>
         ))}
       </ul>
