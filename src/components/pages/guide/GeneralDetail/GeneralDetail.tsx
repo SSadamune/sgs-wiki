@@ -19,6 +19,7 @@ export function GeneralDetail({ generalData }: Props) {
     generalData.defaultVersion
   );
   const [expandReferences, setExpandReferences] = useState(false);
+  const [avatarLoaded, setAvatarLoaded] = useState(false);
 
   const activeVersion = useMemo(() => {
     return parseGeneral(generalData, activeVersionId);
@@ -67,12 +68,17 @@ export function GeneralDetail({ generalData }: Props) {
       </div>
 
       <div className={styles.title}>
-        <div className={styles.avatar}>
+        <div
+          className={styles.avatar}
+          style={{ display: avatarLoaded ? "block" : "none" }}
+        >
           <Image
             src={`/images/avatar/${generalData.id}.png`}
             alt={generalData.name}
             layout="fill"
             objectFit="cover"
+            onLoadingComplete={() => setAvatarLoaded(true)}
+            onError={() => setAvatarLoaded(false)}
           />
         </div>
         <div className={styles.information}>

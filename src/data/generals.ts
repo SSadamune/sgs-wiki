@@ -133,7 +133,7 @@ export const generals: Record<string, General> = {
             name: "清俭",
             label: "副将技",
             description:
-              "每个回合结束时,你可以从弃牌堆选择一张此回合被你弃置的牌,令一名其他角色获得之。",
+              "副将技,每个回合结束时,你可以从弃牌堆选择一张此回合被你弃置的牌,令一名其他角色获得之。",
           },
         ],
         health: 2.5,
@@ -416,7 +416,7 @@ export const generals: Record<string, General> = {
         versionId: "dou-DIY",
         skills: [
           {
-            name: "断粮",
+            name: "据守",
             description:
               "结束阶段,你可以摸X张牌（X为势力数）,弃置一张手牌或使用一张装备牌,然后若X大于2,你叠置。",
           },
@@ -436,7 +436,7 @@ export const generals: Record<string, General> = {
     name: "典韦",
     faction: "魏",
     health: 2,
-    defaultVersion: "fan-made",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -470,7 +470,9 @@ export const generals: Record<string, General> = {
           {
             name: "护卫",
             label: ["副将技", "轮次技"],
-            description: "其他角色受到伤害时,你可以转移此伤害给你。",
+            description:
+              "副将技,轮次技,其他角色受到伤害时,你可以转移此伤害给你。",
+            keywords: ["转移伤害"],
           },
         ],
         health: 2.5,
@@ -629,7 +631,7 @@ export const generals: Record<string, General> = {
           {
             name: "鹤翼",
             description:
-              "队列角色均拥有“飞影”(锁定技,其他势力角色计算与你的距离+1)。",
+              "阵法技<队列>,队列角色均拥有“飞影”(锁定技,其他势力角色计算与你的距离+1)。",
             label: "阵法技<队列>",
           },
         ],
@@ -3238,7 +3240,7 @@ export const generals: Record<string, General> = {
 
   DOU016: {
     id: "DOU016",
-    name: "0手牌想到烧绳",
+    name: "零手牌想到烧绳",
     faction: ["魏", "蜀", "吴", "汉"],
     health: 1.5,
     defaultVersion: "dou-DIY",
