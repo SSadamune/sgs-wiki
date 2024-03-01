@@ -73,7 +73,7 @@ export function GeneralDetail({ generalData }: Props) {
           style={{ display: avatarLoaded ? "block" : "none" }}
         >
           <Image
-            src={`/images/avatar/${generalData.id}.png`}
+            src={`https://ssadamune.github.io/sgs-wiki/images/avatar/${generalData.id}.png`}
             alt={generalData.name}
             fill
             onError={() => setAvatarLoaded(false)}

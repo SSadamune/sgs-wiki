@@ -110,7 +110,7 @@ export function GeneralList({ detailLink }: Props) {
           <li key={general.key}>
             <a href={detailLink(general.key)} className={styles.generalLink}>
               <Image
-                src={`/images/avatar/${general.imageId}.png`}
+                src={`https://ssadamune.github.io/sgs-wiki/images/avatar/${general.imageId}.png`}
                 alt={general.key}
                 width={50}
                 height={50}
