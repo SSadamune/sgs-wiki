@@ -2942,8 +2942,7 @@ export const generals: Record<string, General> = {
           {
             name: "泰然",
             description:
-              "锁定技，回合结束时，你回复体力至上限并将手牌摸至体力上限，你于下回合的出牌阶段开始时失去等量的体力并弃置等量的手牌。",
-            label: "锁定技",
+              "回合结束时，你可以回复体力至上限并摸牌至体力上限。若如此做，你于下回合的出牌阶段开始时失去等量的体力并弃置等量的手牌。",
           },
         ],
       },
@@ -3008,7 +3007,7 @@ export const generals: Record<string, General> = {
     name: "羊祜",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "zixing-DIY",
@@ -3017,6 +3016,21 @@ export const generals: Record<string, General> = {
             name: "柔克",
             description:
               "与你势力相同的角色于一回合内使用第一张牌时，若此牌为【杀】，其可以改为冰【杀】，然后若此牌未造成伤害，你令一名角色横置。你的手牌上限+2X（X为横置的角色数）。",
+          },
+          {
+            name: "顺流",
+            description:
+              "当你造成属性伤害后，你可以依次弃置所有横置的角色各一张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "柔克",
+            description:
+              "与你势力相同的角色于一回合内使用的第一张牌若为【杀】，你可以改为冰【杀】，然后若此牌未造成伤害，你可以横置一名目标角色。你的手牌上限+X（X为横置的角色数）。",
           },
           {
             name: "顺流",
@@ -3063,7 +3077,7 @@ export const generals: Record<string, General> = {
           {
             name: "宜室",
             description:
-              "每回合限一次，当其他角色于其出牌阶段内弃置任意角色的手牌后，你可以将其中一张牌交给其，然后你获得其余的牌。",
+              "每回合限一次，当其他角色于其出牌阶段内弃置牌后，你可以将其中一张牌交给其，然后你获得其余的牌。",
           },
           {
             name: "识度",
@@ -3102,6 +3116,7 @@ export const generals: Record<string, General> = {
     ],
     expansionPack: "标准",
     relatedGenerals: ["张春华"],
+    hiredFaction: { 魏: "self" },
   },
   JIN010: {
     id: "JIN010",
@@ -3199,29 +3214,29 @@ export const generals: Record<string, General> = {
   },
   JIN014: {
     id: "JIN014",
-    name: "陈骞",
+    name: "文鸯",
     faction: "晋",
-    health: 1.5,
+    health: 2.5,
     defaultVersion: "zixing-DIY",
     versions: [
       {
         versionId: "zixing-DIY",
         skills: [
           {
-            name: "忽辱",
+            name: "膂力",
             description:
-              "每回合限一次，当你造成或受到伤害时，你可以同时展示来源和受伤角色各一张手牌，若：花色相同，你获得之；类别相同，此伤害-1。",
+              "每回合限一次，当你造成伤害后，你可以选择一项：1.摸牌至体力值；2.弃置所有手牌，然后回复体力至X点（X为以此法弃置的牌数)。",
           },
           {
-            name: "武督",
+            name: "夺气",
             description:
-              "出牌阶段限一次，你可以弃置一张牌，令一名有手牌的角色选择一项：1.其手牌对所有角色可见直到其回合结束；2.你对其造成1点伤害。",
+              "限定技，一名角色的回合结束时，若你或其没有手牌，你可以获得一个额外的回合。",
+            label: "限定技",
           },
         ],
       },
     ],
     expansionPack: "标准",
-    relatedGenerals: ["石苞"],
   },
   JIN015: {
     id: "JIN015",
@@ -3323,8 +3338,8 @@ export const generals: Record<string, General> = {
           {
             name: "锥形",
             description:
-              "锁定技，被你围攻的角色对你使用的【杀】伤害-1。你对围攻你的角色使用【杀】伤害+1。",
-            label: "锁定技",
+              "阵法技，若你为围攻角色，被你围攻的角色对你使用的【杀】伤害-1。你对围攻你的角色使用【杀】伤害+1。",
+            label: "阵法技",
           },
         ],
       },
@@ -3369,6 +3384,7 @@ export const generals: Record<string, General> = {
           {
             name: "烈戎",
             description:
+              // 出牌阶段开始时，你可以失去1点体力并令你本回合攻击范围至多+X（X为你已损失的体力值），视为使用一张火【杀】<助战→伤害+1>
               "出牌阶段开始时，你可以失去1点体力并令你本回合攻击范围至多+X（X为你已损失的体力值），视为使用一张火【杀】。",
           },
           {
@@ -3394,6 +3410,7 @@ export const generals: Record<string, General> = {
           {
             name: "应政",
             description:
+              // 与你势力相同的角色出牌阶段限一次，当其使用应变牌结算结束后，该角色可以令你获得此牌，然后若其触发了此牌的应变效果，你可以令其选择是否变更副将（限一次）。
               "每回合限一次，与你势力相同的角色使用应变牌结算结束后，若其触发了此牌的应变效果，该角色可以令你获得此牌，然后你可以令其选择是否变更副将（限一次）。",
             keywords: ["变更"],
           },
@@ -3410,23 +3427,29 @@ export const generals: Record<string, General> = {
   },
   JIN018: {
     id: "JIN018",
-    name: "司马伷",
+    name: "陈骞",
     faction: "晋",
-    health: 2,
+    health: 1.5,
     defaultVersion: "zixing-DIY",
     versions: [
       {
         versionId: "zixing-DIY",
         skills: [
           {
-            name: "才望",
+            name: "忽辱",
             description:
-              "当你使用或打出牌响应其他角色使用的牌，或其他角色使用或打出牌响应你使用的牌后，若这两张牌的颜色相同，你可以获得其一张牌。",
+              "每回合限一次，当你造成或受到伤害时，你可以同时展示来源和受伤角色各一张手牌，若：花色相同，你获得之；类别相同，此伤害-1。",
+          },
+          {
+            name: "武督",
+            description:
+              "出牌阶段限一次，你可以弃置一张牌，令一名有手牌的角色选择一项：1.其手牌对所有角色可见直到其回合结束；2.你对其造成1点伤害。",
           },
         ],
       },
     ],
     expansionPack: "变",
+    relatedGenerals: ["石苞"],
   },
   JIN021: {
     id: "JIN021",
@@ -3577,6 +3600,7 @@ export const generals: Record<string, General> = {
             name: "延祸",
             description:
               "你死亡时，你可以弃置来源至多X张牌（X为你拥有的牌数）。",
+            memo: "死亡时在奖惩前面。",
           },
         ],
       },
@@ -3819,7 +3843,8 @@ export const generals: Record<string, General> = {
           {
             name: "逆拒",
             description:
-              "你拼点没赢后，你可以摸一张牌并令你本回合拼点牌点数+3，若对方也没赢，多摸一张牌。",
+              "锁定技，你拼点没赢后，你本回合拼点牌点数+3，若对方也没赢，你摸一张牌。",
+            label: "锁定技",
             keywords: ["拼点"],
           },
         ],
@@ -3924,11 +3949,12 @@ export const generals: Record<string, General> = {
             name: "绥抚",
             description:
               "其他角色的结束阶段，若本回合有至少两名小势力角色受到过伤害，你可以令其将所有手牌置于牌堆顶，其视为使用一张【五谷丰登】。",
+            memo: "小势力角色的判定，仅看结束阶段该角色是否为小势力角色。死亡角色不计入。",
           },
           {
             name: "安境",
             description:
-              "每回合限一次，与你势力相同的角色受到伤害后，你可以令所有与你势力相同的角色各摸一张牌。",
+              "每回合限一次，与你势力相同的角色受到伤害后，你可以令除其外所有与你势力相同的角色各摸一张牌。",
           },
         ],
       },
@@ -4025,7 +4051,7 @@ export const generals: Record<string, General> = {
           {
             name: "鬻爵",
             description:
-              "你攻击范围内的角色出牌阶段开始时，若其已明置的武将牌技能数之和大于你，你可以对其发起“军令”：若其执行，其本回合第一次造成伤害后摸两张牌；若其不执行，你暗置其一张武将牌且其本回合不能明置之（若其仅有一张明置武将牌，则改为令其叠置）。",
+              "其他角色的出牌阶段开始时，若其已明置的武将牌技能数之和大于你，你可以弃置一张牌，对其发起“军令”：若其执行，其本回合下一次造成伤害后摸两张牌；若其不执行，你暗置其一张武将牌且其本回合不能明置之（若其有暗置的武将牌，则改为令其叠置）。",
           },
         ],
       },
