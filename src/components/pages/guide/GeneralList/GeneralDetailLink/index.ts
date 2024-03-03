@@ -1,0 +1,1 @@
+export { GeneralDetailLink } from "./GeneralDetailLink";

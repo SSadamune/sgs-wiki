@@ -643,6 +643,51 @@ export const generals: Record<string, General> = {
 
   // TODO: others
 
+  WEI020: {
+    id: "WEI020",
+    name: "荀攸",
+    faction: "魏",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "奇策",
+            description:
+              "出牌阶段限一次，你可以将所有手牌当任意一张普通锦囊牌使用，你不能以此法使用目标数大于X牌（X为你的手牌数），然后你可以变更一次副将。",
+            keywords: ["变更"],
+          },
+          {
+            name: "智愚",
+            description:
+              "当你受到伤害后，你可以摸一张牌，然后展示所有手牌，若颜色均相同，来源弃置一张手牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "奇策",
+            description:
+              "出牌阶段限一次，你可以将所有手牌当一张普通锦囊牌使用（不能为目标数大于手牌数的牌或【挟天子以令诸侯】），然后你可以变更。",
+            keywords: ["变更"],
+          },
+          {
+            name: "智愚",
+            description:
+              "当你受到伤害后，你可以摸一张牌并展示所有手牌，若颜色均相同，来源弃置一张手牌，若此牌也为此颜色，你获得之。",
+          },
+        ],
+        relatedGenerals: ["荀彧", "伍琼&种辑"],
+      },
+    ],
+    relatedGenerals: ["荀彧"],
+    expansionPack: "变",
+  },
+
   WEI022: {
     id: "WEI022",
     name: "卞夫人",
@@ -884,7 +929,7 @@ export const generals: Record<string, General> = {
     expansionPack: "DIY",
   },
 
-  WEI048: {
+  "WEI&QUN048": {
     id: "WEI&QUN048",
     name: "张鲁",
     faction: ["魏", "群"],
@@ -1003,6 +1048,81 @@ export const generals: Record<string, General> = {
       },
     ],
     expansionPack: "SP",
+  },
+
+  WEI060: {
+    id: "WEI060",
+    name: "朱灵",
+    faction: "魏",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "决绝",
+            description:
+              "弃牌阶段开始时，你可失去1点体力，然后此阶段结束时若你弃置过手牌，其他角色各选择一项1.将X张手牌置入弃牌堆 (X为你此阶段弃牌数) ;2.你对其造成1点伤害。你杀死与你势力相同的角色不执行奖惩。",
+          },
+          {
+            name: "方圆",
+            description:
+              "阵法技，若你是围攻角色，此围攻关系中的围攻角色的手牌上限+1且被围攻角色的手牌上限-1；结束阶段，若你是被围攻角色，你选择此围攻关系中的一名围攻角色，视为对其使用一张【杀】。",
+            label: "阵法技",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "决绝",
+            description:
+              "弃牌阶段开始时，你可以失去1点体力，然后此阶段结束时，若你此阶段弃置过牌，你令其他角色各选择一项：1.弃置等量手牌；2.受到你造成的1点伤害。",
+          },
+          {
+            name: "方圆",
+            description:
+              "阵法技<围攻/被围攻>，围攻角色的弃牌阶段结束时，你可以交给其此阶段被置入弃牌堆的一张牌，然后你可以视为对其使用【杀】。",
+            label: ["阵法技<围攻>", "阵法技<被围攻>"],
+          },
+        ],
+      },
+    ],
+    expansionPack: "不臣",
+  },
+
+  "WEI&WU072": {
+    id: "WEI&WU072",
+    name: "唐咨",
+    faction: ["魏", "吴"],
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "兴棹",
+            description:
+              "锁定技，若场上有受伤角色的势力数为：1个或以上，你视为拥有技能“恂恂”；2个或以上，当你受到伤害后，你与来源之中手牌数较少的一名角色摸一张牌；3个或以上，你于回合内的手牌上限+4；4个或以上，你失去装备区的牌时摸一张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "兴棹",
+            description:
+              "锁定技，若有受伤角色的势力数大于等于：1，你拥有“恂恂”；2，当你受到伤害后，弃置一张装备区里的牌；当你失去装备区里的牌时，摸一张牌；3，你于回合内的手牌上限+4，你视为装备着【飞云盖海】。",
+            memo: "你的装备区不会因此【飞云盖海】的效果而无法置入坐骑牌，但被置入的坐骑牌技能无效。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "不臣",
   },
 
   // TODO: other WEI
@@ -1272,7 +1392,7 @@ export const generals: Record<string, General> = {
     expansionPack: "SP",
   },
 
-  SHU072: {
+  "SHU&QUN072": {
     id: "SHU&QUN072",
     name: "彭羕",
     faction: ["蜀", "群"],
@@ -1311,7 +1431,7 @@ export const generals: Record<string, General> = {
         ],
       },
     ],
-    expansionPack: "变",
+    expansionPack: "不臣",
   },
 
   // TODO: others

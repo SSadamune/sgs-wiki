@@ -2,12 +2,12 @@ import { generals as generalsData } from "@/data/generals";
 import { useMemo, useState } from "react";
 import styles from "./GeneralList.module.scss";
 import { VersionId } from "@/data/types/Version";
-import { ExpansionName } from "@/data/types/Generals";
+import { ExpansionName, Faction, General } from "@/data/types/Generals";
 import classNames from "classnames";
-import Image from "next/image";
+import { GeneralDetailLink } from "./GeneralDetailLink";
 
 type Props = {
-  detailLink: (key: string) => string;
+  detailLink: (id: string) => string;
 };
 
 // TODO: common
@@ -69,14 +69,44 @@ export function GeneralList({ detailLink }: Props) {
             (filters.showsDouDiy && general.defaultVersion === "dou-DIY") ||
             (filters.showsOtherDiy && otherDiy.includes(general.defaultVersion))
         )
-        .map(([key, general]) => ({
-          name: general.name,
-          faction: general.faction,
-          imageId: general.id,
-          key,
-        })),
+        .map(([key, general]) => general),
     [filters]
   );
+
+  const createFactionObject = (): Record<Faction | "多势力", General[]> => ({
+    魏: [],
+    蜀: [],
+    吴: [],
+    群: [],
+    汉: [],
+    晋: [],
+    野心家: [],
+    多势力: [],
+  });
+
+  const groupedGeneralList = useMemo(() => {
+    return ExpansionName.map((expansion) => {
+      const factions = [...Faction, "多势力"]
+        .map((faction) => {
+          const generals = generalList.filter((general) => {
+            if (Array.isArray(general.faction)) {
+              return (
+                faction === "多势力" && general.expansionPack === expansion
+              );
+            } else {
+              return (
+                general.expansionPack === expansion &&
+                general.faction === faction
+              );
+            }
+          });
+          return { faction, generals };
+        })
+        .filter((factionObj) => factionObj.generals.length > 0);
+
+      return { expansion, factions };
+    });
+  }, [generalList]);
 
   const handleChangeFilter = (key: string, value: boolean) => {
     setFilters((prevFilters) => ({
@@ -105,21 +135,29 @@ export function GeneralList({ detailLink }: Props) {
           </span>
         ))}
       </div>
-      <ul className={styles.linkList}>
-        {generalList.map((general) => (
-          <li key={general.key}>
-            <a href={detailLink(general.key)} className={styles.generalLink}>
-              <Image
-                src={`https://ssadamune.github.io/sgs-wiki/images/avatar/${general.imageId}.png`}
-                alt={general.key}
-                width={50}
-                height={50}
-              />
-              {` ${general.name}`}
-            </a>
-          </li>
+      <div className={styles.linkList}>
+        {groupedGeneralList.map(({ expansion, factions }) => (
+          <div key={expansion} className={styles.expansionGroup}>
+            <h2>{expansion}</h2>
+            <div className={styles.factionList}>
+              {factions.map(({ faction, generals }) => (
+                <div key={faction} className={styles.factionGroup}>
+                  <h3>{faction}</h3>
+                  <div className={styles.generalList}>
+                    {generals.map((general) => (
+                      <GeneralDetailLink
+                        key={general.id}
+                        general={general}
+                        detailLink={detailLink}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

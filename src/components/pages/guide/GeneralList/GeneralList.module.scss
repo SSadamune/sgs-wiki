@@ -11,17 +11,39 @@
   justify-content: flex-end;
 }
 
+.activeFilter {
+  background-color: aquamarine;
+}
+
 .linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expansionGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.factionList {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.factionGroup {
+  width: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.generalList {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   font-size: 1rem;
-}
-
-.generalLink {
-  text-decoration: none;
-}
-
-.activeFilter {
-  background-color: aquamarine;
 }

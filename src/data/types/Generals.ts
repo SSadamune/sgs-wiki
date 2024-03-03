@@ -35,17 +35,22 @@ export type GeneralVersion = {
   references?: { title: string; url: string }[];
 };
 
-export type ExpansionName =
-  | "标准"
-  | "阵"
-  | "势"
-  | "变"
-  | "权"
-  | "不臣"
-  | "SP"
-  | "纵横捭阖"
-  | "海外专属"
-  | "DIY"
-  | "其它";
+export const ExpansionName = [
+  "标准",
+  "阵",
+  "势",
+  "变",
+  "权",
+  "不臣",
+  "SP",
+  "纵横捭阖",
+  "海外专属",
+  "DIY",
+  "其它",
+] as const;
 
-export type Faction = "魏" | "蜀" | "吴" | "群" | "汉" | "晋" | "野心家";
+export type ExpansionName = (typeof ExpansionName)[number];
+
+export const Faction = ["魏", "蜀", "吴", "群", "汉", "晋", "野心家"] as const;
+
+export type Faction = (typeof Faction)[number];
