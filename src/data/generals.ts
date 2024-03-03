@@ -2894,7 +2894,7 @@ export const generals: Record<string, General> = {
     expansionPack: "海外专属",
   },
 
-  // ================================== JIN ==================================
+  // ============================== Faction JIN ==============================
   //
   // =========================================================================
 
@@ -3237,6 +3237,7 @@ export const generals: Record<string, General> = {
             name: "鸿勋",
             description:
               "与你势力相同的角色准备阶段，你可以使用一张【杀】<助战→弃置目标角色装备区里的一张牌>。若此【杀】造成伤害，当前回合角色获得此【杀】并摸一张牌。",
+            keywords: ["助战"],
           },
         ],
       },
@@ -3394,6 +3395,7 @@ export const generals: Record<string, General> = {
             name: "应政",
             description:
               "每回合限一次，与你势力相同的角色使用应变牌结算结束后，若其触发了此牌的应变效果，该角色可以令你获得此牌，然后你可以令其选择是否变更副将（限一次）。",
+            keywords: ["变更"],
           },
           {
             name: "拨律",
@@ -3475,6 +3477,587 @@ export const generals: Record<string, General> = {
       },
     ],
     expansionPack: "权",
+  },
+
+  // ============================== Faction HAN ==============================
+  //
+  // =========================================================================
+
+  // 标准包
+  HAN001: {
+    id: "HAN001",
+    name: "刘协",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "天命",
+            description:
+              "当你成为【杀】的目标后，你可以弃置两张手牌（不足则全弃，无牌则不弃），摸两张牌。",
+          },
+          {
+            name: "密诏",
+            description:
+              "出牌阶段限一次，你可以将X张牌交给一名其他角色（X为与你不同的势力数），然后令其与另一名其他角色拼点：赢的角色视为对没赢的角色使用一张【杀】。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["伏皇后", "曹节", "董承"],
+  },
+  HAN002: {
+    id: "HAN002",
+    name: "刘辩",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "诗怨",
+            description:
+              "每回合各限一次，当你成为其他角色使用牌的目标后，若其体力值：大于你，你可以摸两张牌；小于等于你，你可以摸一张牌。",
+          },
+          {
+            name: "毒逝",
+            description:
+              "锁定技，其他角色不能对你使用【桃】；你死亡时，来源获得此技能。",
+            label: "锁定技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["唐姬"],
+  },
+  HAN004: {
+    id: "HAN004",
+    name: "张让",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "滔乱",
+            description:
+              "当你需要使用任意一种的基本牌或普通锦囊牌时，你可以明置此武将牌并视为使用之。当前回合结束时，你选择此牌指定过的至多三名其他角色，令其依次展示并交给你一张手牌，若其中的红色牌多于黑色牌，你暗置此武将牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["刘宏", "赵忠"],
+  },
+  HAN005: {
+    id: "HAN005",
+    name: "何进",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "谋诛",
+            description:
+              "出牌阶段限一次，你可以令一名其他角色交给你一张手牌，然后若其手牌数小于你，其视为使用一张【杀】或【决斗】。",
+          },
+          {
+            name: "延祸",
+            description:
+              "你死亡时，你可以弃置来源至多X张牌（X为你拥有的牌数）。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+  HAN006: {
+    id: "HAN006",
+    name: "王允",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "连计",
+            description:
+              "出牌阶段每名角色限一次，你可以交给其他角色一张手牌，令其本回合下次受到的伤害+1。",
+          },
+          {
+            name: "定著",
+            description:
+              "出牌阶段结束时，你可以选择一名本回合获得过牌的其他角色，其视为使用一张【决斗】。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+  HAN007: {
+    id: "HAN007",
+    name: "王荣",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "敏思",
+            description:
+              "出牌阶段限一次，你可以弃置任意张点数之和为13的牌，展示牌堆顶两倍的牌并获得之，本回合你以此法获得的红桃牌不计入手牌上限。",
+          },
+          {
+            name: "赋颂",
+            description:
+              "你死亡时，你可以令一名与你势力相同的其他角色获得“敏思”。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["刘宏"],
+  },
+  HAN008: {
+    id: "HAN008",
+    name: "伏皇后",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "惴恐",
+            description:
+              "其他角色的准备阶段，若你已受伤，你可以与其拼点。若你赢，防止其本回合造成伤害；若你没赢，其可以视为对你使用一张【杀】。",
+          },
+          {
+            name: "求援",
+            description:
+              "当你成为其他角色使用【杀】的目标时，你可以令另一名其他角色也成为目标且优先结算，此【杀】被抵消后对其余目标无效。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["刘协"],
+  },
+  HAN009: {
+    id: "HAN009",
+    name: "伏完",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "谋溃",
+            description:
+              "当你使用【杀】指定目标后，你可以选择一个目标并选择一至两项：1.摸一张牌；2.弃置其一张牌。若你选择了两项，当其抵消此【杀】时，其弃置你一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+  HAN010: {
+    id: "HAN010",
+    name: "董承",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "承诏",
+            description:
+              "每名角色的结束阶段，若你本回合获得过至少两张牌，你可以与其攻击范围内的一名角色拼点：赢的角色视为对没赢的角色使用一张无视防具的【杀】。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["刘协"],
+  },
+  HAN011: {
+    id: "HAN011",
+    name: "唐姬",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "哀舞",
+            description:
+              "每回合限一次，当其他角色受到伤害后，你可以弃置任意张牌，然后其可以弃置任意张牌，若你与其共计弃置的牌数达到三张，你与其各回复1点体力。",
+          },
+          {
+            name: "诀别",
+            description:
+              "与你势力相同的其他角色死亡时，其可以将所有牌交给你或令你摸三张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["刘辩"],
+  },
+  HAN012: {
+    id: "HAN012",
+    name: "蔡邕",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "铸典",
+            description:
+              "当你成为黑色牌的目标后，你可以重铸一张牌，然后若你摸到的牌为黑色的另一种花色，你可以展示之并摸一张牌。",
+          },
+          {
+            name: "博通",
+            description:
+              "你可以将四张花色各不同的牌当任意一种基本牌使用，然后你可以将这些牌交给其他角色。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["马日磾"],
+  },
+  HAN013: {
+    id: "HAN013",
+    name: "皇甫嵩",
+    faction: "汉",
+    health: 2.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "奋钺",
+            description:
+              "出牌阶段每势力限一次，你可以与一名角色拼点：若你赢，其不能响应你本回合使用的下一张牌，且若你的拼点牌点数小于9，你视为对其使用一张火【杀】；若你没赢，结束此阶段。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["朱儁", "卢植"],
+  },
+  HAN016: {
+    id: "HAN016",
+    name: "刘宠&骆俊",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "劲弩",
+            description:
+              "出牌阶段结束时，若你此阶段仅使用过【杀】，或使用的最后三张牌均不为【杀】，你可以视为使用一张【杀】。",
+          },
+          {
+            name: "威屯",
+            description:
+              "限定技，弃牌阶段开始前，若你的手牌最多，你可以跳过此阶段，并视为对任意名角色使用一张【桃园结义】。",
+            label: "限定技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+  HAN017: {
+    id: "HAN017",
+    name: "刘繇",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "戡难",
+            description:
+              "出牌阶段每势力限一次，你可以与一名角色拼点：赢的角色可以获得没赢的拼点牌并令你本回合使用下张【杀】伤害+1，若你赢，你本回合不能再发动此技能。",
+            keywords: ["拼点"],
+          },
+          {
+            name: "逆拒",
+            description:
+              "你拼点没赢后，你可以摸一张牌并令你本回合拼点牌点数+3，若对方也没赢，多摸一张牌。",
+            keywords: ["拼点"],
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+  HAN018: {
+    id: "HAN018",
+    name: "蹇硕",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "集兵",
+            description:
+              "摸牌阶段，你可以多摸X张牌（X为与你势力相同的角色数）。若如此做，回合结束时，若你本回合造成伤害数小于X，你失去1点体力。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+  // 君临天下 - 阵
+  HAN014: {
+    id: "HAN014",
+    name: "朱儁",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "摧破",
+            description:
+              "锁定技，你于一回合内使用第X张牌对目标角色造成的伤害+1（X为此牌名称字数）。",
+            label: "锁定技",
+          },
+          {
+            name: "虎翼",
+            description:
+              "阵法技，若你是围攻角色，当另一名围攻角色对被围攻角色使用【杀】结算后，你可以对被围攻角色使用一张【杀】。",
+            label: "阵法技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "阵",
+    relatedGenerals: ["皇甫嵩"],
+  },
+  HAN015: {
+    id: "HAN015",
+    name: "卢植",
+    faction: "汉",
+    health: 2,
+    healthSub: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "用良",
+            description:
+              "出牌阶段限一次，你可以弃置一张牌，视为仅对一名其他角色使用【敕令】（无视目标条件限制）。",
+          },
+          {
+            name: "备寇",
+            description:
+              "主将技，你计算体力上限减少1个单独的阴阳鱼。当其他角色明置武将牌时，若其已没有暗置的武将牌，你可以令其摸两张牌或弃置两张牌。",
+            label: "主将技",
+          },
+          {
+            name: "修体",
+            description:
+              "副将技，结束阶段，你可以令至多X名角色摸牌至体力上限（X为本回合明置过武将牌的角色数）。",
+            label: "副将技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "阵",
+    relatedGenerals: ["皇甫嵩", "蔡邕"],
+  },
+  HAN022: {
+    id: "HAN022",
+    name: "刘虞",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "绥抚",
+            description:
+              "其他角色的结束阶段，若本回合有至少两名小势力角色受到过伤害，你可以令其将所有手牌置于牌堆顶，其视为使用一张【五谷丰登】。",
+          },
+          {
+            name: "安境",
+            description:
+              "每回合限一次，与你势力相同的角色受到伤害后，你可以令所有与你势力相同的角色各摸一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "势",
+  },
+  HAN019: {
+    id: "HAN019",
+    name: "吉平",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "烈医",
+            description:
+              "当你对一名角色造成伤害后，你可以令该角色回复2点体力，然后本回合你不能再造成伤害。",
+          },
+          {
+            name: "蛊毒",
+            description:
+              "每回合限一次，其他角色回复体力时，你可以防止之。若如此做，当前回合结束时其失去1点体力，然后若其仍存活，你移除此武将牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "势",
+  },
+  HAN024: {
+    id: "HAN024",
+    name: "灵雎",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "竭缘",
+            description:
+              "当你对其他角色造成伤害时，或受到其他角色造成的伤害时，若其体力值大于等于你，你可以弃置一张红色手牌，令此伤害+1或-1。",
+          },
+          {
+            name: "焚心",
+            description:
+              "当你杀死角色后，你可以变更副将，此次变更额外获得三张其副将牌面势力的备选武将牌。",
+            keywords: ["变更"],
+          },
+        ],
+      },
+    ],
+    expansionPack: "变",
+  },
+  HAN023: {
+    id: "HAN023",
+    name: "伍琼&种辑",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "除奸",
+            description:
+              "其他角色的准备阶段，若其体力值或手牌数为全场最大，你可以令其本回合对你使用【杀】无距离和次数限制，然后当前回合结束时，你对其造成1点伤害。",
+          },
+          {
+            name: "心疾",
+            description:
+              "锁定技，你处于鏖战状态。当你于濒死状态失救时，你减1点体力上限并回复体力至1点。",
+            label: "锁定技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "变",
+  },
+  HAN003: {
+    id: "HAN003",
+    name: "刘宏",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "鬻爵",
+            description:
+              "你攻击范围内的角色出牌阶段开始时，若其已明置的武将牌技能数之和大于你，你可以对其发起“军令”：若其执行，其本回合第一次造成伤害后摸两张牌；若其不执行，你暗置其一张武将牌且其本回合不能明置之（若其仅有一张明置武将牌，则改为令其叠置）。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "权",
+    relatedGenerals: ["王荣", "张让"],
+  },
+  HAN021: {
+    id: "HAN021",
+    name: "曹节",
+    faction: "汉",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "悬壶",
+            description:
+              "每名角色的结束阶段，若你本回合有红色牌置入弃牌堆，你可以令一名角色摸一张牌，然后若其手牌数等于体力值，其回复1点体力。",
+          },
+          {
+            name: "守玺",
+            description:
+              "与你势力相同的角色装备区的牌被另一名角色弃置或获得时，你可以弃置一张与该牌花色相同的手牌，防止之。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "权",
+    relatedGenerals: ["刘协"],
   },
 
   // =============================== AMBITION ================================
