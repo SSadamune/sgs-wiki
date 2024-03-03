@@ -1338,7 +1338,106 @@ export const generals: Record<string, General> = {
     expansionPack: "DIY客将",
   },
 
+  SHU007: {
+    id: "SHU007",
+    name: "黄月英",
+    faction: "蜀",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "集智",
+            description: "当你使用一张非转化的普通锦囊牌时，你可以摸一张牌。",
+          },
+          {
+            name: "奇才",
+            description: "锁定技，你使用锦囊牌无距离限制。",
+            label: "锁定技",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "集智",
+            description: "当你使用一张非转化的普通锦囊牌时，你可以摸一张牌。",
+          },
+          {
+            name: "奇才",
+            description:
+              "锁定技，你使用锦囊牌无距离限制。每回合你使用的第一张带有应变效果的锦囊牌无视条件发动其应变效果。",
+            label: "锁定技",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["诸葛亮<丞相>", "诸葛亮<卧龙>"],
+    expansionPack: "标准",
+  },
+
   // TODO: other SHU
+
+  SHU012: {
+    id: "SHU012",
+    name: "姜维",
+    faction: "蜀",
+    health: 2,
+    healthSub: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "挑衅",
+            description:
+              "出牌阶段限一次，你可以令攻击范围内有你的一名角色选择一项：1.对你使用一张【杀】；2.你弃置其一张牌。",
+          },
+          {
+            name: "天覆",
+            description:
+              "主将技，阵法技，与你处于同一队列的角色的回合内，你拥有“看破”。",
+            label: ["主将技", "阵法技"],
+          },
+          {
+            name: "遗志",
+            description:
+              "副将技(-0.5)，若你的主将拥有“观星”，则将描述中的X改为5；否则你拥有“观星”。",
+            label: "副将技",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "挑衅",
+            description:
+              "出牌阶段每名角色限一次，你可以令攻击范围内有你的一名角色选择一项：1.对你使用一张【杀】；2.你弃置其一张牌。",
+          },
+          {
+            name: "遗志",
+            description:
+              "主将技(-0.5)，若你的主将拥有“观星”，则将描述中的X改为5；否则你拥有“观星”。",
+            label: "主将技",
+          },
+          {
+            name: "天覆",
+            description:
+              "副将技，阵法技<队列>，一名队列角色的回合内，你拥有“看破”。",
+            label: ["副将技", "阵法技<队列>"],
+          },
+        ],
+        hiredFaction: { 魏: "WEI051", 晋: "AM010", 野心家: "AM010" },
+      },
+    ],
+    relatedGenerals: ["诸葛亮<丞相>", "夏侯霸", "钟会"],
+    expansionPack: "标准",
+  },
 
   SHU015: {
     id: "SHU015",
@@ -2793,6 +2892,589 @@ export const generals: Record<string, General> = {
       },
     ],
     expansionPack: "海外专属",
+  },
+
+  // ================================== JIN ==================================
+  //
+  // =========================================================================
+
+  JIN001: {
+    id: "JIN001",
+    name: "司马炎",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "垂统",
+            description:
+              "其他角色进入濒死状态时，你可以将其装备区的一张牌移动至你装备区。",
+          },
+          {
+            name: "兴图",
+            description:
+              "当你需要使用【桃】时，若你本回合未使用或打出过牌，你可将一张装备牌当【桃】使用。一名角色的回合结束时，若你本回合未造成或受到过伤害，其可令你摸一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["张华", "杨艳&杨芷"],
+  },
+  JIN002: {
+    id: "JIN002",
+    name: "司马师",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "夷灭",
+            description:
+              "每回合限一次，当你对其他角色造成伤害时，你可失去1点体力，令伤害值增加至其体力值，伤害结算后其回复等同增加伤害值的体力。",
+          },
+          {
+            name: "泰然",
+            description:
+              "锁定技，回合结束时，你回复体力至上限并将手牌摸至体力上限，你于下回合的出牌阶段开始时失去等量的体力并弃置等量的手牌。",
+            label: "锁定技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["夏侯徽", "羊徽瑜", "傅嘏"],
+  },
+  JIN003: {
+    id: "JIN003",
+    name: "司马昭",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "筹伐",
+            description:
+              "出牌阶段限一次，你可以展示一名其他角色的一张手牌，然后令其此阶段内与此牌类别不同的手牌均视为【杀】。",
+          },
+          {
+            name: "昭然",
+            description:
+              "出牌阶段开始时，你可以令此阶段内你的手牌对所有角色可见，且你首次失去每种花色最后的手牌后，摸一张牌或弃置其他角色一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["王元姬", "贾充"],
+  },
+  JIN004: {
+    id: "JIN004",
+    name: "贾充",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "通法",
+            description:
+              "每回合限一次，当一名角色使用应变牌时，其可以交给你一张牌（若为你则改为卜算2），然后你可以令其无视条件触发其使用牌的应变效果。",
+          },
+          {
+            name: "悖弑",
+            description:
+              "当你成为其他角色使用【杀】或普通锦囊牌的唯一目标时，你可以弃置一张同类别的牌并取消之，然后获得并对其使用之，若你未以此法使用牌对其造成伤害，你失去1点体力。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["司马昭", "荀勖"],
+  },
+  JIN005: {
+    id: "JIN005",
+    name: "羊祜",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "柔克",
+            description:
+              "与你势力相同的角色于一回合内使用第一张牌时，若此牌为【杀】，其可以改为冰【杀】，然后若此牌未造成伤害，你令一名角色横置。你的手牌上限+2X（X为横置的角色数）。",
+          },
+          {
+            name: "顺流",
+            description:
+              "当你造成属性伤害后，你可以依次弃置所有横置的角色各一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["杜预", "王濬"],
+  },
+  JIN007: {
+    id: "JIN007",
+    name: "王元姬",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "宴戏",
+            description:
+              "出牌阶段限一次，你可以扣置一名其他角色的一张手牌和牌堆顶两张牌，洗混后展示之，你获得其中一张牌，此牌本回合不计入你手牌上限，若此牌来自其手牌，你获得其余两张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["司马昭"],
+  },
+  JIN008: {
+    id: "JIN008",
+    name: "夏侯徽",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "宜室",
+            description:
+              "每回合限一次，当其他角色于其出牌阶段内弃置任意角色的手牌后，你可以将其中一张牌交给其，然后你获得其余的牌。",
+          },
+          {
+            name: "识度",
+            description:
+              "出牌阶段限一次，你可以与一名角色拼点。若你赢，你获得其所有手牌，然后你将半数手牌（向下取整）交给其。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["司马师"],
+  },
+  JIN009: {
+    id: "JIN009",
+    name: "司马懿",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "权变",
+            description:
+              "当你于出牌阶段内第一次使用每种花色的手牌时，你可以令你此阶段不能再使用此花色的手牌，然后卜算3并摸一张牌。",
+          },
+          {
+            name: "骤霆",
+            description:
+              "限定技，出牌阶段，你可以展示牌堆顶的一张牌，若此牌可使用，你使用之并重复此流程。",
+            label: "限定技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["张春华"],
+  },
+  JIN010: {
+    id: "JIN010",
+    name: "张春华",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "慧识",
+            description:
+              "摸牌阶段，你可以改为观看牌堆顶的X张牌并获得其中半数的牌（X为上回合置入弃牌堆的牌数且至多为9，半数向下取整），然后将其余牌以任意顺序置于牌堆底。",
+          },
+          {
+            name: "清冷",
+            description:
+              "其他角色的结束阶段，若其体力和手牌均多于你，你可以将一张牌当冰【杀】对其使用。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["司马懿"],
+  },
+  JIN011: {
+    id: "JIN011",
+    name: "张虎＆乐綝",
+    faction: "晋",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "果毅",
+            description:
+              "出牌阶段限一次，你可以弃置至多三张基本牌并令等量名有牌的其他角色各选择一项：1.你弃置其装备区一张牌；2.你获得其一张手牌。这些角色选择完成后，若两项均被选择过，你可以对其中一名角色造成1点伤害。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+  JIN012: {
+    id: "JIN012",
+    name: "羊徽瑜",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "慈威",
+            description:
+              "其他角色于其回合内使用第二张牌时，若此牌为基本牌或普通锦囊牌，你可以弃置一张牌并令此牌无效。",
+          },
+          {
+            name: "才媛",
+            description:
+              "锁定技，与你势力相同的角色回合结束时，若其未受伤，你摸一张牌；若你未受伤，其摸一张牌。",
+            label: "锁定技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["司马师"],
+  },
+  JIN013: {
+    id: "JIN013",
+    name: "王濬",
+    faction: "晋",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "克清",
+            description:
+              "当你使用牌结算后，你可以横置所有受到此牌伤害的角色。若仅有一名角色受到伤害，则其下回合使用每张牌时需弃置一张手牌，然后本回合此技能失效。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["羊祜"],
+  },
+  JIN014: {
+    id: "JIN014",
+    name: "陈骞",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "忽辱",
+            description:
+              "每回合限一次，当你造成或受到伤害时，你可以同时展示来源和受伤角色各一张手牌，若：花色相同，你获得之；类别相同，此伤害-1。",
+          },
+          {
+            name: "武督",
+            description:
+              "出牌阶段限一次，你可以弃置一张牌，令一名有手牌的角色选择一项：1.其手牌对所有角色可见直到其回合结束；2.你对其造成1点伤害。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["石苞"],
+  },
+  JIN015: {
+    id: "JIN015",
+    name: "石苞",
+    faction: "晋",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "鸿勋",
+            description:
+              "与你势力相同的角色准备阶段，你可以使用一张【杀】<助战→弃置目标角色装备区里的一张牌>。若此【杀】造成伤害，当前回合角色获得此【杀】并摸一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["陈骞"],
+  },
+  JIN006: {
+    id: "JIN006",
+    name: "杜预",
+    faction: "晋",
+    health: 1.5,
+    healthSub: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "三陈",
+            description:
+              "出牌阶段限一次，你可以令一名角色摸三张牌并弃置三张牌，若弃置牌类别均不同，其摸一张牌并复原此技能的发动次数（不能再选择相同的角色）。",
+          },
+          {
+            name: "破竹",
+            description:
+              "主将技，你计算体力上限时减少1个单独阴阳鱼。出牌阶段限X次（X为此阶段“三陈”被复原的次数），你可以将一张手牌当【出其不意】使用。",
+            label: "主将技",
+          },
+          {
+            name: "武库",
+            description:
+              "副将技，每回合限一次，你可以将武器或防具牌当你本回合使用的上一张基本或普通锦囊牌使用。",
+            label: "副将技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "阵",
+    relatedGenerals: ["羊祜", "宣公主"],
+  },
+  JIN016: {
+    id: "JIN016",
+    name: "张华",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "复礼",
+            description:
+              "与你势力相同的角色摸牌阶段，其可以多摸一张牌，然后展示并交给你一张牌，本回合其不能使用或打出此花色的牌。",
+          },
+          {
+            name: "风物",
+            description:
+              "出牌阶段限一次，你可以令至多三名角色选择是否使用一张牌。然后若本回合所有花色的牌均被使用过，你摸两张牌并回复1点体力。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+    relatedGenerals: ["司马炎"],
+  },
+  JIN023: {
+    id: "JIN023",
+    name: "马隆",
+    faction: "晋",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "锋械",
+            description:
+              "出牌阶段开始时，你可以交换两名角色场上各一张装备牌，若其中一名角色为你，你视为对其中另一名角色和其队列使用一张【杀】。",
+          },
+          {
+            name: "锥形",
+            description:
+              "锁定技，被你围攻的角色对你使用的【杀】伤害-1。你对围攻你的角色使用【杀】伤害+1。",
+            label: "锁定技",
+          },
+        ],
+      },
+    ],
+    expansionPack: "阵",
+  },
+  JIN017: {
+    id: "JIN017",
+    name: "王浑",
+    faction: "晋",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "献捷",
+            description: "锁定技，你对横置的角色使用牌无距离和次数限制。",
+            label: "锁定技",
+          },
+          {
+            name: "斁乱",
+            description:
+              "出牌阶段，你可以移除副将，令你本回合第一次杀死角色的奖惩改为摸三张牌。若如此做，你选择一个势力，本局你使用牌指定该势力的角色为目标时，横置该势力的所有角色。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "势",
+  },
+  JIN022: {
+    id: "JIN022",
+    name: "胡烈&牵弘",
+    faction: "晋",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "烈戎",
+            description:
+              "出牌阶段开始时，你可以失去1点体力并令你本回合攻击范围至多+X（X为你已损失的体力值），视为使用一张火【杀】。",
+          },
+          {
+            name: "勤边",
+            description:
+              "结束阶段，你可以将一张手牌当【逐近弃远】〈助战→执行两项〉对你攻击范围内距离最远的一名角色使用。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "势",
+  },
+  JIN020: {
+    id: "JIN020",
+    name: "荀勖",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "应政",
+            description:
+              "每回合限一次，与你势力相同的角色使用应变牌结算结束后，若其触发了此牌的应变效果，该角色可以令你获得此牌，然后你可以令其选择是否变更副将（限一次）。",
+          },
+          {
+            name: "拨律",
+            description:
+              "出牌阶段限一次，你可以重铸一张手牌并选择一名角色，根据此牌花色修改其使用牌的应变条件，直到其回合结束：黑桃~富甲；红桃~残躯；梅花~助战；方片~空巢。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "变",
+    relatedGenerals: ["贾充"],
+  },
+  JIN018: {
+    id: "JIN018",
+    name: "司马伷",
+    faction: "晋",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "才望",
+            description:
+              "当你使用或打出牌响应其他角色使用的牌，或其他角色使用或打出牌响应你使用的牌后，若这两张牌的颜色相同，你可以获得其一张牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "变",
+  },
+  JIN021: {
+    id: "JIN021",
+    name: "卫瓘",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "檄令",
+            description:
+              "准备阶段，你可以将一张手牌置于武将牌上，称为“状”，你的下回合开始时移去之。每名角色每回合第一次使用或打出与“状”花色相同的牌时，其选择一项：1.弃置一张手牌；2.令你摸一张牌。",
+          },
+          {
+            name: "追诛",
+            description:
+              "有角色受到致命伤害时，你可以移去“状”，然后对其发起“军令”。若其执行，防止此伤害；若其不执行，你令此伤害翻倍。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "权",
+  },
+  JIN024: {
+    id: "JIN024",
+    name: "贾南风",
+    faction: "晋",
+    health: 1.5,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "伤败",
+            description:
+              "当你对其他角色造成伤害后，你可以令其下回合的手牌上限-1。",
+          },
+          {
+            name: "废戮",
+            description:
+              "当一名角色进入濒死状态时，你可以令其选择一项：1.移除副将并回复1点体力；2.你移除此武将牌，其死亡。每名角色限一次。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "权",
   },
 
   // =============================== AMBITION ================================

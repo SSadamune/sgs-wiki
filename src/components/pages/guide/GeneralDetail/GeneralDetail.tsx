@@ -92,13 +92,13 @@ export function GeneralDetail({ generalData }: Props) {
           </div>
           <div className={styles.informationLine}>
             {!!activeVersion.relatedGenerals && (
-              <span>{`[珠]${activeVersion.relatedGenerals.join("，")}`}</span>
+              <span>{`[珠] ${activeVersion.relatedGenerals.join("，")}`}</span>
             )}
           </div>
           <div className={styles.informationLine}>
             {!!activeVersion.hiredFaction && (
               <span>
-                {`[客]${Object.keys(activeVersion.hiredFaction).join("，")}`}
+                {`[客] ${Object.keys(activeVersion.hiredFaction).join("，")}`}
               </span>
             )}
           </div>

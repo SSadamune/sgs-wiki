@@ -101,6 +101,8 @@ export function GeneralList({ detailLink }: Props) {
     });
   }, [generalList]);
 
+  console.log(groupedGeneralList);
+
   const handleChangeFilter = (key: string, value: boolean) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
