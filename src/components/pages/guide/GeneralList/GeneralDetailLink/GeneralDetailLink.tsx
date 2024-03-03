@@ -2,15 +2,16 @@ import { Faction, General } from "@/data/types/Generals";
 import styles from "./GeneralDetailLink.module.scss";
 import Image from "next/image";
 import { useState } from "react";
+import { ParsedGeneral } from "@/utils/data";
 
 type Props = {
-  general: { name: string; faction: Faction | Faction[]; id: string };
+  general: ParsedGeneral;
   detailLink: (id: string) => string;
 };
 
 export function GeneralDetailLink({ general, detailLink }: Props) {
   const [imageSource, setImageSource] = useState(
-    `https://ssadamune.github.io/sgs-wiki/images/avatar/${general.id}.png`
+    `https://ssadamune.github.io/sgs-wiki/images/avatar/${general.officialId}.png`
   );
 
   const handleError = () => {
@@ -20,10 +21,10 @@ export function GeneralDetailLink({ general, detailLink }: Props) {
   };
 
   return (
-    <a href={detailLink(general.id)} className={styles.generalLink}>
+    <a href={detailLink(general.officialId)} className={styles.generalLink}>
       <Image
         src={imageSource}
-        alt={general.id}
+        alt={general.officialId}
         width={70}
         height={70}
         onError={handleError}

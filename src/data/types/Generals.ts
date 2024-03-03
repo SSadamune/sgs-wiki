@@ -16,7 +16,10 @@ export type General = {
   // 武将的不同版本
   versions: GeneralVersion[];
   // 珠联璧合的武将姓名
+  // TODO: string 类型改为 general id
   relatedGenerals?: string[];
+  // 作为客将时的势力，及其客将版本的编号（对于客将，则是其非客将的版本的编号）
+  hiredFaction?: HiredFaction;
   // 所属扩展包
   expansionPack: ExpansionName;
   //
@@ -28,9 +31,11 @@ export type GeneralVersion = {
   // 武将技能
   skills: Skill[];
   faction?: Faction | Faction[];
+  hiredFaction?: HiredFaction;
   health?: number;
   healthSub?: number;
   expansionPack?: ExpansionName;
+  // TODO: string 类型改为 general id
   relatedGenerals?: string[];
   references?: { title: string; url: string }[];
 };
@@ -46,6 +51,7 @@ export const ExpansionName = [
   "纵横捭阖",
   "海外专属",
   "DIY",
+  "DIY客将",
   "其它",
 ] as const;
 
@@ -54,3 +60,6 @@ export type ExpansionName = (typeof ExpansionName)[number];
 export const Faction = ["魏", "蜀", "吴", "群", "汉", "晋", "野心家"] as const;
 
 export type Faction = (typeof Faction)[number];
+
+// TODO: string 类型改为 general id
+export type HiredFaction = Partial<Record<Faction, string | "self">>;

@@ -5,6 +5,8 @@ import { VersionId } from "@/data/types/Version";
 import { ExpansionName, Faction, General } from "@/data/types/Generals";
 import classNames from "classnames";
 import { GeneralDetailLink } from "./GeneralDetailLink";
+import { parseGeneral } from "@/utils/data";
+import { notNull } from "@/utils/array";
 
 type Props = {
   detailLink: (id: string) => string;
@@ -69,34 +71,25 @@ export function GeneralList({ detailLink }: Props) {
             (filters.showsDouDiy && general.defaultVersion === "dou-DIY") ||
             (filters.showsOtherDiy && otherDiy.includes(general.defaultVersion))
         )
-        .map(([key, general]) => general),
+        .map(([key, general]) => parseGeneral(general, general.defaultVersion))
+        .filter(notNull),
     [filters]
   );
 
-  const createFactionObject = (): Record<Faction | "多势力", General[]> => ({
-    魏: [],
-    蜀: [],
-    吴: [],
-    群: [],
-    汉: [],
-    晋: [],
-    野心家: [],
-    多势力: [],
-  });
-
   const groupedGeneralList = useMemo(() => {
+    const factionList: string[] = [...Faction, "多势力"];
     return ExpansionName.map((expansion) => {
-      const factions = [...Faction, "多势力"]
+      const factions = factionList
         .map((faction) => {
           const generals = generalList.filter((general) => {
-            if (Array.isArray(general.faction)) {
-              return (
-                faction === "多势力" && general.expansionPack === expansion
-              );
-            } else {
+            if (factionList.includes(general.faction)) {
               return (
                 general.expansionPack === expansion &&
                 general.faction === faction
+              );
+            } else {
+              return (
+                faction === "多势力" && general.expansionPack === expansion
               );
             }
           });
@@ -146,7 +139,7 @@ export function GeneralList({ detailLink }: Props) {
                   <div className={styles.generalList}>
                     {generals.map((general) => (
                       <GeneralDetailLink
-                        key={general.id}
+                        key={general.officialId}
                         general={general}
                         detailLink={detailLink}
                       />

@@ -40,10 +40,33 @@ export const generals: Record<string, General> = {
               "当你受到1点伤害后,你可以摸一张牌。然后你可以弃一张牌,并获得造成此伤害的牌。",
           },
         ],
+        hiredFaction: { 汉: "HAN404", 群: "self" },
       },
     ],
-    relatedGenerals: ["典韦", "许褚"],
+    relatedGenerals: ["典韦", "许褚", "卞夫人"],
     expansionPack: "标准",
+  },
+  HAN404: {
+    id: "HAN404",
+    name: "曹操",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "能臣",
+            description:
+              "每回合限一次，当你造成伤害后，你可以摸一张牌，然后你可以弃置X张牌并获得此造成伤害的牌（X为受到过此牌伤害的角色数）。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["袁绍"],
+    hiredFaction: { 魏: "WEI001" },
+    expansionPack: "DIY客将",
   },
   WEI002: {
     id: "WEI002",
@@ -78,6 +101,7 @@ export const generals: Record<string, General> = {
               "当一名角色的判定牌生效前,你可以打出一张颜色不同的牌代替之,或打出一张颜色相同的牌替换之。",
           },
         ],
+        hiredFaction: { 晋: "self" },
       },
     ],
     relatedGenerals: ["司马昭"],
@@ -148,7 +172,7 @@ export const generals: Record<string, General> = {
     name: "张辽",
     faction: "魏",
     health: 2,
-    defaultVersion: "official",
+    defaultVersion: "zixing-DIY",
     versions: [
       {
         versionId: "official",
@@ -159,6 +183,17 @@ export const generals: Record<string, General> = {
               "摸牌阶段,你可以少摸任意张牌并选择等量的其它角色,然后获得这些角色的各一张手牌。",
           },
         ],
+      },
+      {
+        versionId: "zixing-DIY",
+        skills: [
+          {
+            name: "突袭",
+            description:
+              "摸牌阶段,你可以少摸任意张牌并选择等量的其它角色,然后获得这些角色的各一张手牌。",
+          },
+        ],
+        hiredFaction: { 群: "self" },
       },
     ],
     relatedGenerals: ["臧霸"],
@@ -282,6 +317,7 @@ export const generals: Record<string, General> = {
               "准备阶段,你可以判定,若结果为黑色,你可以重复此流程,直到判定结果为红色,然后你获得所有黑色的判定牌,你的手牌上限+X（X为当前回合你以此法获得的牌数）。",
           },
         ],
+        hiredFaction: { 群: "self" },
       },
     ],
     relatedGenerals: ["曹丕"],
@@ -346,6 +382,7 @@ export const generals: Record<string, General> = {
           },
         ],
         relatedGenerals: ["郭淮"],
+        hiredFaction: { 群: "self" },
       },
     ],
     expansionPack: "标准",
@@ -390,6 +427,7 @@ export const generals: Record<string, General> = {
             description: "一名角色跳过一个阶段后,你可以摸一张牌。",
           },
         ],
+        hiredFaction: { 汉: "self" },
       },
     ],
     expansionPack: "标准",
@@ -520,6 +558,7 @@ export const generals: Record<string, General> = {
           },
         ],
         relatedGenerals: ["荀攸"],
+        hiredFaction: { 汉: "self" },
       },
     ],
     expansionPack: "标准",
@@ -682,6 +721,7 @@ export const generals: Record<string, General> = {
           },
         ],
         relatedGenerals: ["荀彧", "伍琼&种辑"],
+        hiredFaction: { 汉: "self" },
       },
     ],
     relatedGenerals: ["荀彧"],
@@ -810,6 +850,7 @@ export const generals: Record<string, General> = {
               "当你受到1点伤害后,你可以令当前回合角色本回合手牌上限-1或+1。此回合弃牌阶段结束时,若其于此阶段弃置牌,你获得其中的至多X张牌,否则你摸X张牌(X为你本回合发动此技能的次数)。",
           },
         ],
+        hiredFaction: { 群: "self" },
       },
     ],
     relatedGenerals: ["张辽"],
@@ -1188,6 +1229,46 @@ export const generals: Record<string, General> = {
   //
   // =========================================================================
 
+  SHU001: {
+    id: "SHU001",
+    name: "刘备",
+    faction: "蜀",
+    health: 2,
+    defaultVersion: "zixing-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "仁德",
+            description:
+              "出牌阶段每名角色限一次，你可以将任意张手牌交给一名其他角色。当你以此法给出第二张牌时，你可以视为使用一张基本牌。",
+          },
+        ],
+      },
+      {
+        versionId: "zixing-DIY",
+        health: 2,
+        skills: [
+          {
+            name: "仁德",
+            description:
+              "出牌阶段每名角色限一次，你可以将任意张手牌交给一名其他角色。当你以此法给出第二张牌时，你可以视为使用一张基本牌。",
+          },
+        ],
+        relatedGenerals: ["关羽", "张飞", "甘夫人", "法正", "公孙瓒"],
+        hiredFaction: {
+          汉: "self",
+          魏: "self",
+          吴: "self",
+          群: "self",
+        },
+      },
+    ],
+    relatedGenerals: ["关羽", "张飞", "甘夫人", "法正"],
+    expansionPack: "标准",
+  },
+
   SHU002: {
     id: "SHU002",
     name: "关羽",
@@ -1222,10 +1303,39 @@ export const generals: Record<string, General> = {
           },
         ],
         relatedGenerals: ["刘备", "张飞"],
+        hiredFaction: { 汉: "HAN&WEI048", 魏: "HAN&WEI048" },
       },
     ],
     relatedGenerals: ["刘备"],
     expansionPack: "标准",
+  },
+
+  "HAN&WEI048": {
+    id: "HAN&WEI048",
+    name: "关羽",
+    faction: ["汉", "魏"],
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "武圣",
+            description:
+              "你可以将一张红色牌当【杀】使用或打出;你使用♦【杀】无距离限制。",
+          },
+          {
+            name: "单骑",
+            description:
+              "锁定技，每回合前两次，当你使用伤害类牌指定唯一目标时，将其一张牌置于此武将牌上。每个回合结束时，若此武将牌上的牌不少于五张，你获得这些牌并移除此武将牌。",
+          },
+        ],
+      },
+    ],
+    relatedGenerals: ["刘备", "张辽", "徐晃"],
+    hiredFaction: { 蜀: "SHU002" },
+    expansionPack: "DIY客将",
   },
 
   // TODO: other SHU

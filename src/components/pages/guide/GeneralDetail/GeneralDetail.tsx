@@ -9,6 +9,7 @@ import { Skill as SkillType } from "@/data/types/Skills";
 import { joinStrings } from "@/utils/string";
 import { Skill } from "./Skill";
 import Image from "next/image";
+import { displayHealth, parseGeneral } from "@/utils/data";
 
 type Props = {
   generalData: General;
@@ -32,6 +33,8 @@ export function GeneralDetail({ generalData }: Props) {
   if (!activeVersion) {
     return <Error statusCode={404} title="技能版本信息未找到" />;
   }
+
+  console.log(activeVersion);
 
   return (
     <div>
@@ -82,20 +85,21 @@ export function GeneralDetail({ generalData }: Props) {
         <div className={styles.information}>
           <div className={styles.informationLine}>
             <h2 className={styles.name}>{generalData.name}</h2>
-          </div>
-          <div className={styles.informationLine}>
             <div>{`${activeVersion.faction}`}</div>
             <div>
-              <span>
-                {typeof activeVersion.health === "number"
-                  ? `${activeVersion.health} 阴阳鱼`
-                  : `主 ${activeVersion.health.main}，副 ${activeVersion.health.sub}  阴阳鱼`}
-              </span>
+              <span>{displayHealth(activeVersion.health)}</span>
             </div>
           </div>
           <div className={styles.informationLine}>
             {!!activeVersion.relatedGenerals && (
-              <div>珠联璧合：{activeVersion.relatedGenerals.join("，")}</div>
+              <span>{`[珠]${activeVersion.relatedGenerals.join("，")}`}</span>
+            )}
+          </div>
+          <div className={styles.informationLine}>
+            {!!activeVersion.hiredFaction && (
+              <span>
+                {`[客]${Object.keys(activeVersion.hiredFaction).join("，")}`}
+              </span>
             )}
           </div>
         </div>
@@ -129,42 +133,3 @@ export function GeneralDetail({ generalData }: Props) {
     </div>
   );
 }
-
-type ParsedGeneral = {
-  versionId: VersionId;
-  parsedGeneralId: string;
-  skills: SkillType[];
-  faction: string;
-  health: number | HealthWithSub;
-  expansionPack: string;
-  relatedGenerals?: string[];
-  references?: { title: string; url: string }[];
-};
-
-type HealthWithSub = { main: number; sub: number };
-
-const parseGeneral = (
-  generalData: General,
-  versionId: VersionId
-): ParsedGeneral | null => {
-  const versionData = generalData.versions.find(
-    (v) => v.versionId === versionId
-  );
-  if (!versionData) return null;
-
-  const mainHealth = versionData.health ?? generalData.health;
-  const subHealth = versionData.healthSub ?? generalData.healthSub;
-  const health: number | HealthWithSub = !!subHealth
-    ? { main: mainHealth, sub: subHealth }
-    : mainHealth;
-
-  return {
-    ...versionData,
-    versionId,
-    parsedGeneralId: versionData.generalId ?? generalData.id,
-    faction: joinStrings(versionData.faction ?? generalData.faction),
-    health,
-    expansionPack: versionData.expansionPack ?? generalData.expansionPack,
-    relatedGenerals: versionData.relatedGenerals ?? generalData.relatedGenerals,
-  };
-};

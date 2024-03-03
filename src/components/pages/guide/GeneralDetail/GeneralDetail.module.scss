@@ -32,6 +32,8 @@
   align-items: baseline;
   flex-direction: row;
   min-height: 1.2rem;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .name {
