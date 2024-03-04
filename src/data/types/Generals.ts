@@ -25,6 +25,7 @@ export type General = {
 export type GeneralVersion = {
   versionId: VersionId;
   generalId?: string;
+  avatarId?: string;
   // 武将技能
   skills: Skill[];
   faction?: Faction | Faction[];

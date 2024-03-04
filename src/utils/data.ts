@@ -6,6 +6,7 @@ import { joinStrings } from "./string";
 export type ParsedGeneral = {
   versionId: VersionId;
   id: string;
+  avatarId: string;
   officialId: string;
   name: string;
   skills: SkillType[];
@@ -38,6 +39,7 @@ export const parseGeneral = (
     ...versionData,
     versionId,
     id: versionData.generalId ?? generalData.id,
+    avatarId: versionData.avatarId ?? generalData.id,
     officialId: generalData.id,
     name: generalData.name,
     faction: joinStrings(versionData.faction ?? generalData.faction),

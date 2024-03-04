@@ -75,7 +75,7 @@ export function GeneralDetail({ generalData }: Props) {
           style={{ display: avatarLoaded ? "block" : "none" }}
         >
           <Image
-            src={`https://ssadamune.github.io/sgs-wiki/images/avatar/${generalData.id}.png`}
+            src={`https://ssadamune.github.io/sgs-wiki/images/avatar/${activeVersion.avatarId}.png`}
             alt={generalData.name}
             fill
             onError={() => setAvatarLoaded(false)}
@@ -98,7 +98,7 @@ export function GeneralDetail({ generalData }: Props) {
             {!!activeVersion.hiredFaction && (
               <span>
                 [客]{" "}
-                {Object.entries(activeVersion.hiredFaction || {}).map(
+                {Object.entries(activeVersion.hiredFaction).map(
                   ([key, value], index, array) => (
                     <span key={index}>
                       {value === "self" ? (

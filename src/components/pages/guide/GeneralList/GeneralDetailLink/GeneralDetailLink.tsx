@@ -11,7 +11,7 @@ type Props = {
 
 export function GeneralDetailLink({ general }: Props) {
   const [imageSource, setImageSource] = useState(
-    `https://ssadamune.github.io/sgs-wiki/images/avatar/${general.officialId}.png`
+    `https://ssadamune.github.io/sgs-wiki/images/avatar/${general.avatarId}.png`
   );
 
   const handleError = () => {
