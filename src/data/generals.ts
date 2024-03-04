@@ -609,7 +609,7 @@ export const generals: Record<string, General> = {
           {
             name: "骁果",
             description:
-              "其他角色的准备阶段,你可以弃置任意张基本牌,令其选择一项:1.弃置X张装备牌;2.受到你造成的1点伤害,然后令你摸X-1张牌。(X为你以此法弃置的牌数)",
+              "其他角色的准备阶段,你可以弃置任意张基本牌,令其选择一项:1.弃置等量装备牌;2.受到你造成的1点伤害,然后令你摸一张牌。",
           },
         ],
       },
@@ -3630,6 +3630,7 @@ export const generals: Record<string, General> = {
         ],
       },
     ],
+    relatedGenerals: ["貂蝉"],
     expansionPack: "标准",
   },
   HAN007: {
