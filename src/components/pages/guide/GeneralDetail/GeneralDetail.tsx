@@ -1,15 +1,14 @@
 import { General } from "@/data/types/Generals";
-import { useMemo, useState, useCallback, useEffect } from "react";
+import { useMemo, useState } from "react";
 import Error from "next/error";
 import { versions } from "@/data/versions";
 import { VersionId } from "@/data/types/Version";
 import styles from "./GeneralDetail.module.scss";
 import classNames from "classnames";
-import { Skill as SkillType } from "@/data/types/Skills";
-import { joinStrings } from "@/utils/string";
 import { Skill } from "./Skill";
 import Image from "next/image";
 import { displayHealth, parseGeneral } from "@/utils/data";
+import { detailLink } from "@/utils/path";
 
 type Props = {
   generalData: General;
@@ -98,7 +97,19 @@ export function GeneralDetail({ generalData }: Props) {
           <div className={styles.informationLine}>
             {!!activeVersion.hiredFaction && (
               <span>
-                {`[客] ${Object.keys(activeVersion.hiredFaction).join("，")}`}
+                [客]{" "}
+                {Object.entries(activeVersion.hiredFaction || {}).map(
+                  ([key, value], index, array) => (
+                    <span key={index}>
+                      {value === "self" ? (
+                        key
+                      ) : (
+                        <a href={detailLink(value)}>{key}</a>
+                      )}
+                      {index < array.length - 1 ? "，" : ""}
+                    </span>
+                  )
+                )}
               </span>
             )}
           </div>

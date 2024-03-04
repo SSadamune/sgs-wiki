@@ -18,11 +18,8 @@ export type General = {
   // 珠联璧合的武将姓名
   // TODO: string 类型改为 general id
   relatedGenerals?: string[];
-  // 作为客将时的势力，及其客将版本的编号（对于客将，则是其非客将的版本的编号）
-  hiredFaction?: HiredFaction;
   // 所属扩展包
   expansionPack: ExpansionName;
-  //
 };
 
 export type GeneralVersion = {
@@ -31,6 +28,7 @@ export type GeneralVersion = {
   // 武将技能
   skills: Skill[];
   faction?: Faction | Faction[];
+  // 作为客将时的势力，及其客将版本的编号（对于客将，则是其非客将的版本的编号）
   hiredFaction?: HiredFaction;
   health?: number;
   healthSub?: number;

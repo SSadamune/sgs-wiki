@@ -3,13 +3,13 @@ import styles from "./GeneralDetailLink.module.scss";
 import Image from "next/image";
 import { useState } from "react";
 import { ParsedGeneral } from "@/utils/data";
+import { detailLink } from "@/utils/path";
 
 type Props = {
   general: ParsedGeneral;
-  detailLink: (id: string) => string;
 };
 
-export function GeneralDetailLink({ general, detailLink }: Props) {
+export function GeneralDetailLink({ general }: Props) {
   const [imageSource, setImageSource] = useState(
     `https://ssadamune.github.io/sgs-wiki/images/avatar/${general.officialId}.png`
   );

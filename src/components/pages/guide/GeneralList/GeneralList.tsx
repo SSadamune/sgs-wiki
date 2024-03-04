@@ -8,10 +8,6 @@ import { GeneralDetailLink } from "./GeneralDetailLink";
 import { parseGeneral } from "@/utils/data";
 import { notNull } from "@/utils/array";
 
-type Props = {
-  detailLink: (id: string) => string;
-};
-
 // TODO: common
 const newExpansions: ExpansionName[] = ["不臣", "纵横捭阖", "SP", "海外专属"];
 const otherOfficialVersions: VersionId[] = [
@@ -28,7 +24,7 @@ const otherDiy: VersionId[] = [
   "fan-made",
 ];
 
-export function GeneralList({ detailLink }: Props) {
+export function GeneralList() {
   type FilterKeys =
     | "showsNewExpansions"
     | "showsHalfOfficial"
@@ -143,7 +139,6 @@ export function GeneralList({ detailLink }: Props) {
                       <GeneralDetailLink
                         key={general.officialId}
                         general={general}
-                        detailLink={detailLink}
                       />
                     ))}
                   </div>

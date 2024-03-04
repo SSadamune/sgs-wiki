@@ -40,14 +40,14 @@ export const generals: Record<string, General> = {
               "当你受到1点伤害后,你可以摸一张牌。然后你可以弃一张牌,并获得造成此伤害的牌。",
           },
         ],
-        hiredFaction: { 汉: "HAN404", 群: "self" },
+        hiredFaction: { 汉: "H_HAN404", 群: "self" },
       },
     ],
     relatedGenerals: ["典韦", "许褚", "卞夫人"],
     expansionPack: "标准",
   },
-  HAN404: {
-    id: "HAN404",
+  H_HAN404: {
+    id: "H_HAN404",
     name: "曹操",
     faction: "汉",
     health: 2,
@@ -62,10 +62,11 @@ export const generals: Record<string, General> = {
               "每回合限一次，当你造成伤害后，你可以摸一张牌，然后你可以弃置X张牌并获得此造成伤害的牌（X为受到过此牌伤害的角色数）。",
           },
         ],
+        hiredFaction: { 魏: "WEI001" },
       },
     ],
     relatedGenerals: ["袁绍"],
-    hiredFaction: { 魏: "WEI001" },
+
     expansionPack: "DIY客将",
   },
   WEI002: {
@@ -1303,15 +1304,15 @@ export const generals: Record<string, General> = {
           },
         ],
         relatedGenerals: ["刘备", "张飞"],
-        hiredFaction: { 汉: "HAN&WEI048", 魏: "HAN&WEI048" },
+        hiredFaction: { 汉: "H_HAN&WEI048", 魏: "H_HAN&WEI048" },
       },
     ],
     relatedGenerals: ["刘备"],
     expansionPack: "标准",
   },
 
-  "HAN&WEI048": {
-    id: "HAN&WEI048",
+  "H_HAN&WEI048": {
+    id: "H_HAN&WEI048",
     name: "关羽",
     faction: ["汉", "魏"],
     health: 2,
@@ -1331,10 +1332,10 @@ export const generals: Record<string, General> = {
               "锁定技，每回合前两次，当你使用伤害类牌指定唯一目标时，将其一张牌置于此武将牌上。每个回合结束时，若此武将牌上的牌不少于五张，你获得这些牌并移除此武将牌。",
           },
         ],
+        hiredFaction: { 蜀: "SHU002" },
       },
     ],
     relatedGenerals: ["刘备", "张辽", "徐晃"],
-    hiredFaction: { 蜀: "SHU002" },
     expansionPack: "DIY客将",
   },
 
@@ -1432,7 +1433,7 @@ export const generals: Record<string, General> = {
             label: ["副将技", "阵法技<队列>"],
           },
         ],
-        hiredFaction: { 魏: "WEI051", 晋: "AM010", 野心家: "AM010" },
+        hiredFaction: { 魏: "H_WEI051", 晋: "H_AM010", 野心家: "H_AM010" },
       },
     ],
     relatedGenerals: ["诸葛亮<丞相>", "夏侯霸", "钟会"],
@@ -1767,6 +1768,75 @@ export const generals: Record<string, General> = {
     ],
     relatedGenerals: ["陆抗"],
     expansionPack: "标准",
+  },
+
+  WU008: {
+    id: "WU008",
+    name: "孙尚香",
+    faction: "吴",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "结姻",
+            description:
+              "出牌阶段限一次，你可以弃置两张手牌并选择一名已受伤的其他男性角色，你与该角色各回复1点体力。",
+          },
+          {
+            name: "枭姬",
+            description:
+              "当你失去装备区里的牌后，你可以摸一张牌。若此时在你的回合外，你多摸两张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "枭姬",
+            description: "当你失去装备区里的牌后，你可以摸两张牌。",
+          },
+          {
+            name: "结姻",
+            description:
+              "出牌阶段限一次，你可以弃置两张手牌并选择一名已受伤的其他男性角色，你与该角色各回复1点体力。",
+          },
+        ],
+        hiredFaction: { 蜀: "H_SHU040" },
+        relatedGenerals: ["刘备"],
+      },
+    ],
+    expansionPack: "标准",
+  },
+
+  H_SHU040: {
+    id: "H_SHU040",
+    name: "孙尚香",
+    faction: "蜀",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "枭姬",
+            description: "当你失去装备区里的牌后，你可以摸两张牌。",
+          },
+          {
+            name: "良助",
+            description:
+              "每回合限一次，一名角色于其回合内回复体力后，你可以令其摸一张牌。",
+          },
+        ],
+        hiredFaction: { 吴: "WU008" },
+        relatedGenerals: ["刘备"],
+      },
+    ],
+    expansionPack: "DIY客将",
   },
 
   // TODO: others
@@ -3112,11 +3182,11 @@ export const generals: Record<string, General> = {
             label: "限定技",
           },
         ],
+        hiredFaction: { 魏: "self" },
       },
     ],
     expansionPack: "标准",
     relatedGenerals: ["张春华"],
-    hiredFaction: { 魏: "self" },
   },
   JIN010: {
     id: "JIN010",
