@@ -1975,6 +1975,47 @@ export const generals: Record<string, General> = {
 
   // TODO: others
 
+  WU015: {
+    id: "WU015",
+    name: "张昭&张纮",
+    faction: "吴",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "直谏",
+            description:
+              "出牌阶段，你可以将手牌中的一张装备牌置于一名其他角色的装备区里，然后摸一张牌。",
+          },
+          {
+            name: "固政",
+            description:
+              "其他角色的弃牌阶段结束时，你可以选择其弃置的其中一张手牌，将此牌交给其，然后你可获得其余于此阶段被弃置的牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "直谏",
+            description:
+              "出牌阶段，你可以将手牌中的一张装备牌置于一名其他角色的装备区里，然后摸一张牌。",
+          },
+          {
+            name: "固政",
+            description:
+              "每阶段限一次，其他角色的至少两张牌因弃置而置入弃牌堆后，你可以将其中一张牌交给其，然后若为该角色的弃牌阶段，此阶段结束时你可以获得其余于此阶段被置入弃牌堆的牌。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
+  },
+
   WU016: {
     id: "WU016",
     name: "丁奉",
@@ -2583,9 +2624,67 @@ export const generals: Record<string, General> = {
     relatedGenerals: ["吕布"],
     expansionPack: "标准",
   },
-
-  // TODO: others
-
+  QUN004: {
+    id: "QUN004",
+    name: "袁绍",
+    faction: "群",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "乱击",
+            description:
+              "出牌阶段，你可以将两张手牌当【万箭齐发】使用（不能使用本回合发动此技能时已使用过的花色），与你势力相同的角色打出【闪】响应此牌后可摸一张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "乱击",
+            description:
+              "出牌阶段，你可以将两张手牌当【万箭齐发】使用（不能使用本阶段发动此技能时已使用过的花色），与你势力相同的角色打出【闪】响应此牌后可以摸一张牌。",
+          },
+        ],
+        hiredFaction: { 汉: "H_HAN004" },
+      },
+    ],
+    relatedGenerals: ["颜良&文丑", "田丰"],
+    expansionPack: "标准",
+  },
+  H_HAN004: {
+    id: "H_HAN004",
+    name: "袁绍",
+    faction: "汉",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "士首",
+            description:
+              "你每回合使用的第一张【杀】可以额外指定任意名与你势力大小不同的角色为目标。",
+            keywords: ["势力大小不同"],
+          },
+          {
+            name: "合讨",
+            description:
+              "限定技，其他角色使用牌指定多个目标角色后，你可以弃置一张颜色相同的牌，令此牌对一名目标结算两次且取消其他目标。",
+            label: "限定技",
+          },
+        ],
+        hiredFaction: { 群: "QUN004" },
+      },
+    ],
+    relatedGenerals: ["曹操"],
+    expansionPack: "DIY客将",
+  },
   QUN005: {
     id: "QUN005",
     name: "颜良&文丑",
@@ -2820,6 +2919,47 @@ export const generals: Record<string, General> = {
       },
     ],
     expansionPack: "变",
+  },
+
+  QUN010: {
+    id: "QUN010",
+    name: "张角",
+    faction: "群",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "雷击",
+            description:
+              "当你使用或打出【闪】时，你可以令一名角色判定，若为♠，你对其造成2点雷电伤害。",
+          },
+          {
+            name: "鬼道",
+            description: "当判定牌生效前，你可以打出一张黑色牌替换之。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "雷击",
+            description:
+              "当你使用或打出【闪】时，你可以令一名角色判定，若为♠，你对其造成2点雷电伤害。",
+          },
+          {
+            name: "鬼道",
+            description:
+              "当判定牌生效前，你可以打出一张黑色牌替换之。你的判定牌生效后，若为黑色，你可以横置或重置一名角色。",
+            memo: "雷击的判定不会触发鬼道②，除非雷击选择的目标角色是你自己",
+          },
+        ],
+      },
+    ],
+    expansionPack: "标准",
   },
 
   // others
