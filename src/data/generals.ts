@@ -99,7 +99,7 @@ export const generals: Record<string, General> = {
           {
             name: "鬼才",
             description:
-              "当一名角色的判定牌生效前,你可以打出一张颜色不同的牌代替之,或打出一张颜色相同的牌替换之。",
+              "当一名角色的判定牌生效前,你可以打出一张颜色不同的牌代替之。",
           },
         ],
         hiredFaction: { 晋: "self" },
@@ -310,19 +310,47 @@ export const generals: Record<string, General> = {
         skills: [
           {
             name: "倾国",
-            description: "你可以将一张黑色手牌当【闪】使用或打出。",
+            description:
+              "你可以将一张黑色手牌当【闪】使用或打出。然后每回合限一次，若你的防具区里没有牌，你可以发动仅判定一次的“洛神”。",
           },
           {
             name: "洛神",
             description:
-              "准备阶段,你可以判定,若结果为黑色,你可以重复此流程,直到判定结果为红色,然后你获得所有黑色的判定牌,你的手牌上限+X（X为当前回合你以此法获得的牌数）。",
+              "准备阶段,你可以判定,若结果为黑色,你可以重复此流程,直到判定结果为红色,然后你获得所有黑色的判定牌。",
           },
         ],
-        hiredFaction: { 群: "self" },
+        hiredFaction: { 群: "QUN160" },
       },
     ],
     relatedGenerals: ["曹丕"],
     expansionPack: "标准",
+  },
+  QUN160: {
+    id: "QUN160",
+    name: "甄宓",
+    faction: "群",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "惊鸿",
+            description:
+              "你明置此武将牌后，体力值为全场最大的所有其他角色选择一项：1.交给你一张红色牌；2.弃置两张牌。你首次濒死时暗置此武将牌。",
+          },
+          {
+            name: "谦贤",
+            description:
+              "每回合限一次，你可以将牌的描述中合法目标仅包含你/仅包含其他角色的一张手牌当作【无懈可击】/【洞烛先机】使用。",
+          },
+        ],
+        hiredFaction: { 魏: "WEI007" },
+      },
+    ],
+    relatedGenerals: ["袁谭&袁尚&袁熙"],
+    expansionPack: "DIY客将",
   },
   WEI008: {
     id: "WEI008",
@@ -718,7 +746,7 @@ export const generals: Record<string, General> = {
           {
             name: "智愚",
             description:
-              "当你受到伤害后，你可以摸一张牌并展示所有手牌，若颜色均相同，来源弃置一张手牌，若此牌也为此颜色，你获得之。",
+              "当你受到伤害后，你可以摸一张牌并展示所有手牌，若颜色均相同，来源弃置一张手牌。",
           },
         ],
         relatedGenerals: ["荀彧", "伍琼&种辑"],
@@ -940,7 +968,7 @@ export const generals: Record<string, General> = {
     name: "曹真",
     faction: "魏",
     health: 2,
-    defaultVersion: "qSanguosha",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "qSanguosha",
@@ -960,6 +988,30 @@ export const generals: Record<string, General> = {
                 index: 2,
                 description:
                   "其他势力角色的回合开始时,若其存活,你可将至多三张“驭”置入弃牌堆▶你选择等量的项:1.你选择一种与以此法置入弃牌堆的“驭”相同的类别,其于此回合内不能使用此类别的牌；2.你选择其的一个处于明置状态的武将牌上的技能,此技能于此回合内无效；3.令其选择一名与你势力相同的其他角色,该角色回复1点体力。 ",
+                timing: "回合开始时",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "司敌",
+            description:
+              "与你势力相同的角色受到伤害后，若你没有司敌牌，其可以将一张牌置于你的武将牌上。其他角色的出牌阶段开始时，你可以移去司敌牌，令其此阶段不能使用此颜色的牌且一个你选择的非锁定技无效，若其此回合未造成过伤害，回合结束时，你视为对其使用【杀】。",
+            standardizedSkill: [
+              {
+                index: 1,
+                description:
+                  "当一名角色受到伤害后,若其与你势力相同且有牌且你没有“驭”,你可发动此技能▶其可将一张牌置于你的武将牌上(称为“驭”)。",
+                timing: "受到伤害后",
+              },
+              {
+                index: 2,
+                description:
+                  "其他角色的出牌阶段开始时，若其存活，你可将“驭”置入弃牌堆▶其于此阶段内不能使用与此“驭”颜色相同的牌，且你可以选择其的一个处于明置状态的武将牌上的非锁定技，此技能于此阶段内无效。(→)此回合结束时，若其此回合未造成过伤害，你对其使用无实体牌的【杀】。",
                 timing: "回合开始时",
               },
             ],
@@ -1176,7 +1228,7 @@ export const generals: Record<string, General> = {
     name: "华歆",
     faction: "魏",
     health: 1.5,
-    defaultVersion: "half-official",
+    defaultVersion: "dou-DIY",
     versions: [
       {
         versionId: "official",
@@ -1221,6 +1273,18 @@ export const generals: Record<string, General> = {
             memo: "如果不满足‘手牌小于体力值’,则无法执行补牌和封出牌的效果；但如果双方均已明置武将牌,仍然可以执行暗置武将牌的操作。",
           },
         ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "望归",
+            description:
+              // "每回合每项限一次，当你不以此法造成或受到伤害后，你可以明置此武将牌，对一名与你势力不同的角色造成1点伤害；或暗置此武将牌，令与你势力相同的角色各摸一张牌。",
+              "每回合限一次，当你造成伤害后或受到伤害后，你可以明置此武将牌，对一名与你势力不同的角色造成1点伤害；或暗置此武将牌，令与你势力相同的角色各摸一张牌。",
+          },
+        ],
+        hiredFaction: { 汉: "self", 吴: "self" },
       },
     ],
     expansionPack: "纵横捭阖",
@@ -1435,12 +1499,14 @@ export const generals: Record<string, General> = {
             label: ["副将技", "阵法技<队列>"],
           },
         ],
-        hiredFaction: { 魏: "H_WEI051", 晋: "H_AM010", 野心家: "H_AM010" },
+        hiredFaction: { 魏: "WEI051", 晋: "AM010", 野心家: "AM010" },
       },
     ],
     relatedGenerals: ["诸葛亮<丞相>", "夏侯霸", "钟会"],
     expansionPack: "标准",
   },
+
+  // TODO: 姜维
 
   SHU015: {
     id: "SHU015",
@@ -2411,11 +2477,11 @@ export const generals: Record<string, General> = {
           {
             name: "联翩",
             description:
-              "其他角色于其回合内使用牌连续指定同一名角色为目标（或之一）后，你可以弃置一张牌，令其摸一张牌。此回合结束时，若此回合你以此法弃置的牌数不小于你的体力值，其可以令你回复1点体力。",
+              "与你势力相同的角色的回合内限三次，其使用牌连续指定另一名角色为目标（或之一）后，你可以重铸一张手牌，然后你可以交给当前回合角色一张手牌。",
             standardizedSkill: {
               description:
-                "牌指定目标后，若牌的使用者不为你且当前为此牌的使用者的回合且你未因此牌发动过此技能且目标是此牌的使用者使用的上一张牌的目标，你可弃置一张牌▶你令其摸一张牌→此回合结束前，若此回合你发动此技能的次数不小于你的体力值，其可令你回复1点体力。",
-              timing: ["指定目标后", "回合结束前"],
+                "牌指定目标后，若牌的使用者不为你且当前为此牌的使用者的回合且你未因此牌发动过此技能且此目标角色是此牌的使用者使用的上一张牌的目标且你本回合发动此此技能的次数小于3，你可重铸一张牌▶你可交给其一张手牌。",
+              timing: ["指定目标后"],
             },
           },
         ],
@@ -2466,7 +2532,6 @@ export const generals: Record<string, General> = {
             label: "阵法技",
           },
         ],
-        relatedGenerals: ["孙策"],
       },
     ],
     expansionPack: "不臣",
@@ -2708,7 +2773,7 @@ export const generals: Record<string, General> = {
           {
             name: "双雄",
             description:
-              "摸牌阶段,你可以改为判定。当你的判定牌于回合内生效后,你获得之,本回合你可以将一张与此牌颜色不同的手牌当【决斗】使用。",
+              "摸牌阶段，你可以改为判定。当你的判定牌于回合内生效后，你获得之，本回合你可以将一张与此牌颜色不同的手牌当【决斗】使用。",
           },
         ],
       },
@@ -2716,7 +2781,6 @@ export const generals: Record<string, General> = {
     relatedGenerals: ["袁绍"],
     expansionPack: "标准",
   },
-
   QUN006: {
     id: "QUN006",
     name: "董卓",
@@ -2783,7 +2847,84 @@ export const generals: Record<string, General> = {
     expansionPack: "势",
   },
 
-  // others
+  QUN007: {
+    id: "QUN007",
+    name: "贾诩",
+    faction: "群",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "完杀",
+            description:
+              "锁定技，你的回合内，一名角色进入濒死状态时，除你和其以外的角色不能使用【桃】。",
+          },
+          {
+            name: "乱武",
+            description:
+              "限定技，出牌阶段，你可以令所有其他角色各选择一项：1.对其距离最小的另一名角色使用一张【杀】；2.失去1点体力。",
+          },
+          {
+            name: "帷幕",
+            description: "锁定技，当你成为黑色锦囊牌的目标时，取消之。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "完杀",
+            description:
+              "锁定技，你的回合内，一名角色进入濒死状态时，除你和其以外的角色不能使用【桃】。",
+          },
+          {
+            name: "乱武",
+            description:
+              "限定技，出牌阶段，你可以令所有其他角色各选择一项：1.对其距离最小的另一名角色使用一张【杀】；2.失去1点体力。",
+          },
+          {
+            name: "帷幕",
+            description: "锁定技，当你成为黑色锦囊牌的目标时，取消之。",
+          },
+        ],
+        hiredFaction: { 汉: "self", 魏: "WEI047" },
+      },
+    ],
+    relatedGenerals: ["李傕&郭汜", "张绣"],
+    expansionPack: "标准",
+  },
+  WEI047: {
+    id: "WEI047",
+    name: "贾诩",
+    faction: "魏",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "缜略",
+            description:
+              "当锦囊牌对你或对你使用的牌生效前，你可以将一张手牌当【无懈可击】使用。",
+          },
+          {
+            name: "间书",
+            description:
+              "出牌阶段限一次，你可以选择两名其他势力角色，你合纵一张黑色手牌给其中之一，然后另一名对前者发起军令：若执行，发起者弃置两张手牌；若不执行，被发起者失去1点体力。",
+          },
+        ],
+        hiredFaction: { 群: "QUN007" },
+      },
+    ],
+
+    relatedGenerals: ["曹丕", "张绣"],
+    expansionPack: "DIY客将",
+  },
 
   QUN009: {
     id: "QUN009",
