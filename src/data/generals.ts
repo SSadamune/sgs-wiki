@@ -3078,7 +3078,6 @@ export const generals: Record<string, General> = {
                 index: 3,
                 description:
                   "准备阶段,你可将至多两张“魂”置入武将牌堆▶你随机将武将牌堆里的等量张牌扣置于武将牌上(称为“魂”)。 ",
-
                 timing: "准备阶段",
               },
             ],
@@ -3096,10 +3095,26 @@ export const generals: Record<string, General> = {
           },
         ],
       },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "化身",
+            description:
+              "准备阶段，若你的“化身”不足两张，你可以从五张“化身”中获得至多两张，否则你可以重铸一张“化身”。你可以移去一张“化身”并发动此牌的一个无标签技能。",
+            memo: "“化身”池由所有未加入游戏的武将牌组成，若你获得的武将牌能产生牌类标记，或没有无标签技能，你须重铸之。",
+          },
+          {
+            name: "鬼道",
+            description: "当你受到伤害后，你可以获得一张“化身”。",
+          },
+        ],
+        relatedGenerals: [],
+      },
     ],
     expansionPack: "变",
+    relatedGenerals: ["于吉"],
   },
-
   QUN010: {
     id: "QUN010",
     name: "张角",
@@ -3127,18 +3142,48 @@ export const generals: Record<string, General> = {
           {
             name: "雷击",
             description:
-              "当你使用或打出【闪】时，你可以令一名角色判定，若为♠，你对其造成2点雷电伤害。",
+              "当你使用或打出【闪】时，你可以令一名角色判定，若结果为：♠，你对其造成2点雷电伤害；♣，你回复1点体力，然后对其造成1点雷电伤害。",
           },
           {
             name: "鬼道",
-            description:
-              "当判定牌生效前，你可以打出一张黑色牌替换之。你的判定牌生效后，若为黑色，你可以横置或重置一名角色。",
-            memo: "雷击的判定不会触发鬼道②，除非雷击选择的目标角色是你自己",
+            description: "当判定牌生效前，你可以打出一张黑色牌替换之。",
           },
         ],
       },
     ],
     expansionPack: "标准",
+  },
+  QUN011: {
+    id: "QUN011",
+    name: "于吉",
+    faction: "群",
+    health: 1.5,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "千幻",
+            description:
+              "当一名与你势力相同的角色受到伤害后，你可将与你武将牌上的牌花色均不同的一张牌置于你的武将牌上；当一名与你势力相同的角色成为基本牌或锦囊牌的唯一目标时，你可以移去一张“千幻”牌，取消之。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "千幻",
+            description:
+              "当一名与你势力相同的角色受到伤害后，你可以将与你武将牌上的牌花色均不同的一张牌置于你的武将牌上。当与你势力相同的角色成为非装备牌的目标时，你可以移去一张“千幻”牌，取消此目标（每张牌限一次）。",
+          },
+        ],
+        relatedGenerals: [],
+        hiredFaction: { 吴: "self" },
+      },
+    ],
+    expansionPack: "阵",
   },
 
   // others
@@ -3167,7 +3212,7 @@ export const generals: Record<string, General> = {
           {
             name: "双刃",
             description:
-              "出牌阶段开始时,你可与一名角色拼点,若你赢,你视为对一名与其势力相同的角色使用【杀】；若你没赢,此阶段你不能使用【杀】或伤害类锦囊。你的【杀】有<富甲→选择唯一目标后,可以令其相邻的一名角色也成为目标>。",
+              "出牌阶段开始时,你可与一名角色拼点,若你赢,你视为对一名与其势力相同的角色使用【杀】；若你没赢,此阶段你不能使用【杀】或伤害类锦囊。你的【杀】有<富甲→选择唯一目标后,可以令与其相邻的一名角色也成为目标>。",
             memo: "无对应实体牌的【杀】无距离限制。",
             keywords: ["拼点", "富甲"],
           },
@@ -3217,7 +3262,7 @@ export const generals: Record<string, General> = {
     name: "何太后",
     faction: "群",
     health: 1.5,
-    defaultVersion: "half-official",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
         versionId: "official",
@@ -3246,6 +3291,79 @@ export const generals: Record<string, General> = {
             name: "戚乱",
             description:
               "一名角色的回合结束时,你可以摸X张牌(X为本回合你杀死的角色数的两倍与本回合死亡的角色数之和)。",
+          },
+        ],
+      },
+      {
+        versionId: "qiaoJian-DIY",
+        faction: "汉",
+        skills: [
+          {
+            name: "鸩毒",
+            description:
+              "其他角色的出牌阶段开始时,你可以弃置一张手牌,令该角色视为使用一张【酒】,然后若该角色不为你,你对其造成1点伤害。",
+          },
+          {
+            name: "戚乱",
+            description:
+              "一名角色的回合结束时,你可以摸X张牌(X为本回合你杀死的角色数的两倍与本回合死亡的角色数之和)。",
+          },
+        ],
+        hiredFaction: { 群: "self" },
+      },
+    ],
+    expansionPack: "阵",
+  },
+
+  QUN024: {
+    id: "QUN024",
+    name: "张任",
+    faction: "群",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "穿心",
+            description:
+              "当你于出牌阶段使用【杀】或【决斗】对与你势力不同的目标造成伤害时，若其有副将，你可防止此伤害，令其选择一项：1.弃置装备区的所有牌并失去1点体力；2.移除副将。",
+          },
+          {
+            name: "锋矢",
+            description:
+              "阵法技，若你是围攻角色，此围攻关系中的围攻角色使用【杀】指定被围攻角色为目标后，被围攻角色弃置装备区的一张牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "伏匿",
+            description:
+              "结束阶段，你可以弃置一张非基本牌，然后暗置此武将牌。你明置此武将牌的回合内使用【杀】无距离限制且次数上限+1。",
+            memo: "“次数上限+1”，即你于此回合的每个出牌阶段的空闲时间点可以使用【杀】的次数上限+1。",
+          },
+          {
+            name: "穿心",
+            description:
+              "其他角色的结束阶段，你可以明置此武将牌并使用一张【杀】，此【杀】对目标角色造成的伤害+X（X为其本回合回复过的体力值）。",
+          },
+        ],
+      },
+      {
+        versionId: "qiaoJian-DIY",
+        skills: [
+          {
+            name: "穿心",
+            description:
+              "当你使用【杀】或【决斗】对目标角色造成伤害时，若你的翼从数小于2，你可以从三张翼从牌中选择一张，其选择一项：1.移除副将并获得此翼从；2.此伤害+1，你额外获得此翼从。",
+          },
+          {
+            name: "锋矢",
+            description: "阵法技，与你处于同一队列的其他角色视为拥有你的翼从。",
           },
         ],
       },
@@ -3307,6 +3425,47 @@ export const generals: Record<string, General> = {
   },
 
   // TODO: others
+
+  QUN050: {
+    id: "QUN050",
+    name: "严白虎",
+    faction: "群",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "雉盗",
+            description:
+              "锁定技，出牌阶段开始时，你选择一名其他角色，本回合你计算与其距离为1且不能使用牌指定你与其外的角色为目标，你于此阶段第一次对其造成伤害后，你获得其区域内的一张牌。",
+          },
+          {
+            name: "寄篱",
+            description:
+              "锁定技，当你成为红色基本牌或红色普通锦囊牌的唯一目标后，此牌结算两次。当你于一阶段内第二次受到伤害时，防止此伤害，然后移除此武将牌。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "雉盗",
+            description:
+              "锁定技，出牌阶段开始时，你选择一名其他角色，此阶段除你和其以外的角色移出游戏，此阶段你首次对其造成伤害后获得其一张牌。",
+          },
+          {
+            name: "寄篱",
+            description:
+              "锁定技，你死亡时，令一名与来源势力不同的其他角色获得“雉盗”“寄篱”和你的所有牌，然后其视为对来源使用【决斗】。",
+          },
+        ],
+      },
+    ],
+    expansionPack: "不臣",
+  },
 
   QUN058: {
     id: "QUN058",
