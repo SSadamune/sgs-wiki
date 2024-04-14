@@ -49,8 +49,8 @@ export const versions: {
     name: "太阳神三国杀DIY",
     shortName: "神杀",
   },
-  "zixing-DIY": {
-    id: "zixing-DIY",
+  "qiaoJian-DIY": {
+    id: "qiaoJian-DIY",
     name: "紫星DIY",
     shortName: "紫星",
   },

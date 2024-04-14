@@ -8,7 +8,7 @@ export type VersionId =
   | "official-oversea"
   | "official-old-version"
   | "qSanguosha"
-  | "zixing-DIY"
+  | "qiaoJian-DIY"
   | "xiliang-DIY"
   | "dou-DIY"
   | "fan-made";

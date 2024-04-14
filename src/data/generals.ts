@@ -173,7 +173,7 @@ export const generals: Record<string, General> = {
     name: "张辽",
     faction: "魏",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
         versionId: "official",
@@ -186,7 +186,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "突袭",
@@ -911,7 +911,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "精策",
@@ -1109,7 +1109,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         generalId: "WEI&JIN053",
         skills: [
           {
@@ -1301,7 +1301,7 @@ export const generals: Record<string, General> = {
     name: "刘备",
     faction: "蜀",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
         versionId: "official",
@@ -1314,7 +1314,7 @@ export const generals: Record<string, General> = {
         ],
       },
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         health: 2,
         skills: [
           {
@@ -2639,8 +2639,8 @@ export const generals: Record<string, General> = {
           {
             name: "利驭",
             description:
-              "主将技(-0.5)，你对其他角色造成伤害后,你可以令其展示一张牌,其选择一名与其势力不同的其他角色,然后你可以获得此牌并视为对其选择的角色使用【决斗】。你于一回合内以此法第二次造成伤害后,失去此技能。",
-            label: ["主将技"],
+              "主将技/客将技<汉/蜀>(-0.5)，你使用的【杀】结算完成后，可以令受到此牌伤害的一名目标角色展示一张牌并指定另一名其他角色，然后你可以获得此牌并视为对后者使用【决斗】。你于一回合内以此法第二次造成伤害后，失去此技能。",
+            label: ["主将技", "客将技"],
           },
         ],
       },
@@ -2915,7 +2915,7 @@ export const generals: Record<string, General> = {
           {
             name: "间书",
             description:
-              "出牌阶段限一次，你可以选择两名其他势力角色，你合纵一张黑色手牌给其中之一，然后另一名对前者发起军令：若执行，发起者弃置两张手牌；若不执行，被发起者失去1点体力。",
+              "出牌阶段限一次，你可以选择两名其他势力角色，你将一张手牌交给其中之一，令其对另一名发起军令：若执行，发起者弃置两张手牌；若不执行，被发起者失去1点体力。",
           },
         ],
         hiredFaction: { 群: "QUN007" },
@@ -2925,13 +2925,51 @@ export const generals: Record<string, General> = {
     relatedGenerals: ["曹丕", "张绣"],
     expansionPack: "DIY客将",
   },
-
+  QUN008: {
+    id: "QUN008",
+    name: "庞德",
+    faction: "群",
+    health: 2,
+    defaultVersion: "dou-DIY",
+    versions: [
+      {
+        versionId: "official",
+        skills: [
+          {
+            name: "马术",
+            description: "锁定技，你计算与其他角色的距离-1。",
+          },
+          {
+            name: "鞬出",
+            description:
+              "当你使用【杀】指定一个目标后，你可以弃置其一张牌。若此牌：为装备牌，该角色不能使用【闪】抵消此【杀】；不为装备牌，其获得此【杀】。",
+          },
+        ],
+      },
+      {
+        versionId: "dou-DIY",
+        skills: [
+          {
+            name: "马术",
+            description: "锁定技，你计算与其他角色的距离-1。",
+          },
+          {
+            name: "鞬出",
+            description:
+              "当你使用【杀】指定一个目标后，你可以弃置其一张牌。若此牌：为装备牌，该角色不能使用【闪】抵消此【杀】；不为装备牌，其获得此【杀】。",
+          },
+        ],
+        hiredFaction: { 魏: "self" },
+      },
+    ],
+    expansionPack: "标准",
+  },
   QUN009: {
     id: "QUN009",
     name: "左慈",
     faction: "群",
     health: 1.5,
-    defaultVersion: "half-official",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
         versionId: "official",
@@ -3334,10 +3372,10 @@ export const generals: Record<string, General> = {
     name: "司马炎",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "垂统",
@@ -3360,10 +3398,10 @@ export const generals: Record<string, General> = {
     name: "司马师",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "夷灭",
@@ -3386,10 +3424,10 @@ export const generals: Record<string, General> = {
     name: "司马昭",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "筹伐",
@@ -3412,10 +3450,10 @@ export const generals: Record<string, General> = {
     name: "贾充",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "通法",
@@ -3441,7 +3479,7 @@ export const generals: Record<string, General> = {
     defaultVersion: "dou-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "柔克",
@@ -3479,10 +3517,10 @@ export const generals: Record<string, General> = {
     name: "王元姬",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "宴戏",
@@ -3500,10 +3538,10 @@ export const generals: Record<string, General> = {
     name: "夏侯徽",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "宜室",
@@ -3526,10 +3564,10 @@ export const generals: Record<string, General> = {
     name: "司马懿",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "权变",
@@ -3554,10 +3592,10 @@ export const generals: Record<string, General> = {
     name: "张春华",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "慧识",
@@ -3580,10 +3618,10 @@ export const generals: Record<string, General> = {
     name: "张虎＆乐綝",
     faction: "晋",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "果毅",
@@ -3600,10 +3638,10 @@ export const generals: Record<string, General> = {
     name: "羊徽瑜",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "慈威",
@@ -3627,10 +3665,10 @@ export const generals: Record<string, General> = {
     name: "王濬",
     faction: "晋",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "克清",
@@ -3648,10 +3686,10 @@ export const generals: Record<string, General> = {
     name: "文鸯",
     faction: "晋",
     health: 2.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "膂力",
@@ -3674,10 +3712,10 @@ export const generals: Record<string, General> = {
     name: "石苞",
     faction: "晋",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "鸿勋",
@@ -3697,10 +3735,10 @@ export const generals: Record<string, General> = {
     faction: "晋",
     health: 1.5,
     healthSub: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "三陈",
@@ -3730,10 +3768,10 @@ export const generals: Record<string, General> = {
     name: "张华",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "复礼",
@@ -3756,10 +3794,10 @@ export const generals: Record<string, General> = {
     name: "马隆",
     faction: "晋",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "锋械",
@@ -3782,10 +3820,10 @@ export const generals: Record<string, General> = {
     name: "王浑",
     faction: "晋",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "献捷",
@@ -3807,10 +3845,10 @@ export const generals: Record<string, General> = {
     name: "胡烈&牵弘",
     faction: "晋",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "烈戎",
@@ -3833,10 +3871,10 @@ export const generals: Record<string, General> = {
     name: "荀勖",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "应政",
@@ -3861,10 +3899,10 @@ export const generals: Record<string, General> = {
     name: "陈骞",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "忽辱",
@@ -3887,10 +3925,10 @@ export const generals: Record<string, General> = {
     name: "卫瓘",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "檄令",
@@ -3912,10 +3950,10 @@ export const generals: Record<string, General> = {
     name: "贾南风",
     faction: "晋",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "伤败",
@@ -3943,10 +3981,10 @@ export const generals: Record<string, General> = {
     name: "刘协",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "天命",
@@ -3969,10 +4007,10 @@ export const generals: Record<string, General> = {
     name: "刘辩",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "诗怨",
@@ -3996,10 +4034,10 @@ export const generals: Record<string, General> = {
     name: "张让",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "滔乱",
@@ -4017,10 +4055,10 @@ export const generals: Record<string, General> = {
     name: "何进",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "谋诛",
@@ -4043,10 +4081,10 @@ export const generals: Record<string, General> = {
     name: "王允",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "连计",
@@ -4069,10 +4107,10 @@ export const generals: Record<string, General> = {
     name: "王荣",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "敏思",
@@ -4095,10 +4133,10 @@ export const generals: Record<string, General> = {
     name: "伏皇后",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "惴恐",
@@ -4121,10 +4159,10 @@ export const generals: Record<string, General> = {
     name: "伏完",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "谋溃",
@@ -4141,10 +4179,10 @@ export const generals: Record<string, General> = {
     name: "董承",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "承诏",
@@ -4162,10 +4200,10 @@ export const generals: Record<string, General> = {
     name: "唐姬",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "哀舞",
@@ -4188,10 +4226,10 @@ export const generals: Record<string, General> = {
     name: "蔡邕",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "铸典",
@@ -4214,10 +4252,10 @@ export const generals: Record<string, General> = {
     name: "皇甫嵩",
     faction: "汉",
     health: 2.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "奋钺",
@@ -4235,10 +4273,10 @@ export const generals: Record<string, General> = {
     name: "刘宠&骆俊",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "劲弩",
@@ -4261,10 +4299,10 @@ export const generals: Record<string, General> = {
     name: "刘繇",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "戡难",
@@ -4289,10 +4327,10 @@ export const generals: Record<string, General> = {
     name: "蹇硕",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "集兵",
@@ -4310,10 +4348,10 @@ export const generals: Record<string, General> = {
     name: "朱儁",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "摧破",
@@ -4339,10 +4377,10 @@ export const generals: Record<string, General> = {
     faction: "汉",
     health: 2,
     healthSub: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "用良",
@@ -4372,10 +4410,10 @@ export const generals: Record<string, General> = {
     name: "刘虞",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "绥抚",
@@ -4398,10 +4436,10 @@ export const generals: Record<string, General> = {
     name: "吉平",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "烈医",
@@ -4423,10 +4461,10 @@ export const generals: Record<string, General> = {
     name: "灵雎",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "竭缘",
@@ -4449,10 +4487,10 @@ export const generals: Record<string, General> = {
     name: "伍琼&种辑",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "除奸",
@@ -4475,10 +4513,10 @@ export const generals: Record<string, General> = {
     name: "刘宏",
     faction: "汉",
     health: 2,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "鬻爵",
@@ -4496,10 +4534,10 @@ export const generals: Record<string, General> = {
     name: "曹节",
     faction: "汉",
     health: 1.5,
-    defaultVersion: "zixing-DIY",
+    defaultVersion: "qiaoJian-DIY",
     versions: [
       {
-        versionId: "zixing-DIY",
+        versionId: "qiaoJian-DIY",
         skills: [
           {
             name: "悬壶",
