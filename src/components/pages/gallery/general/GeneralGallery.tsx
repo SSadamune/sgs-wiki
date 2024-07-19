@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./GeneralGallery.scss";
 import imagesData from "@/data/generalCardImages.json";
-import { Faction } from "@/data/types/Generals";
+import ReactModal from "react-modal";
 
 interface ImageInfo {
   faction: string[];
@@ -31,6 +31,7 @@ const parseImageName = (fileName: string): ImageInfo => {
 
 const GeneralGallery: React.FC = () => {
   const [images, setImages] = useState<ImageInfo[]>([]);
+  const [selectedImage, setSelectedImage] = useState<ImageInfo | null>(null);
 
   useEffect(() => {
     const parsedImages = imagesData.map((fileName: string) =>
@@ -41,7 +42,18 @@ const GeneralGallery: React.FC = () => {
 
   const displayImage = (image: ImageInfo) => {
     const factions = new Set(image.faction);
-    const banList = ["刘巴", "杨仪", "许靖", "孙鲁育", "孙鲁班"];
+    const banList = [
+      "陈群",
+      "陈琳",
+      "王朗",
+      "郝昭",
+      "留赞",
+      "刘巴",
+      "杨仪",
+      "许靖",
+      "孙鲁育",
+      "孙鲁班",
+    ];
 
     return (
       ["WEI", "SHU", "WU", "QUN"].some((item) => factions.has(item)) &&
@@ -74,19 +86,30 @@ const GeneralGallery: React.FC = () => {
     return a.id - b.id;
   };
 
+  const openModal = (image: ImageInfo) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div className="gallery">
       {images
         .filter(displayImage)
         .sort(compareImage)
         .map((image, index) => (
-          <div key={index} className="image-container">
+          <div
+            key={index}
+            className="image-container"
+            onClick={() => openModal(image)}
+          >
             <img
-              // src={`/images/general/${image.fileName}`}
               src={`https://ssadamune.github.io/sgs-wiki/images/general/${image.fileName}`}
               alt={`Image ${index + 1}`}
             />
-            <div className="image-info">
+            {/* <div className="image-info">
               <p>{`ID: ${image.id}`}</p>
               <p>{`Name: ${image.name}`}</p>
               <p>{`Faction: ${
@@ -95,9 +118,38 @@ const GeneralGallery: React.FC = () => {
                   : image.faction
               }`}</p>
               {image.isHired && <p>Hired</p>}
-            </div>
+            </div> */}
           </div>
         ))}
+
+      {selectedImage && (
+        <ReactModal
+          isOpen={!!selectedImage}
+          onRequestClose={closeModal}
+          contentLabel="Image Modal"
+          className="modal"
+          overlayClassName="overlay"
+        >
+          {/* <button onClick={closeModal} className="close-button">
+            &times;
+          </button> */}
+          <img
+            src={`https://ssadamune.github.io/sgs-wiki/images/general/${selectedImage.fileName}`}
+            alt={selectedImage.name}
+            className="modal-image"
+          />
+          {/* <div className="image-info-modal">
+            <p>{`ID: ${selectedImage.id}`}</p>
+            <p>{`Name: ${selectedImage.name}`}</p>
+            <p>{`Faction: ${
+              Array.isArray(selectedImage.faction)
+                ? selectedImage.faction.join(", ")
+                : selectedImage.faction
+            }`}</p>
+            {selectedImage.isHired && <p>Hired</p>}
+          </div> */}
+        </ReactModal>
+      )}
     </div>
   );
 };
