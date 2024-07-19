@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./GeneralGallery.scss";
 import imagesData from "@/data/generalCardImages.json";
 import ReactModal from "react-modal";
-
+import LazyLoad from "react-lazyload";
 interface ImageInfo {
   faction: string[];
   id: number;
@@ -105,10 +105,12 @@ const GeneralGallery: React.FC = () => {
             className="image-container"
             onClick={() => openModal(image)}
           >
-            <img
-              src={`https://ssadamune.github.io/sgs-wiki/images/general/${image.fileName}`}
-              alt={`Image ${index + 1}`}
-            />
+            <LazyLoad height={200} offset={100} once>
+              <img
+                src={`https://ssadamune.github.io/sgs-wiki/images/general/${image.fileName}`}
+                alt={`Image ${index + 1}`}
+              />
+            </LazyLoad>
             {/* <div className="image-info">
               <p>{`ID: ${image.id}`}</p>
               <p>{`Name: ${image.name}`}</p>
