@@ -56,7 +56,7 @@ export function GeneralList() {
     () =>
       Object.entries(generalsData)
         .filter(
-          ([key, general]) =>
+          ([_, general]) =>
             // general.defaultVersion !== "official" ||
             (filters.showsNewExpansions &&
               newExpansions.includes(general.expansionPack)) ||
@@ -67,7 +67,7 @@ export function GeneralList() {
             (filters.showsDouDiy && general.defaultVersion === "dou-DIY") ||
             (filters.showsOtherDiy && otherDiy.includes(general.defaultVersion))
         )
-        .map(([key, general]) => parseGeneral(general, general.defaultVersion))
+        .map(([_, general]) => parseGeneral(general, general.defaultVersion))
         .filter(notNull),
     [filters]
   );

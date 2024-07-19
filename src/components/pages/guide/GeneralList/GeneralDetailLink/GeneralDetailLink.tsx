@@ -3,7 +3,7 @@ import styles from "./GeneralDetailLink.module.scss";
 import Image from "next/image";
 import { useState } from "react";
 import { ParsedGeneral } from "@/utils/data";
-import { detailLink } from "@/utils/path";
+import { guideGeneralDetailLink } from "@/utils/path";
 
 type Props = {
   general: ParsedGeneral;
@@ -21,7 +21,10 @@ export function GeneralDetailLink({ general }: Props) {
   };
 
   return (
-    <a href={detailLink(general.officialId)} className={styles.generalLink}>
+    <a
+      href={guideGeneralDetailLink(general.officialId)}
+      className={styles.generalLink}
+    >
       <Image
         src={imageSource}
         alt={general.officialId}

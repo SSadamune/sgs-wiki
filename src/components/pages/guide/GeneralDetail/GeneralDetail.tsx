@@ -8,7 +8,7 @@ import classNames from "classnames";
 import { Skill } from "./Skill";
 import Image from "next/image";
 import { displayHealth, parseGeneral } from "@/utils/data";
-import { detailLink } from "@/utils/path";
+import { guideGeneralDetailLink } from "@/utils/path";
 
 type Props = {
   generalData: General;
@@ -104,7 +104,7 @@ export function GeneralDetail({ generalData }: Props) {
                       {value === "self" ? (
                         key
                       ) : (
-                        <a href={detailLink(value)}>{key}</a>
+                        <a href={guideGeneralDetailLink(value)}>{key}</a>
                       )}
                       {index < array.length - 1 ? "，" : ""}
                     </span>
