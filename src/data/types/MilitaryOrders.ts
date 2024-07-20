@@ -3,6 +3,7 @@ import { VersionId } from "./Version";
 export type MilitaryOrder = {
   id: number;
   description: string;
+  name?: string;
   reverseDescription?: string;
 };
 
