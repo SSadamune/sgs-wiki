@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./GeneralGallery.scss";
 import imagesData from "@/data/generalCardImages.json";
 import ReactModal from "react-modal";
 import LazyLoad from "react-lazyload";
+
 interface ImageInfo {
   faction: string[];
   id: number;
@@ -32,6 +33,7 @@ const parseImageName = (fileName: string): ImageInfo => {
 const GeneralGallery: React.FC = () => {
   const [images, setImages] = useState<ImageInfo[]>([]);
   const [selectedImage, setSelectedImage] = useState<ImageInfo | null>(null);
+  const [selectedFaction, setSelectedFaction] = useState<string | null>(null);
 
   useEffect(() => {
     const parsedImages = imagesData.map((fileName: string) =>
@@ -56,6 +58,7 @@ const GeneralGallery: React.FC = () => {
     ];
 
     return (
+      (!selectedFaction || factions.has(selectedFaction)) &&
       ["WEI", "SHU", "WU", "QUN"].some((item) => factions.has(item)) &&
       !image.isHired &&
       !banList.includes(image.name)
@@ -79,7 +82,7 @@ const GeneralGallery: React.FC = () => {
     const factionA = getFactionValue(a.faction);
     const factionB = getFactionValue(b.faction);
 
-    if (factionA !== factionB) {
+    if (!selectedFaction && factionA !== factionB) {
       return factionA - factionB;
     }
 
@@ -96,6 +99,20 @@ const GeneralGallery: React.FC = () => {
 
   return (
     <div className="gallery">
+      <div className="faction-tabs">
+        {["ALL", "WEI", "SHU", "WU", "QUN"].map((faction) => (
+          <button
+            key={faction}
+            className={selectedFaction === faction ? "active" : ""}
+            onClick={() =>
+              setSelectedFaction(faction === "ALL" ? null : faction)
+            }
+          >
+            {faction}
+          </button>
+        ))}
+      </div>
+
       {images
         .filter(displayImage)
         .sort(compareImage)
@@ -111,16 +128,6 @@ const GeneralGallery: React.FC = () => {
                 alt={`Image ${index + 1}`}
               />
             </LazyLoad>
-            {/* <div className="image-info">
-              <p>{`ID: ${image.id}`}</p>
-              <p>{`Name: ${image.name}`}</p>
-              <p>{`Faction: ${
-                Array.isArray(image.faction)
-                  ? image.faction.join(", ")
-                  : image.faction
-              }`}</p>
-              {image.isHired && <p>Hired</p>}
-            </div> */}
           </div>
         ))}
 
@@ -132,24 +139,11 @@ const GeneralGallery: React.FC = () => {
           className="modal"
           overlayClassName="overlay"
         >
-          {/* <button onClick={closeModal} className="close-button">
-            &times;
-          </button> */}
           <img
             src={`https://ssadamune.github.io/sgs-wiki/images/general/${selectedImage.fileName}`}
             alt={selectedImage.name}
             className="modal-image"
           />
-          {/* <div className="image-info-modal">
-            <p>{`ID: ${selectedImage.id}`}</p>
-            <p>{`Name: ${selectedImage.name}`}</p>
-            <p>{`Faction: ${
-              Array.isArray(selectedImage.faction)
-                ? selectedImage.faction.join(", ")
-                : selectedImage.faction
-            }`}</p>
-            {selectedImage.isHired && <p>Hired</p>}
-          </div> */}
         </ReactModal>
       )}
     </div>
