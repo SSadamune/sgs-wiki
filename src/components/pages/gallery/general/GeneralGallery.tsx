@@ -45,16 +45,16 @@ const GeneralGallery: React.FC = () => {
   const displayImage = (image: ImageInfo) => {
     const factions = new Set(image.faction);
     const banList = [
-      "陈群",
-      "陈琳",
-      "王朗",
-      "郝昭",
-      "留赞",
+      // "陈群",
+      // "陈琳",
+      // "王朗",
+      // "郝昭",
+      // "留赞",
       "刘巴",
-      "杨仪",
-      "许靖",
-      "孙鲁育",
-      "孙鲁班",
+      // "杨仪",
+      // "许靖",
+      // "孙鲁育",
+      // "孙鲁班",
     ];
 
     return (
