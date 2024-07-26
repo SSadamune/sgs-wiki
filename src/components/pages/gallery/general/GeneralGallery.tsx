@@ -13,12 +13,12 @@ interface ImageInfo {
 }
 
 const parseImageName = (fileName: string): ImageInfo => {
-  const regex = /^H?_?([A-Z&]+)(\d{3})\s(.+)\.png$/;
+  const regex = /^(H_)?([A-Z&]+)(\d{3})\s(.+)\.png$/;
   const match = fileName.match(regex);
   if (!match) throw new Error(`Invalid file name: ${fileName}`);
 
-  const [, faction, id, name] = match;
-  const isHired = fileName.startsWith("H_");
+  const [, hiredPrefix, faction, id, name] = match;
+  const isHired = !!hiredPrefix;
   const factionArray = faction.includes("&") ? faction.split("&") : [faction];
 
   return {
@@ -57,12 +57,14 @@ const GeneralGallery: React.FC = () => {
       // "孙鲁班",
     ];
 
-    return (
-      (!selectedFaction || factions.has(selectedFaction)) &&
-      ["WEI", "SHU", "WU", "QUN"].some((item) => factions.has(item)) &&
-      !image.isHired &&
-      !banList.includes(image.name)
-    );
+    return selectedFaction === "HIRED"
+      ? image.isHired
+      : (!selectedFaction || factions.has(selectedFaction)) &&
+          ["WEI", "SHU", "WU", "QUN", "HAN", "JIN"].some((item) =>
+            factions.has(item)
+          ) &&
+          !image.isHired &&
+          !banList.includes(image.name);
   };
 
   const compareImage = (a: ImageInfo, b: ImageInfo) => {
@@ -97,18 +99,58 @@ const GeneralGallery: React.FC = () => {
     setSelectedImage(null);
   };
 
+  type Faction = {
+    display: string;
+    key: string;
+  };
+
+  const factionList: Faction[] = [
+    {
+      display: "全部",
+      key: "ALL",
+    },
+    {
+      display: "魏",
+      key: "WEI",
+    },
+    {
+      display: "蜀",
+      key: "SHU",
+    },
+    {
+      display: "吴",
+      key: "WU",
+    },
+    {
+      display: "群",
+      key: "QUN",
+    },
+    {
+      display: "汉",
+      key: "HAN",
+    },
+    {
+      display: "晋",
+      key: "JIN",
+    },
+    {
+      display: "客将",
+      key: "HIRED",
+    },
+  ];
+
   return (
     <div className="gallery">
       <div className="faction-tabs">
-        {["ALL", "WEI", "SHU", "WU", "QUN"].map((faction) => (
+        {factionList.map((faction) => (
           <button
-            key={faction}
-            className={selectedFaction === faction ? "active" : ""}
+            key={faction.key}
+            className={selectedFaction === faction.key ? "active" : ""}
             onClick={() =>
-              setSelectedFaction(faction === "ALL" ? null : faction)
+              setSelectedFaction(faction.key === "ALL" ? null : faction.key)
             }
           >
-            {faction}
+            {faction.display}
           </button>
         ))}
       </div>
